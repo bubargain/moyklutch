@@ -1,0 +1,49 @@
+后台模板位置：
+/App/Tpl/default/admin
+
+
+前台页面部分
+/App/Tpl/default/Home/Index
+
+catesearch.html   搜索页
+footer.html       共用底部
+header.html       共用头部
+index.html        首页
+reg.html          注册页
+taglogin.html     登录页
+
+会员卡片展示模板
+/App/Tpl/default/Home/Cards
+
+网友评论页
+/App/Tpl/default/Home/Comment
+
+最新活动栏目模板
+/App/Tpl/default/Home/Huodong
+
+新手引导栏目页
+/App/Tpl/default/Home/Info
+
+秒杀栏目模板
+/App/Tpl/default/Home/Msha
+
+新闻栏目模板
+/App/Tpl/default/Home/News
+
+成功，错误提示页
+/App/Tpl/default/Home/Public
+
+
+优惠券栏目页面
+/App/Tpl/default/Home/Ticket
+
+用户管理页面
+/App/Tpl/default/Home/User
+
+商家展示页面
+/App/Tpl/default/Home/Shop
+
+控制层对应的代码
+/App/lib/action/Admin/
+
+
