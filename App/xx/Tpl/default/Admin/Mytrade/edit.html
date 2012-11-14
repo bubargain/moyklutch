@@ -1,0 +1,66 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑商家资料 [ <a href="__URL__">返回列表</a> ]<input type="button" name="add" value="授权用户" class="hMargin shadow submit" onclick="showuser('{$vo.id}');"></div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/" enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >英文名：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="用户名不能为空,且不能含有空格" name="name" value="{$vo.name}"></td>
+</tr>
+<tr>
+	<td class="tRight" >商家名称：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value="{$vo.title}"></td>
+</tr>
+<tr>
+	<td class="tRight" >联系人：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="contact" value="{$vo.contact}"></td>
+</tr>
+<tr>
+	<td class="tRight" >电话：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="phone" value="{$vo.phone}"></td>
+</tr>
+<tr>
+	<td class="tRight" >手机：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="mobile" value="{$vo.mobile}"></td>
+</tr>
+<tr>
+	<td class="tRight" >传真：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="fax" value="{$vo.fax}"></td>
+</tr>
+<tr>
+	<td class="tRight" >上传展示图片：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/><if condition= "$vo.logo eq ''"><else/><img src="__ROOT__{$vo.logo}" width="150" height="100"></if>
+(请上传尺寸为1063X709的图片)</td>
+</tr>
+<tr>
+	<td class="tRight" >邮箱：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="email" value="{$vo.email}"></td>
+</tr>
+<tr>
+	<td class="tRight" >关键字：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="keyword" value="{$vo.keyword}"></td>
+</tr>
+<tr>
+	<td class="tRight">状态：</td>
+	<td class="tLeft">
+    <eq name="vo.status" value="3" >内容待审核</eq>
+	<eq name="vo.status" value="1" >启用</eq>
+	<eq name="vo.status" value="0" >禁用</eq>
+</td>
+</tr>
+<tr>
+	<td class="tRight tTop">商家介绍：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="introduce" id="introduce" style="width:550px;height:220px">{$vo.introduce}</html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
+	<input type="submit" value="保 存"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

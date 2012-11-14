@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style type="text/css"><!--
+body { background:black;}
+li { list-style:none;}
+#gezi { width:600px;}
+#gezi li a.cc { margin:4px; display:block; float:left; width:150px; height:80px; background:#222; border:solid #666 1px;  text-align:center; line-height:80px; font-size:12px; color:#CCC; text-decoration:none;}
+#gezi li a.dd { margin:4px; display:block; float:left; width:150px; height:80px; background:#EEE; border:solid #CCC 1px; text-align:center; line-height:80px; font-size:12px; color:orange; font-weight:bold; text-decoration:none;}
+#gezi li a.cc:hover { background:#444; border:solid #888 1px;}
+--></style>
+<script language="javascript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+</head>
+
+<body>
+<div id="gezi"><ul>
+	<li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+    <li><a href="#" class="cc">未预定</a></li>
+</ul></div>
+<script type="text/javascript">
+$("#gezi a").toggle(function(){
+$(this).removeClass("cc");
+$(this).addClass("dd").text("已预定");
+},
+function(){
+$(this).removeClass("dd");
+$(this).addClass("cc").text("未预定");
+}
+);
+</script>
+
+</body>
+</html>

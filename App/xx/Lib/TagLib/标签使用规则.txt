@@ -1,0 +1,95 @@
+1，优惠券标签使用
+
+<leishi:ticket result="voo" order="id" trade_id="vo[trade_id]" limit="5">
+<li><a href="{$voo.id}">{$voo.title}</a></li>
+</leishi:ticket>
+
+
+<leishi:ticket  result="voo" order="id" cate_id="vo[cate_id]" limit="5">
+<li><a href="{$voo.id}">{$voo.title}</a></li>
+</leishi:ticket>
+
+<leishi:ticket  result="voo" order="id" tags="热门" limit="5">
+<li><a href="{$voo.id}">{$voo.title}</a></li>
+</leishi:ticket>
+
+
+order是按某个字段排序，result是返回数据的名称（默认为vo，非必须），trade_id是按商家id筛选优惠券（非必须），cate_id是按分类筛选优惠券（非必须），tags是按优惠券的标签字段筛选优惠券（非必须），limit是限制返回数据的记录数。
+由于trade_id和cate_id是动态赋值，所以值为上层标签传来的动态值。
+
+
+2，新闻公告标签的使用
+<leishi:news order="id" limit="6">
+	<li><a href="__GROUP__/News/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），tags是按新闻标签字段筛选新闻（非必须），limit是限制返回数据的记录数。
+
+
+3，商家标签使用
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），tags是按新闻标签字段筛选新闻（非必须），limit是限制返回数据的记录数。
+
+
+4，优惠券类别标签使用
+
+<leishi:cate order="id" result="voo" type="vo[id]" limit="6">
+{voo.title}
+</leishi:cate>
+
+<leishi:cate order="id" result="voo" pid="1" limit="6">
+{voo.title}
+</leishi:cate>
+
+order是按某个字段排序（非必须）,result是返回数据的名称（默认为vo，非必须）,type是所属上级分类（一般是上层标签动态赋值）不写则为所有一级分类，pid值为1时为所有二级分类（非必须可不写），limit是限制返回数据的记录数。
+
+
+
+5，商圈标签使用
+
+<leishi:area order="id" result="voo" type="vo[id]" limit="6">
+{voo.title}
+</leishi:area>
+
+<leishi:area order="id" result="voo" pid="1" limit="6">
+{voo.title}
+</leishi:area>
+
+order是按某个字段排序（非必须）,result是返回数据的名称（默认为vo，非必须）,type是所属上级分类（一般是上层标签动态赋值）不写则为所有一级分类，pid值为1时为所有二级分类（非必须可不写），limit是限制返回数据的记录数。
+
+
+
+6，地点标签使用
+<leishi:location order="id" result="voo" limit="6">
+{voo.title}
+</leishi:location>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），limit是限制返回数据的记录数。
+
+
+7，活动派发标签使用
+<leishi:huodong order="id" result="voo" type="1" limit="6">
+{voo.title}
+</leishi:huodong>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），type为1时筛选试用派发，为0时为精彩活动（默认为0）,limit是限制返回数据的记录数。
+
+
+
+8，合作伙伴及友情链接标签使用
+<leishi:partner order="id" result="voo" type="1" limit="6">
+{voo.title}
+</leishi:partner>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），type为1时筛选合作伙伴，为0时为友情链接（默认为0）,limit是限制返回数据的记录数。
+
+9，个性卡标签使用
+
+<leishi:cards order="id" result="voo" limit="6">
+{voo.title}
+</leishi:cards>
+
+order是按某个字段排序（非必须），result是返回数据的名称（默认为vo，非必须），limit是限制返回数据的记录数。

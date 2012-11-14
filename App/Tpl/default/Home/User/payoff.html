@@ -1,0 +1,59 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<script>
+function Juge(myform)
+{
+    if(myform.money.value == "")
+	{
+		alert("请输入充值金额!");
+		myform.money.focus();
+		return (false);
+	}else{
+	    var zip_code=/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+	     flag=zip_code.test(myform.money.value);
+		 if(!flag){
+		   alert('你输入的金额不对'); return false;
+		}
+	}
+}
+</script>
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">用户充值</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:first-child a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<form id="form1"  action="https://www.alipay.com/cooperate/gateway.do?_input_charset=utf-8"  method="post" onSubmit="return Juge(this)">
+<table class="infotable" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr><td>请确认充值金额</td><td><input name="money" size="16" type="type"   VALUE="{$total_fee}"/>元</td></tr>
+<tr><td align="center" colspan="2">
+        <input type="hidden" name="body" value="{$body}" />
+	<input type="hidden" name="notify_url" value="{$notify_url}" />
+	<input type="hidden" name="out_trade_no" value="{$out_trade_no}" />
+	<input type="hidden" name="partner" value="{$partner}" />
+	<input type="hidden" name="payment_type" value="1" />
+	<input type="hidden" name="return_url" value="{$return_url}" />
+	<input type="hidden" name="seller_id" value="{$seller_id}" />
+	<input type="hidden" name="service" value="{$service}" />
+	<input type="hidden" name="show_url" value="{$show_url}" />
+	<input type="hidden" name="subject" value="{$subject}" />
+	<input type="hidden" name="sign_type" value="MD5" />
+	<input type="hidden" name="sign" value="{$sign}" />
+<input type="submit" value="前往支付宝充值" /></td></tr>
+
+</table></form></div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+    </div>
+</div>
+<include file="Index:footer" />

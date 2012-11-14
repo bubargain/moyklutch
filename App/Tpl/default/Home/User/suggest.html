@@ -1,0 +1,43 @@
+<include file="Index:header" />
+<script src="/js/jquery.tools.min.js"></script>
+<tagLib name="cx,leishi" />
+<script> 
+function Juge(myform)
+{
+    if(myform.content.value == "")
+	{
+		alert("内容不能为空!");
+		myform.content.focus();
+		return (false);
+	}
+}
+</script>
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">投诉和建议</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:nth-child(4) a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<form id="form1" action="__APP__/Home/User/addsuggest" method="post" onSubmit="return Juge(this)"> 
+<table class="infotable" border="0" cellspacing="0" cellpadding="0" align="center">
+
+<tr><td><textarea name="content" cols="50" rows="8"></textarea></td></tr>
+<tr><td align="center"><input type="submit" value="提&nbsp;交" /></td></tr>
+
+</table></form></div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+
+    </div>
+</div>
+<include file="Index:footer" />

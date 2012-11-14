@@ -1,0 +1,1 @@
+1. machine will not send back what kind of and how many coupon customer print

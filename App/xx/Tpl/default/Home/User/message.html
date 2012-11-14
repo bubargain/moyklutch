@@ -1,0 +1,49 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<script> 
+function Juge(myform)
+{
+    if(myform.account.value == "")
+	{
+		alert("用户不能为空!");
+		myform.account.focus();
+		return (false);
+	}
+	if(myform.email.value == "")
+	{
+		alert("邮箱不能为空!");
+		myform.email.focus();
+		return (false);
+	}
+}
+</script>
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">短消息管理</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:nth-child(6) a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body"> 
+<table class="infotable" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr><td>发送人</td><td>发送时间</td><td>内容</td><td>删除</td></tr>
+<volist name="list" id="vo">
+<tr><td>{$vo.msgfrom}</td><td>{$vo.dateline|date="Y-m-d H:i:s",###}</td><td><a href="__URL__/readmsg/msgid/{$vo.pmid}">{$vo.subject}</a></td><td><a href="__URL__/delmsg/msgid/{$vo.pmid}">删除</a></td></tr>
+</volist>
+</table>
+共{$count}条未读消息
+
+</div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+    </div>
+</div>
+<include file="Index:footer" />

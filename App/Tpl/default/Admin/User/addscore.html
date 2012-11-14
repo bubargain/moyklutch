@@ -1,0 +1,31 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">用户加分</div>
+<div style="float:left;">
+<form method=post id="order-pay-form"  action="__URL__/addscore" sid="charge">
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >{$vo.account}-当前积分：</td>
+	<td class="tLeft" >{$vo.score}</td><input type="hidden" name="id" value="{$vo.id}" /><input type="hidden" name="score" value="{$vo.score}" />
+</tr>
+<tr>
+	<td class="tRight" >请输入充值金额：</td>
+	<td class="tLeft" ><input name="addscore" type="text" VALUE="1" />元(兑换规则一元兑换{$rate}个积分)</td>
+</tr>
+<tr>
+	<td class="tRight" >备注：</td>
+	<td class="tLeft" ><textarea name="remark" id="remark"></textarea></td>
+</tr>
+<tr>
+	<td ></td>
+	<td class="center"><div style="width:85%">
+	<input type="submit" value="确定" class=" shadow submit">
+	</div></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>

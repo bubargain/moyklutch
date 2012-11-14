@@ -1,0 +1,27 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<div class="w10 ah">
+	<div class="fl w76">
+	  <div class="cr"></div>
+<div class="box1">
+	<p class="title cc1">{$title}<span></span></p>
+    <div class="box1-body">
+<foreach name= "list" item= "vo">
+	<div style="width:120px;float:left;padding-top:15px;"><a href="{$vo.address}" ><img src="__ROOT__{$vo.picpath}" width="110" height="63"/><p>{$vo.title}</p></a></div>
+</foreach>
+    </div>
+    <p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+    </div>
+    <div class="fr w23">
+<include file="Index:taglogin" />
+<div class="cr"></div>
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+<div class="box2">
+	<p class="title">标题对应</p>
+    <div class="box2-body">123</div>
+</div>
+    </div>
+</div>
+<include file="Index:footer" />

@@ -1,0 +1,24 @@
+<php>if (!$_SESSION["auth"]){</php>
+
+<div class="box1">
+    <div class="box1-body"><form action="__GROUP__/Index/checkLogin" method="post" id="loginform">
+<ul>
+	<li>用户名：<input name="account" type="text" style="width:120px;"/></li>
+    <li>密&nbsp;&nbsp;&nbsp;码：<input name="password" type="password" style="width:120px;" /></li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" src="__PUBLIC__/home_image/btn1.gif" />&nbsp;&nbsp;&nbsp;<a href="__GROUP__/Index/reg">注册会员？</a></li>
+</ul></form>
+    </div>
+    <p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+<php>}else{</php>
+<div class="box1" style="padding:10px;">
+<div>&nbsp;&nbsp;{$Think.session.uc_ava}<a href="__GROUP__/User/avatar">修改头像</a></div>
+<div>
+	<p class="loginin1" style="padding-bottom:3px;">{$Think.session.auth|get_user}</p>
+	<p class="loginin2" style="padding-bottom:3px;">积分：<span class="red">{$Think.session.authid|getMyinfo='score'}</span>分</span></p>
+	<p class="loginin4" style="padding-bottom:3px;">新消息：<a href="__GROUP__/User/message"><span class="red">{$Think.session.authid|getMyinfo='msgnum'}</span></a>条</p>
+	<p class="loginin5" style="padding-bottom:3px;"><a href="__GROUP__/User">[我的券({$Think.session.auth|get_collect})]</a><a href="__GROUP__/User/info">[会员中心]</a><a href="__GROUP__/Index/logout">[退出]</a></p>
+</div>
+<!--<div class="loginin6"><img src="__PUBLIC__/home_image/sud.gif" />{$Think.session.announce.data}</div>-->
+</div>
+<php>}</php>

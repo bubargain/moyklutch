@@ -1,0 +1,57 @@
+Copyright (c) 2005 - 2008 QeeYuan China Inc. (http://www.qeeyuan.com)
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+    * Neither the name of the "FleaPHP" nor the names of its contributors may
+be used to endorse or promote products derived from this software without
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+中文解释：
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+http://zh.wikipedia.org/wiki/BSD%E8%AE%B8%E5%8F%AF%E8%AF%81
+http://www.openfoundry.org/article.pl?sid=04/11/26/0658229
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+部分摘录：
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+三、權利義務
+
+（一） 被授權人權利
+允許任何商業上或私有使用。
+
+（二） 被授權人義務
+
+   1. 在原始碼的重制物中一定要保有本授權條款的著作權標示內容。
+   2. 以二進位制格式呈現的重制物必須再現本授權條款的著作權聲明和內容。
+   3. 在沒有事前書面同意的情況下，「FleaPHP」及「QeeYuan」均不得被用於支持或宣傳從既有軟體衍生出的產品（不為產品背書）。ORGANIZATION視使用BSD的使用者名稱而定。
+
+四、其他重要特性
+
+   1. 可與其他授權條款并存。
+   2. 是一個近乎公共領域的授權條款，一般個人或組織可以為了使授權條款內容符合自身
+需求而更改”University of California”此一標示。
+   3. 使用BSD的軟體程式碼可以被任意使用，代表的是在開放源碼和封閉源碼軟體上均可
+利用采用此類授權條款的程式碼。
+   4. 簡單的免責條款。
+   5. 三條款BSD是由自由軟體基金會（FSF）所認可的自由軟體授權條款，也被開放源碼組
+織（OSI）認可為開放源碼授權條款。并與GPL相容。

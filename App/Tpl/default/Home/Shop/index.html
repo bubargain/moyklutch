@@ -1,0 +1,122 @@
+<include file="Index:header" />
+ <script type="text/javascript">  
+		   function show(s){
+			  var meu = document.getElementById("menu");
+			  var con = document.getElementById("content");
+			  var meuLi = meu.getElementsByTagName("a");
+			  var conLi = con.getElementsByTagName("div");
+			  for(var i = 0; i<= conLi.length;i++){
+				  if(s == meuLi[i] ){
+					 // meuLi[i].setAttribute("class","tabFocus");
+					  conLi[i].style.display = "block";
+                     // alert(i);
+					  }else{
+						 //meuLi[i].setAttribute("class","tabFocus1");
+						 conLi[i].style.display = "none";
+						  }
+				  }
+			   }
+$("div#nav ul li:nth-child(6)").addClass("cc");
+</script>
+
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+<div class="fl w71">
+<!--QUYU START-->
+<div id="quanzi">
+ <ul >
+     <li id="menu">区域:&nbsp;&nbsp;&nbsp;
+         <leishi:area name="area" order="id" type="0">
+        <a name="showmenu" id="showmenu{$i}" <eq name="search.cur" value="$i"> class="cks"</eq> onmousemove="show(this);">{$vo.title}&nbsp;&nbsp;&nbsp;</a>
+        </leishi:area>
+    </li>
+</ul>
+ 
+<ul>
+<li id="content"><leishi:area  key="j" order="id" type="0">
+    <div id="showarea{$j}" name="showarea" <eq name="search.cur" value="$j">style="display:block"<else/>style="display:none"</eq>><span>{$vo.title}所有地区：</span>
+<leishi:area result="voo" order="id" type="$vo[id]">
+    <a <eq name="search.area" value="$voo['id']">style="color:red;"</eq> href="__APP__/Shop/index/cur/{$j}/area/{$voo.id}">{$voo.title}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</leishi:area></div>
+</leishi:area>
+</li>
+ </ul>
+</div>
+<!--QUYU ENDING-->
+<div class="box5-title"><span>{$_GET.searchtag}</span>您搜索的商户共{$count}条：</div>
+<div class="box1">
+<ul class="list9">
+<foreach name= "list" item= "vo">
+	<li>
+<a a href="__GROUP__/Shop/show/id/{$vo.id}" class="cover-9"><img src="__ROOT__/img/shop/{$vo.id}.jpg" width="130" height="90"/></a>
+<div class="fr">
+<div class="fl">
+<p>优惠券<span>{$vo.id|get_ticketbytrade}</span>张 评论<span>{$vo.id|get_comment='trade'}</span>条</p>
+<p><a href="__GROUP__/User/trade_col/id/{$vo.id}" class="add">收藏商户</a></p>
+</div>
+<div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}" class="big1">{$vo.title}</a></p>
+<p>评分：<img src="__PUBLIC__/home_image/star{$vo.id|get_star='trade'}.gif" /></p>
+<p>电话：{$vo.phone}</p>
+<p>属性：<a href="#">{$vo.keyword}</a></p>
+</div>
+</div>
+	</li>
+</foreach>
+</ul>
+<div id="fpage">{$page}</div>
+</div>
+</div>
+<div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+	<ul class="box2-title tabs2">
+<li><a href="#">热门商家</a></li>
+<li><a href="#">最新商家</a></li>
+    </ul>
+    <div class="box2 panes2"><ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1" tags="头条">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6" tags="热门">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>
+<ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>    </div>
+<script>
+$(function() {
+	$("ul.tabs2").tabs("div.panes2 > ul",{  event: 'click'});
+});
+</script>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/q4.jpg" /></div>
+</div>
+</div>
+
+</div>
+<include file="Index:footer" />

@@ -1,0 +1,68 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(2)").addClass("cc");
+</script>
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+<div class="fl w71">
+<div id="space">当前位置：<a href="#">首页</a>&gt;优惠券详情&gt;{$vo.title}</div>
+	<div class="box">
+<div id="qy">
+	<div class="fl">
+<p><span>名称：</span>{$vo.title}</p>
+<p><span>编号：</span>{$vo.id}</p>
+<p><span>商家：</span><a href="__GROUP__/Shop/show/id/{$vo.trade_id}">{$vo.trade_id|get_trade}</a></p>
+<p><span>有效期至：</span>{$vo.close_time|toDate}</p>
+<p><span>类别：</span>{$vo.cate_id|get_cate}</p>
+<p id="qyt"><a href="__GROUP__/User/ticket_col/id/{$vo.id}">加入收藏</a>|<a href="#" onClick='copyToClipBoard()'>好友分享</a>|<a href="__GROUP__/Shop/show/id/{$vo.trade_id}">网友评分</a></p>
+    </div>
+    <div class="fr"><img src="__ROOT__/img/image/{$vo.id}.jpg" width="450" height="225" id="cov" /></div>
+</div>
+<div class="cr"></div>
+<div class="box1-title">优惠券说明：</div>
+<div class="box1 pda">{$vo.content}</div>
+<div class="cr"></div>
+<p id="fpage"><a href="__GROUP__/Ticket/show/act/up/trade/{$vo.trade_id}/id/{$vo.id}">上一张</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="__GROUP__/Ticket/show/act/down/trade/{$vo.trade_id}/id/{$vo.id}">下一张</a>&nbsp;&nbsp;|&nbsp;&nbsp;共有优惠券{$vo.trade_id|get_ticketbytrade}张</p>
+<div class="cr"></div>
+<div class="box5-title">其他优惠券：</div>
+<div class="box1 pda">
+<ul class="list7">
+<leishi:ticket result="voo" order="id" trade_id="vo[trade_id]" limit="10">
+	<li><a href="{$voo.id}">{$voo.title|t_substr=0,14}</a></li>
+</leishi:ticket>
+</ul>
+</div>
+<div class="cr"></div>
+<div class="box5-title">您可能感兴趣的优惠券</div>
+<div class="box1">
+<ul class="list1">
+<leishi:ticket result="vooo" limit="2">
+<li>
+<div class="fl"><label>{$vo.id}</label><a href="__APP__/Ticket/show/id/{$vo.id}"><img src="__ROOT__/img/imagethum/{$vo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name">{$vo.trade_id|get_trade}</p>
+<p class="q-inf">{$vo.title|t_substr=0,10}</p>
+<p class="q-pr"><a href="__GROUP__/User/ticket_col/id/{$vo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a></p>
+</div>
+</li>
+</leishi:ticket>
+</ul>
+</div>
+    </div>
+</div>
+<div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+<div class="box6-title">最新活动</div>
+<ul class="list2">
+<leishi:huodong order="id" type="1" limit="3">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+</div>
+</div>
+<include file="Index:footer" />

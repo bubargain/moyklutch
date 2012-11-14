@@ -1,0 +1,56 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<div class="w10 ah">
+	<div class="fl w76">
+	  <div class="cr"></div>
+<div class="box1">
+	<p class="title cc1">{$title}<span>网友评论</span></p>
+    <div class="box1-body">
+<ul class="list6">
+<foreach name= "list" item= "vo">
+<li>
+	<p><span>{$vo.create_time|toDate}</span>{$vo.user_id|get_user}:{$vo.content}</p>
+</li>
+</foreach>
+</ul>
+<div id="fpage">共{$count}条记录 |{$page}</div>
+<div>
+<form method="post" action="__GROUP__/Comment/insert" name="form1" onsubmit=" return checkvalue(this)">
+<p>
+  <label>
+    <input type="radio" name="star" value="1" id="star_0" />
+    <img src="__PUBLIC__/home_image/star1.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="2" id="star_1" />
+    <img src="__PUBLIC__/home_image/star2.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="3" checked="checked" id="star_2" />
+    <img src="__PUBLIC__/home_image/star3.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="4" id="star_3" />
+    <img src="__PUBLIC__/home_image/star4.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="5" id="star_4" />
+    <img src="__PUBLIC__/home_image/star5.gif" /></label>
+</p>
+<input type="hidden" name="pid" value="{$ticket_id}">
+<input type="hidden" name="module" value="ticket" />
+<textarea id="content" name="content" cols="90"></textarea>
+<input type="submit" value="提交评论" />
+</form></div>
+    </div>
+    <p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+    </div>
+    <div class="fr w23">
+<include file="Index:taglogin" />
+<div class="cr"></div>
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+<div class="box2">
+	<p class="title">标题对应</p>
+    <div class="box2-body">123</div>
+</div>
+    </div>
+</div>
+<include file="Index:footer" />

@@ -1,0 +1,29 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(5)").addClass("cc");
+</script>
+
+<tagLib name="cx,leishi" />
+<div class="w96">
+
+	<div class="fl w71">
+<div class="box1-title">{$title}</div>
+<div class="box1">
+<ul class="list9d">
+<foreach name= "list" item= "vo" where="'cid=40'">
+<li>
+	<p><span class="fr">{$vo.update_time|toDate}</span><a href="__APP__/News/show/id/{$vo.id}">{$vo.title}</a></p>
+</li>
+</foreach>
+</ul>
+<div id="fpage">共{$count}条记录 |{$page}</div>
+</div>    
+    </div>
+    <div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+    </div>
+</div>
+<include file="Index:footer" />

@@ -1,0 +1,52 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑 兑换或秒杀 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/" enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >标题：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value="{$vo.title}"></td>
+</tr>
+<tr>
+	<td class="tRight" >价值：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="price" value="{$vo.price}"></td>
+</tr>
+<tr>
+	<td class="tRight" >积分：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value="{$vo.score}"></td>
+</tr>
+<tr>
+	<td class="tRight" >人数限制：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="limit_count" value="{$vo.limit_count}">(请根据需要填写,秒杀请设为1)</td>
+</tr>
+<tr>
+	<td class="tRight" >开始时间：</td>
+	<td class="tLeft" ><input type="text" name="begin_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.begin_time|toDate}"></td>
+</tr>
+<tr>
+	<td class="tRight" >类型：</td>
+	<td class="tLeft" ><select name="ktype">
+  <option <eq name= "vo.ktype" value= "1" > selected="selected" </eq> value="1">兑换</option>
+  <option <eq name= "vo.ktype" value= "2" > selected="selected" </eq> value="2">秒杀</option>
+</select></td>
+</tr>
+<tr>
+	<td class="tRight" >上传展示图片：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/><if condition= "$vo.pic eq ''"><else/><img src="__ROOT__{$vo.pic}" width="200" height="100"></if></td>
+</tr>
+<tr>
+	<td class="tRight tTop">活动简介：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px">{$vo.content}</html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center"><input type="hidden" name="id" value="{$vo.id}" />
+	<input type="submit" value="修 改"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

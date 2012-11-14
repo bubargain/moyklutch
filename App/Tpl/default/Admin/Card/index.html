@@ -1,0 +1,89 @@
+{// 引入标签库 }
+<tagLib name="html" />
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+<!-- 主体内容  -->
+<div class="content" >
+<div class="title">会员卡列表</div>
+<!--  功能操作区域  -->
+<div class="operate">
+<div style="float:left;"><input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();"><input type="button" name="add" value="批量导入" class="small hMargin shadow submit" onclick="imports();"></div><form method='post' action="__URL__"><input type="submit" name="submit" value="删除过期卡号" class="hMargin shadow submit">
+</div>
+<!-- 查询区域 -->
+<div id="fRig">
+<!-- 高级查询区域 -->
+<div id="searchM">
+<table width="1097" cellpadding="1" cellspacing="0">
+  <input type="hidden" name="flag" value="1" />
+<tr><td width="102">ID：
+  <input type="text" name="id" title="ID" size="5" value="{$id}"></td>
+<td width="188">会员卡内码：
+  <input type="text" name="card_id" title="ID" size="10" value="{$card_id}"></td>
+<td width="181">是否绑定用户：
+  <select name="userif">
+  <option value="">不限</option>
+  <option <eq name="userif" value="2" >selected</eq> value="2">已绑定</option>
+  <option <eq name="userif" value="1" >selected</eq> value="1">未绑定</option>
+
+</select></td>
+
+<td width="334">创建时间：
+  <input type="text" name="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}"></td><td width="117"><input type="submit" value="查询" class="small hMargin shadow submit"></td></tr>
+</table>
+</div>
+</div></form>
+<!-- 功能操作区域结束 -->
+
+<!-- 列表显示区域  -->
+<div class="list">
+<table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
+<tr><td height="5" colspan="8" class="topTd"></td></tr>
+<tr class="row" align="center">
+<th width="86"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th>
+<th width="161"><a href="javascript:sortBy('card_id','{$sort}','index')">会员卡内码</a></th>
+<th width="193">绑定用户</th>
+<th width="133"><a href="javascript:sortBy('type_id','{$sort}','index')">卡类型</a></th>
+<th width="216"><a href="javascript:sortBy('create_time','{$sort}','index')">创建时间</a></th>
+<th width="180"><a href="javascript:sortBy('create_time','{$sort}','index')">最后使用时间</a></th>
+<th width="75"><a href="javascript:sortBy('status','{$sort}','index')">状态</a></th>
+<th width="163">操作</th>
+</tr>
+<foreach name= "list" item= "vo">
+<tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
+<td>{$vo.id}</td>
+<td>{$vo.card_id}</td>
+<td>{$vo.card_id|getuserbycard}</td>
+<td><eq name="vo.type_id" value="0" >本机卡</eq>
+<eq name="vo.type_id" value="1" >外部卡</eq></td>
+<td>{$vo.create_time|date="Y-m-d",###}</td>
+<td><lt name="vo.use_time" value="10">--<else/>{$vo.use_time|date="Y-m-d",###}</lt></td>
+<td>
+<switch name="vo.status">
+    <case value="-1">禁用</case>
+    <case value="0">未激活</case>
+    <case value="1">未使用</case>
+    <case value="2">使用中</case>
+</switch>
+</td>
+<td><a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;
+<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用&nbsp;</a></eq>
+<eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
+&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a>
+</td>
+</tr>
+</foreach>
+<tr><td height="5" colspan="8" class="bottomTd"></td></tr>
+</table></div>
+<!--  分页显示区域 -->
+<div class="page">{$page}</div>
+<!-- 列表显示区域结束 -->
+</div>
+<!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+

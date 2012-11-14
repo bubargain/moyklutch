@@ -1,0 +1,10 @@
+<div id="qsearch">
+<leishi:cate order="id" pid="0" limit="6">
+<div id="catemenu{$i}" <eq name="i" value="1">class="qs1"</eq> <neq name="i" value="1">class="qs12"</neq>><img src="__PUBLIC__/home_image/cate{$i}.gif"><a onclick="showcate({$i});">{$vo.title}</a></div>
+    <div id="catelist{$i}" class="qs2" <neq name="i" value="1">style="display:none;"</neq>>
+    <leishi:cate key="j" result="voo" order="id" type="vo[id]" limit="20">
+    <a href="__GROUP__/Ticket/index/cate_id/{$voo.id}/searchtag/{$voo.title}">{$voo.title}</a>
+    </leishi:cate>
+    </div>
+</leishi:cate>
+</div>

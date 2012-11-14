@@ -1,0 +1,70 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">添加新闻分类 </div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/insert/" enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >类别名称：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="name" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >父级类别：</td>
+	<td class="tLeft" ><select name="pid" >
+  <option value="0" selected="selected">顶级分类</option>
+  <volist name="alist" id="vo">
+			<option value="{$vo['id']}">
+				<php>
+					for($i=0;$i<$vo['count']*2;$i++){
+								echo '-';
+					}
+				</php>
+				{$vo['name']}</option>
+			</volist>
+</select></td>
+	<td >
+	<input type="submit" value="添 加"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+<!-- 功能操作区域结束 -->
+
+<!-- 列表显示区域  -->
+<div class="list">
+<table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
+<tr><td height="5" colspan="9" class="topTd"></td></tr>
+<tr class="row" align="center">
+<th width="80"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th>
+<th width="250"><a href="javascript:sortBy('title','{$sort}','index')">分类名称</a></th>
+
+<th width="110">操作</th>
+</tr>
+<foreach name= "alist" item= "vo">
+<tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" >
+<td>{$vo.id}</td>
+<td>	<php>
+			for($i=0;$i<$vo['count']*2;$i++){
+					echo '-';
+			}
+		</php>
+        {$vo.name}</td>
+<td><a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;
+&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a>
+</td>
+</tr>
+</foreach>
+<tr><td height="5" colspan="3" class="bottomTd"></td></tr>
+</table></div>
+<!--  分页显示区域 -->
+<div class="page">{$page}</div>
+<!-- 列表显示区域结束 -->
+</div>
+<!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+
+

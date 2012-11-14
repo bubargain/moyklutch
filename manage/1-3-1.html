@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script language="javascript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+<style>
+.cc1 { color:red;}
+.cc2 { color:blue;}
+</style>
+</head>
+
+<body>
+
+<table width="100%" border="1" cellspacing="1" cellpadding="1" class="panes">
+  <tr >
+    <td class="cc">1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <div class="content">123123123312</div>
+  </tr>
+</table>
+
+
+
+
+
+
+<script>
+$(function(){  
+    $("table.panes td.cc").toggle(function(){  
+        $(this).next("div.content").fadeIn();  
+    },function(){  
+        $(this).next("div.content").fadeOut();  
+    })  
+})  
+</script>
+</body>
+</html>

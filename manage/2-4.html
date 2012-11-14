@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="xtyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+</head>
+
+<body>
+<div id="mleft">
+	<h1>唐山优惠券管理平台</h1>
+    <h3>
+<a href="index.html">后台首页</a>|
+<a href="#">网站首页</a>|
+<a href="#">退出登陆</a>
+    </h3>
+<div id="l-box">
+<div class="l-box">
+<p><img src="img/ico0.gif" />管理面板</p>
+<ul>
+<li><a href="1-2.html">用户管理</a></li>
+<li><a href="1-3.html">商家管理</a></li>
+<li><a href="1-4.html">机器管理</a></li>
+<li><a href="1-5.html">分类管理</a></li>
+<li><a href="1-6.html">新闻管理</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico1.gif" />日常审核</p>
+<ul style="display:block;">
+<li><a href="2-1.html">用户审核</a></li>
+<li><a href="2-2.html">商家审核</a></li>
+<li><a href="2-3.html">优惠券审核</a></li>
+<li><a href="2-4.html">展位租赁审核</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico2.gif" />日志管理</p>
+<ul>
+<li><a href="3-1.html">打印机错误报告</a></li>
+<li><a href="3-2.html">后台操作日志</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico3.gif" />系统配置</p>
+<ul>
+<li><a href="4-1.html">系统配置</a></li>
+<li><a href="4-2.html">其他相关配置</a></li>
+<li><a href="4-3.html">商圈管理</a></li>
+<li><a href="4-4.html">产品类别</a></li>
+<li><a href="4-5.html">标签配置</a></li>
+</ul>
+</div>
+</div>
+<SCRIPT>
+$(function() { 
+$("#l-box").tabs("div.l-box ul", {tabs: 'p', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+</div>
+
+<div id="mright">
+<div id="snav"><span>你的角色是:</span><label class="sc1">管理员</label>&nbsp;|&nbsp;admin
+<a href="user-manager.html" class="snav0">角色管理</a>
+<a href="user-tools.html" class="snav5">小工具</a>
+<a href="#" class="snav1">清空缓存</a>
+<a href="#" class="snav2">修改密码</a>
+<a href="#" class="snav3">修改资料</a>
+<a href="#" class="snav4">退 出</a>
+</div>
+<div id="mbody">
+<div class="in">
+<div id="setp1">
+<span class="snv">待审核用户列表</span>
+</div>
+<div class="cr8"></div>
+<div id="tbs">
+<input type="submit" value="新增" class="btn1 green" />
+<input type="submit" value="展位管理" class="btn1 green" />
+<select>
+<option>本周</option>
+<option>下周</option>
+<option>预定中</option>
+</select>
+<div class="cr8"></div>
+<div id="tbst">
+	<div>
+<ul><li class="tabd1">用户名：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">密码：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">昵称：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">生日：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">地址：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">邮箱：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">手机：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">电话：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">会员卡：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">用户组：</li><li><select><option>普通用户</option></select></li></ul>	
+<ul><li class="tabd1">状态：</li><li><select><option>启用</option></select></li></ul>
+<ul><li class="tabd1">备 注：</li><li><textarea></textarea></li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="添加" class="btn2" /></li></ul>
+    </div>
+	<div id="gezi">
+<ul>
+	<li id="dx1"><a href="#" class="cc">未预定</a></li>
+    <li id="dx2"><a href="#" class="cc">未预定</a></li>
+    <li id="dx3"><a href="#" class="cc">未预定</a></li>
+    <li id="dx4"><a href="#" class="cc">未预定</a></li>
+    <li id="dx5"><a href="#" class="cc">未预定</a></li>
+    <li id="dx6"><a href="#" class="cc">未预定</a></li>
+    <li id="dx7"><a href="#" class="cc">未预定</a></li>
+    <li id="dx8"><a href="#" class="cc">未预定</a></li>
+    <li id="dx9"><a href="#" class="cc">未预定</a></li>
+    <li id="dx10"><a href="#" class="cc">未预定</a></li>
+    <li id="dx11"><a href="#" class="cc">未预定</a></li>
+    <li id="dx12"><a href="#" class="cc">未预定</a></li>
+    <li id="dx13"><a href="#" class="cc">未预定</a></li>
+    <li id="dx14"><a href="#" class="cc">未预定</a></li>
+    <li id="dx15"><a href="#" class="cc">未预定</a></li>
+</ul>
+    </div>
+<script type="text/javascript">
+$("#gezi a").toggle(function(){
+$(this).removeClass("cc");
+$(this).addClass("dd").text("已预定");
+},
+function(){
+$(this).removeClass("dd");
+$(this).addClass("cc").text("未预定");
+}
+);
+</script>
+</div>
+<SCRIPT>
+$(function() { 
+$("#tbs").tabs("div#tbst div", {tabs: 'input.green', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabv">
+<tr><td>
+商家名称：<input type="text" />&nbsp;&nbsp;<input type="submit" value="查询" class="btn1" /></td>
+  <td>&nbsp;</td>
+</tr>
+</table>
+
+<div class="cr8"></div>
+<table cellpadding="0" cellspacing="0" class="tabs" id="pp"><tr>
+	<th>ID</th>
+    <th>地点名称</th>
+    <th>归属商圈</th>
+    <th>打印机编码</th>
+    <th>已租赁(预约)</th>
+    <th>打印数量</th>
+    <th>租金</th>
+    <th>开机时间</th>
+    <th>关机时间</th>
+    <th>最后连接</th>
+    <th>备注</th>
+    <th>操作</th>
+</tr>
+  <tr>
+    <td align="center">1</td>
+    <td align="center">新月网络</td>
+    <td align="center"><button rel="#c1" type="button">1</button></td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center"><button rel="#c2" type="button">1</button></td>
+    <td align="center">2011-03-31 11:45:08</td>
+    <td align="center">正常</td>
+    <td align="center"><button rel="#c3" type="button">0.00</button></td>
+    <td align="center">0.00</td>
+    <td align="center">
+<button>查看展位</button>
+<button>编辑</button>
+<button>恢复</button>
+  </tr>
+</table>
+<div class="cr8"></div>
+<div id="fpage">3 条记录&nbsp;&nbsp; 1/1 页</div>
+</div>
+<div id="footer">
+	<p>Copyright 2005-2010 优购乐 优惠券网 All Right</p>
+    <p>技术支持：Newmoon.cn 新月技术服务有限公司 服务电话：2035113 移动电话：13131512345</p>
+</div>
+</div>
+</div>
+</body>
+</html>

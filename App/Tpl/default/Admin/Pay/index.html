@@ -1,0 +1,44 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<script> 
+<!--
+function check(obj){
+    var reNum=/^[0-9]+.?[0-9]*$/;
+    if(!reNum.test(obj.value)){
+	alert("请输入数字！");
+	obj.value="";
+	 return false;
+	}
+	 if(obj.value<1){
+	alert("最少充值1元！");
+	obj.value="";
+	 return false;
+	}
+}
+-->
+</script>
+<div id="main" class="main" >
+<div class="content">
+<div class="title">商家充值</div>
+<div style="float:left;">
+<form method=post id="order-pay-form"  action="__URL__/confirm" sid="charge">
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >商家 {$id|get_trade} 的账户余额：</td>
+	<td class="tLeft" >{$vo.money}元</td>
+</tr>
+<tr>
+	<td class="tRight" >请输入充值金额：</td>
+	<td class="tLeft" ><input name="total_fee" type="text" onchange="check(this)" VALUE="1" />元（最少充值一元）</td>
+</tr>
+<tr>
+	<td ></td>
+	<td class="center"><div style="width:85%">
+	<input type="submit" value="确定" class=" shadow submit">
+	</div></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>

@@ -1,0 +1,275 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(1)").addClass("cc");
+</script>
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div id="hot">
+<div id="tuan"><img src="/imgs/tuan.png" /></div>
+
+<div id="hota">
+	<div id="hotbox">
+    <div class="scrollable">
+   <div class="items">
+<leishi:huodong type="1" limit="5">
+<a href="__GROUP__/Huodong/show/id/{$vo.id}"><img src="__ROOT__{$vo.path}"  width="445" height="250"/></a>
+</leishi:huodong>
+	</div>
+    </div>
+<script> 
+$(function() {
+	$("div.scrollable").scrollable({size:2}).circular().autoscroll({ 
+    steps: 1, 
+    interval: 3000         
+});// .autoscroll({autoplay:true});
+});
+</script> 
+
+</div>
+	<!--MEMBER LOGIN START-->
+<div id="tt">
+<include file="Index:idxlogin" />
+
+	<div id="nat">
+<p class="title">最新活动</p>
+<ul>
+<leishi:huodong order="id" type="1" limit="3">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+	</div>
+</div>
+    <!--MEMBER LOGIN ENDING-->
+
+</div>
+
+</div>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/ad1.png" /></div>
+<div class="cr"></div>
+<div class="fl w71">
+	<div class="box1-title"><ul class="tabs3x">
+<leishi:cate order="id" result="cate" limit="5">
+<li><a href="__APP__/Ticket/index/cate_id/{$cate.id}">{$cate.title}</a></li>
+</leishi:cate>
+    </ul>最新优惠券</div>
+    <div class="box1 panes">
+<leishi:cate order="id" result="cate" limit="5">
+<div>
+	<ul class="list1">
+<leishi:ticket result="voo" order="create_time desc" limit="4" cate_id="cate[id]">
+<li>
+<div class="fl"><label>{$voo.id}</label><a href="__APP__/Ticket/show/id/{$voo.id}"><img src="__ROOT__/img/imagethum/{$voo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name">{$voo.trade_id|get_trade}</p>
+<p class="q-inf">{$voo.title|t_substr=0,20}</p>
+<p class="q-pr"><a href="__GROUP__/User/ticket_col/id/{$voo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a></p>
+</div>
+</li>
+</leishi:ticket>
+    </ul>
+</div>
+</leishi:cate>
+    </div>
+<script>
+$(function() {
+	$("ul.tabs3x").tabs("div.panes > div",{  event: 'click'});
+});
+</script>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/ad2.jpg" /></div>
+<div class="cr"></div>
+	<div class="box5-title"><ul class="tabs3">
+<leishi:cate order="id" result="cate" limit="5">
+<li><a href="__APP__/Ticket/index/cate_id/{$cate.id}">{$cate.title}</a></li>
+</leishi:cate>
+    </ul>热门优惠券</div>
+    <div class="box5 panes3">
+<leishi:cate order="id" result="cate" limit="5">
+<div>
+	<ul class="list1">
+<leishi:ticket result="voo" order="create_time desc" limit="4" cate_id="cate[id]" where="">
+<li>
+<div class="fl"><label>{$voo.id}</label><a href="__APP__/Ticket/show/id/{$voo.id}"><img src="__ROOT__/img/imagethum/{$voo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name">{$voo.trade_id|get_trade}</p>
+<p class="q-inf">{$voo.title|t_substr=0,20}</p>
+<p class="q-pr"><a href="__GROUP__/User/ticket_col/id/{$voo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a></p>
+</div>
+</li>
+</leishi:ticket>
+    </ul>
+</div>
+</leishi:cate>
+
+    </div>
+<script>
+$(function() {
+	$("ul.tabs3").tabs("div.panes3 > div",{  event: 'click'});
+});
+</script>
+</div>
+<div class="fr w24">
+	<ul class="box2-title tabs2">
+<li><a href="#">热门商家</a></li>
+<li><a href="#">最新商家</a></li>
+    </ul>
+    <div class="box2 panes2"><ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>
+<ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>    </div>
+<script>
+$(function() {
+	$("ul.tabs2").tabs("div.panes2 > ul",{  event: 'click'});
+});
+</script>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/q4.jpg" /></div>
+<div class="cr"></div>
+<div class="box6-title">网友热评</div>
+<ul class="list2">
+<leishi:news limit="5" where="'cid=52'">
+<li><a href="__GROUP__/News/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+</ul>
+</div>
+<div class="cr"></div>
+<div id="card-show">
+<a class="nextPage bs1">l</a>
+<a class="prevPage bs2">r</a>
+<div class="icard">
+<ul class="items">
+<leishi:cards order="id" result="vo" limit="10">
+<li><a href="__GROUP__/Cards/show/id/{$vo.id}" title="{$vo.title}"><img src="{$vo.path}" /></a></li>
+</leishi:cards> 
+</ul>
+</div>
+<script> 
+$(function() {
+	$("div.icard").scrollable({
+	size:5,
+	circular:true
+	}).circular().autoscroll({
+	steps:1,
+	autoplay:true,
+    interval:3000
+	});// .autoscroll({autoplay:true});
+});
+</script>
+</div>
+<div class="cr"></div>
+<div id="help-title">在线帮助</div>
+<div id="help">
+	<p>您有任何问题，都可以通过在线客服、电话、QQ与我们联系！</p>
+    <ul id="help-ico">
+<li><a href="#"><img src="/imgs/kf.jpg" /></a></li>
+<li id="help-ico1">03155919006</li>
+<li id="help-ico2">980286941</li>
+    </ul>
+    <div class="cr"></div>
+    <div id="help-cu">
+<div>
+	<p>商家帮助？</p>
+    <ul>
+<leishi:news limit="3" where="'cid=50'">
+<li><a href="__GROUP__/News/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+    </ul>
+</div>
+<div>
+	<p>用户帮助？</p>
+    <ul>
+<leishi:news limit="3" where="'cid=51'">
+<li><a href="__GROUP__/News/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+    </ul>
+</div>
+    </div>
+</div>
+<div class="cr"></div>
+</div>
+<div id="links">
+	<div class="w96 trk">
+<div class="lkbox">
+<div class="lkl1">
+<p>合作伙伴 / <span>友情连接</span></p>
+<div class="cr"></div>
+<ul class="lkl1">
+<leishi:partner order="id" type="1" result="voo" limit="5">
+	<li><a href="{$voo.address}"><img src="{$voo.picpath}" alt="{$voo.content}" /></a></li>
+</leishi:partner>
+</ul>
+<div class="cr"></div>
+<ul class="lkl2">
+<leishi:partner order="id" result="voo" limit="20">
+	<li><a href="{$voo.address}" title="{$voo.content}">{$voo.title}</a></li>
+</leishi:partner>
+</ul>
+<div class="cr"></div>
+</div>
+</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="cr"></div>
+<ul class="list1">
+<leishi:ticket result="voo" limit="4" tags="天空">
+<li>
+<div class="fl"><label>{$voo.id}</label><a href="__APP__/Ticket/show/id/{$voo.id}"><img src="__ROOT__/img/imagethum/{$voo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name">{$voo.trade_id|get_trade}</p>
+<p class="q-inf">{$voo.title|t_substr=0,20}</p>
+<p class="q-pr"><a href="__GROUP__/User/ticket_col/id/{$voo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a></p>
+</div>
+</li>
+</leishi:ticket>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<include file="Index:footer" />

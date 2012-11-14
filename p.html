@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="Public/Js/jquery.tools.min.js" language="javascript"></script>
+<script src="Public/Js/jquery.cookie.js" language="javascript"></script>
+<style type="text/css">
+body { margin:0; padding:0;}
+.pg {  padding:5px 0; color:#666; text-align:center; clear:both; background:#EEE;}
+img { width:48mm;}
+table td { padding:4mm; border:dotted black 1px; border-width:1px 1px 0 0;}
+table { border:dotted black 1px; border-width:0 0 1px 1px;}
+</style>
+<style media="print" type="text/css">
+.pg{display:none;}
+</style>
+<script>
+$(document).ready(function() {
+	if($.cookie('name')){
+		var myArray = $.cookie('name').split('@');
+		for(i=0;i<myArray.length;i++){
+			myArray[i] = myArray[i].split('=');
+		}
+		var printArray = new Array();
+		for(i=0;i<myArray.length;i++){
+			for(j=0;j<myArray[i][2];j++){
+				printArray.push(myArray[i][0]);
+			}
+		}
+		$(".pg").text("共"+(Math.floor(printArray.length/6)+(printArray.length%6==0?0:1))+"页 | 每页6张 | 共"+printArray.length+"张优惠券");
+		for(i=0;i<printArray.length;){
+			if(i%6==0){
+				if(printArray.length-i>=6){
+					$("#myTable").append("<table align='center' cellpadding='0' cellspacing='0' style='page-break-after:always;'></table>");
+				}else{
+					$("#myTable").append("<table align='center' cellpadding='0' cellspacing='0'></table>");
+				}
+			}
+			$("#myTable table:last-child").append("<tr></tr>");
+			for(j=0;j<3;j++){
+				if(i<printArray.length){
+					$("#myTable table:last-child tr:last-child").append("<td><img src='/img/gif/"+printArray[i]+".gif'></td>");
+				}else{
+					$("#myTable table:last-child tr:last-child").append("<td><img src='/imgs/blank.gif'></td>");
+				}
+				i++;
+			}
+		}
+	}else{
+		$(".pg").text("error");
+	}
+});
+</script>
+</head>
+
+<body>
+<script>//window.print();</script>
+<div class="pg">共1页 | 每页6张 | 共5张优惠券</div>
+<p></p>
+<div id="myTable"></div>
+<p></p>
+<div class="pg">共1页 | 每页8张 | 共5张优惠券</div>
+</body>
+</html>

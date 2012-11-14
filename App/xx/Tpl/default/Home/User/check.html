@@ -1,0 +1,32 @@
+<include file="Index:header" />
+<script src="/js/jquery.tools.min.js"></script>
+<tagLib name="cx,leishi" />
+<div class="w96 ah">
+	<div class="fl w71">
+<div class="ad1">
+<include file="User:left" />
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<table width="544">
+<tr><td colspan="4" align="center">验证码已发到您的{$title}里,请注意查收</td></tr>
+<tr><td>
+<form method="post" name="form1" action="__GROUP__/User/checkverify">
+<input type="hidden" name="field" value="{$field}" />
+请输入您收到的验证码:<input name="verify" value=""/>
+<input type="submit" value="确定">
+</form>
+</td></tr>
+</table>
+</div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+
+    </div>
+</div>
+<include file="Index:footer" />

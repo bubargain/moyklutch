@@ -1,0 +1,18 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">商家付款</div>
+<div style="float:left;">
+<form method="post" action="__URL__/topay2" >
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >请确认您将付款的金额：</td><input name="trade_id" type="hidden" VALUE="{$vo.trade_id}" /><input name="id" type="hidden" VALUE="{$vo.id}" />
+	<td class="tLeft" ><input name="money" type="text" VALUE="{$vo.money}" readonly="readonly"/>元</td>
+    <td class="tRight" ><input type="submit" value="确定" /></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>

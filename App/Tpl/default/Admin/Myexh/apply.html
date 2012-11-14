@@ -1,0 +1,46 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">展位申请 [ <a href="__URL__/index/">返回列表</a> ]</div>
+<div style="float:left;">
+<form method=post id="form1"  action="__URL__/insert">
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >打印机位置：</td>
+	<td class="tLeft" >{$vo.p_id|get_position}</td>
+</tr>
+<tr>
+	<td class="tRight" >按钮位置：</td>
+	<td class="tLeft" >{$vo.bt_position}</td>
+</tr>
+<tr>
+	<td class="tRight" >月租金：</td>
+	<td class="tLeft" >{$vo.p_id|get_rendmoney}元/月</td>
+</tr>
+<tr>
+	<td class="tRight" >租赁信息：</td>
+	<td class="tLeft" ><font color="#990000">{$vo.id|get_rendinfo}</font></td>
+</tr>
+<tr>
+	<td class="tRight" >租期：</td>
+	<td class="tLeft" ><input type="text" name="rend" size="4"  value="">个月（最长3个月）（您可以在<font color="#990000">{$vo.p_id|get_rend_ltime}</font>之前 预订或购买，租期不能超过这个时间）</td>
+</tr>
+<tr>
+	<td ></td>
+	<td class="center"><div style="width:85%">
+<input type="hidden" name="money" value="{$vo.p_id|get_rendmoney}">
+<input type="hidden" name="bid" value="{$vo.id}">
+<input type="hidden" name="rendtime" value="{$vo.id|get_rendtime2}">
+<input type="hidden" name="overtime" value="{$vo.p_id|get_rend_ltime2}">
+<input type="hidden" name="p_id" value="{$vo.p_id}">
+<input type="hidden" name="trade_id" value="{$trade_id}">
+<input type="hidden" name="bt_position" value="{$vo.bt_position}">
+	<input type="submit" value="申 请" class=" shadow small submit">
+	</div></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>

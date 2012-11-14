@@ -1,0 +1,53 @@
+body { margin:0;
+	font-family:"Microsoft Yahei";
+	font-size:14px;
+	font-size-adjust:none;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	background:#73bb28 url(/imgs/stup/bg.gif) left top no-repeat;
+	background-attachment:fixed;
+	min-width:900px;
+	 }
+h1,h2,h3,h4,h5,h6,ul,dl,ol,p,table,td,tr,form,fieldset,input,textarea,a,select { padding:0; margin:0; font-size:14px; }
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}
+li{list-style-type:none;}
+img { border:none; vertical-align:top;}
+.en { font-family:Tahoma, Arial, Helvetica, sans-serif;}
+a {text-decoration:none; color:#222;}
+a:focus { outline:0;}
+:focus {  -moz-outline-style:none;}
+a:active { color:#333;}
+a:hover { text-decoration:underline;}
+.red { color:red;}
+.green { color:green;}
+.fl { float:left; }
+.fr { float:right; }
+.ah { height:1%; overflow:auto;}
+.cr { clear:both; height:8px; font-size:1px;}
+.cr2 { clear:both; height:2px; font-size:1px;}
+input { font-size:12px;}
+
+#main { padding-top:200px; margin:100px auto 0 auto; width:703px; height:192px; background:url(/imgs/stup/main.png) left top no-repeat;}
+#main a { margin:0 0 0 60px; padding:12px 0 0 65px; color:white; font-weight:bold; display:block; width:100px; height:36px; background:url(/imgs/stup/ss.gif) 20px 5px no-repeat; text-decoration:underline; border:solid #c8e461 1px;}
+#main a:hover { color:yellow; text-decoration:none; background:#73bb28 url(/imgs/stup/ss.gif) 20px 5px no-repeat;}
+#footer { margin:10px auto 0 auto; color:white; width:700px;}
+#footer a { color:white;}
+
+#mbody { margin:40px auto 0 auto; width:700px; }
+#show { padding:10px; margin:10px 0; height:300px; border:solid #a2ca0d 8px; overflow-y:scroll; background:#EEE; color:#444; line-height:1.5;}
+#show p { padding-bottom:6px; text-indent:20px;}
+#show ul { padding:10px;}
+#show ul li { margin-bottom:6px; text-indent:20px; }
+#mbody h1 { font-weight:bold; color:yellow; text-align:center;}
+#mbody h3 { font-weight:bold; color:yellow; text-align:center; font-size:14px;}
+
+#btn a { float:right; margin-left:10px; display:block; width:80px; height:24px; line-height:24px; background:#289e39; text-align:center; color:white;}
+#btn a:hover { background:#EEE; color:#666; text-decoration:none;}
+table { margin:10px 0; border:solid #a2ca0d 1px; border-width:1px 1px 0 0; }
+table td,table th { padding:3px 8px; border:solid #a2ca0d 1px; border-width:0 0 1px 1px;}
+table td { background:white; color:#555;}
+table th { background:#FFC; color:red;}
+.next { text-align:center;}
+h2 { color:red; text-decoration:underline;}

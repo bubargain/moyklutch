@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="xtyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+</head>
+
+<body>
+<div id="mleft">
+	<h1>唐山优惠券管理平台</h1>
+    <h3>
+<a href="index.html">后台首页</a>|
+<a href="#">网站首页</a>|
+<a href="#">退出登陆</a>
+    </h3>
+<div id="l-box">
+<div class="l-box">
+<p><img src="img/ico0.gif" />管理面板</p>
+<ul>
+<li><a href="1-2.html">用户管理</a></li>
+<li><a href="1-3.html">商家管理</a></li>
+<li><a href="1-4.html">机器管理</a></li>
+<li><a href="1-5.html">分类管理</a></li>
+<li><a href="1-6.html">新闻管理</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico1.gif" />日常审核</p>
+<ul>
+<li><a href="2-1.html">用户审核</a></li>
+<li><a href="2-2.html">商家审核</a></li>
+<li><a href="2-3.html">优惠券审核</a></li>
+<li><a href="2-4.html">展位租赁审核</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico2.gif" />日志管理</p>
+<ul>
+<li><a href="3-1.html">打印机错误报告</a></li>
+<li><a href="3-2.html">后台操作日志</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico3.gif" />系统配置</p>
+<ul style="display:block;">
+<li><a href="4-1.html">系统配置</a></li>
+<li><a href="4-2.html">其他相关配置</a></li>
+<li><a href="4-3.html">商圈管理</a></li>
+<li><a href="4-4.html">产品类别</a></li>
+<li><a href="4-5.html">标签配置</a></li>
+</ul>
+</div>
+</div>
+<SCRIPT>
+$(function() { 
+$("#l-box").tabs("div.l-box ul", {tabs: 'p', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+</div>
+
+<div id="mright">
+<div id="snav"><span>你的角色是:</span><label class="sc1">管理员</label>&nbsp;|&nbsp;admin
+<a href="user-manager.html" class="snav0">角色管理</a>
+<a href="user-tools.html" class="snav5">小工具</a>
+<a href="#" class="snav1">清空缓存</a>
+<a href="#" class="snav2">修改密码</a>
+<a href="#" class="snav3">修改资料</a>
+<a href="#" class="snav4">退 出</a>
+</div>
+<div id="mbody">
+<div class="in">
+<div id="setp1">
+<span class="snv">配置列表</span>
+</div>
+<div class="cr8"></div>
+<table cellpadding="0" cellspacing="0" width="100%" class="tabs">
+<form method=post id="form1"  action="/index.php/Config/update">
+<tr class="row">
+<td width="14%" height="30"><strong>支付宝账号</strong></td
+>
+<td>商户ID号：<input size="20" name="zf_username" value="2088402357243725"></td>
+<td colspan="3">交易密匙：<input size="20" name="zf_password" type="password" value="h6ehhsqcy5ihwr2nplvpmjo3dwtgkxso"></td></tr>
+<tr class="row">
+<td height="30"><strong>邮件设置</strong></td>
+<td width="20%">SMTP主机：
+  <input size="15" name="stmp_server" value="smtp.qq.com"></td>
+<td width="22%">SMTP端口：<input size="15" name="stmp_port" value="3"></td>
+<td width="24%">验证用户名：<input size="15" name="stmp_username" value="371043483@qq.com"></td>
+<td width="20%">验证密码：<input size="15" name="stmp_password" type="password" value="chenqiang1985626"></td>
+</tr>
+<tr class="row">
+<td height="30"></td><td>发信地址：<input size="15" name="stmp_send" value="371043483@qq.com"></td>
+<td>回信地址：<input size="15" name="stmp_back" value="371043483@qq.com"></td>
+<td>发信频率：<input size="15" name="stmp_rate" value="2">秒</td>
+<td></td></tr>
+<tr class="row">
+<td width="14%" height="30"><strong>系统错误邮箱</strong></td>
+<td colspan="4"><input size="30" name="error_email" value="cq1985626@163.com">（用于打印机产生错误时向管理员发送提示信息）</td></tr>
+<tr class="row">
+<td width="14%" height="30"><strong>金币兑换规则</strong></td>
+<td colspan="4"><input size="15" name="money_rate" value="9.00">积分（/元）</td></tr>
+<tr class="row">
+<td width="14%" height="30"><strong>是否开启评论</strong></td>
+<td colspan="4">
+<select name="comment_if">
+<option selected value="0">关闭</option>
+<option  value="1">开启</option>
+</select></td></tr>
+<tr class="row">
+<td width="14%" height="30"><strong>完善信息加积分</strong></td>
+<td><input size="5" name="info_if" value="6.00">分</td>
+<td width="22%" height="30"><strong>邮箱验证加积分</strong>
+  <input size="5" name="email_if" value="6.00">分</td>
+<td height="30" colspan="2"><strong>手机验证加积分</strong>
+  <input size="5" name="mobile_if" value="6.00">分</td>
+</tr>
+<tr class="row">
+<td width="14%" height="30"></td>
+<td colspan="4"><input type="submit" value="保存设置" class="small hMargin shadow submit"></tr>
+<tr class="row">
+<tr><td height="5" colspan="6" class="bottomTd"></td></tr></form>
+</table>
+<div class="cr8"></div>
+</div>
+<div id="footer">
+	<p>Copyright 2005-2010 优购乐 优惠券网 All Right</p>
+    <p>技术支持：Newmoon.cn 新月技术服务有限公司 服务电话：2035113 移动电话：13131512345</p>
+</div>
+</div>
+</div>
+</body>
+</html>

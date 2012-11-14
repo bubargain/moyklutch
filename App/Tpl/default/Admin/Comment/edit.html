@@ -1,0 +1,29 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑评论 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/"  enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >评论状态：</td>
+	<td class="tLeft" ><select name="status">
+<option value="1" <eq name= "vo.status" value= "1" > selected="selected" </eq> >已审核</option>
+<option value="0" <eq name= "vo.status" value= "0" > selected="selected" </eq> >待审核</option>
+<option value="-1" <eq name= "vo.status" value= "-1" > selected="selected" </eq> >禁用</option>
+</select></td>
+</tr>
+<tr>
+	<td class="tRight tTop">评论内容：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px">{$vo.content}</html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
+	<input type="submit" value="编辑"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

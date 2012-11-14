@@ -1,0 +1,28 @@
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑帐号 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" colspan="2"><hr></td>
+</tr>
+<form method='post' id="form1" action="__URL__/update" >
+<tr>
+	<td class="tRight" >分类名称：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeftRequire"  check='Require' warning="分类名称不能为空" id="title" name="title" value="{$vo.title}"></td>
+</tr>
+
+<tr>
+	<td class="tRight tTop">备  注：</td>
+	<td class="tLeft"><TEXTAREA class="large bLeft"  name="remark" rows="5" cols="57">{$vo.remark}</textarea></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
+	<input type="submit" value="保 存" class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

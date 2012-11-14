@@ -1,0 +1,35 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">商家充值</div>
+<div style="float:left;">
+<form method=post id="order-pay-form"  action="https://www.alipay.com/cooperate/gateway.do?_input_charset=utf-8" target="_blank" sid="charge">
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >请确认您将充值的金额：</td>
+	<td class="tLeft" ><input name="total_fee" type="text" VALUE="{$total_fee}" readonly="readonly"/>元</td>
+</tr>
+<tr>
+	<td ></td>
+	<td class="center"><div style="width:85%">
+	<input type="hidden" name="body" value="{$body}" />
+	<input type="hidden" name="notify_url" value="{$notify_url}" />
+	<input type="hidden" name="out_trade_no" value="{$out_trade_no}" />
+	<input type="hidden" name="partner" value="{$partner}" />
+	<input type="hidden" name="payment_type" value="1" />
+	<input type="hidden" name="return_url" value="{$return_url}" />
+	<input type="hidden" name="seller_id" value="{$seller_id}" />
+	<input type="hidden" name="service" value="{$service}" />
+	<input type="hidden" name="show_url" value="{$show_url}" />
+	<input type="hidden" name="subject" value="{$subject}" />
+	<input type="hidden" name="sign_type" value="MD5" />
+	<input type="hidden" name="sign" value="{$sign}" />
+	<input type="submit" value="前往支付宝充值" class=" shadow submit">
+	</div></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>

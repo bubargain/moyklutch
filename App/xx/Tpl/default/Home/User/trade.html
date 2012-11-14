@@ -1,0 +1,28 @@
+<include file="Index:header" />
+<script src="/js/jquery.tools.min.js"></script>
+<tagLib name="cx,leishi" />
+<div class="w96 ah">
+	<div class="fl w71">
+<div class="ad1">
+<include file="User:left" />
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<table class="tabs" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr><td colspan="4" align="center">商家收藏</td></tr>
+<foreach name= "list" item= "vo">
+<tr><td width="300"><a href="__GROUP__/Shop/show/id/{$vo.ticket_id}">{$vo.ticket_id|get_ticket}{$vo.trade_id|get_trade}</a></td><td width="69"><a href="__GROUP__/User/del/module/trade/id/{$vo.id}">删除</a></td></tr>
+</foreach>
+</table>
+</div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+
+    </div>
+</div>
+<include file="Index:footer" />

@@ -1,0 +1,51 @@
+<include file="Public:header" />
+<script> 
+<!--
+function Juge(myform)
+{
+    if(myform.rend.value == "")
+	{
+		alert("用户名不能为空!");
+		myform.rend.focus();
+		return (false);
+	}
+	else if (myform.rend.value >12)
+	{
+		alert("不能大于12周!");
+		myform.rend.value="12";
+		myform.rend.focus();
+		return (false);
+	}
+}
+-->
+</script>
+<div id="main" class="main" >
+<div class="content">
+<div class="title">确认<font color="#990000">{$title}</font>将购买的展位 [ <a href="__URL__">返回列表</a> ]</div>
+<form action="__URL__/add5/" method="post" onSubmit="return Juge(this)"><input type="hidden" name="id" value="{$id}" /><input type="hidden" name="title" value="{$title}" />
+<table width="1126" cellpadding="1" cellspacing="0" align="left">
+<tr><td>租期：<input type="text" name="rend" size="4"  value="1">周 （最多12周）<input type="submit" value="确定购买" class="small hMargin shadow submit"></td></tr>
+</table></div>
+<div class="list">
+<table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
+<tr><td height="5" colspan="11" class="topTd"></td></tr>
+<tr class="row" align="center">
+<th width="41"></th>
+<th width="136">编号</th>
+<th width="309">打印机位置</th>
+<th width="239">按钮位置</th>
+<th width="583">状态</th>
+</tr>
+<foreach name= "exhlist" item= "vo">
+<tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
+<th width="41"><input name="dxlist[]" type="checkbox" checked="checked" value="{$vo.id}" /></th>
+<td>{$vo.id}</td>
+<td>{$vo.p_id|get_position}</td>
+<td>{$vo.bt_position}</td>
+<td>{$vo.id|get_rendinfo}</td>
+</tr>
+</foreach>
+<tr><td height="5" colspan="11" class="bottomTd"></td></tr>
+</table>
+</div></form>
+</div>

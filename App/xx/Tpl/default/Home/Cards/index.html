@@ -1,0 +1,69 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+	<div class="fl w71">
+	  <div class="cr"></div>
+      <h3>{$vo.title}</h3>
+<div class="sub-m">Time:{$vo.update_time|toDate}</div>
+<div id="body-m">{$vo.content}</div>
+    </div>
+    <div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+<div class="box6-title">最新活动</div>
+<ul class="list2">
+<leishi:huodong order="id" type="1" limit="3">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="w10 ah">
+	<div class="fl w76">
+	  <div class="cr"></div>
+<div class="box1">
+	<p class="title cc1">{$title}<span></span></p>
+    <div class="box1-body">
+<ul class="list6">
+<foreach name= "list" item= "vo">
+<li>
+	<p><span>{$vo.update_time|toDate}</span><a href="__URL__/show/id/{$vo.id}">{$vo.title}</a>({$vo.price}元/张)</p>
+    <div><a href="__URL__/show/id/{$vo.id}"><img src="__ROOT__/{$vo.path}" width="150" height="120"></a>{$vo.content}</div>
+</li>
+</foreach>
+</ul>
+<div id="fpage">共{$count}条记录 |{$page}</div>
+    </div>
+    <p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+    </div>
+    <div class="fr w23">
+<include file="Index:taglogin" />
+<div class="cr"></div>
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+<div class="box2">
+	<p class="title">标题对应</p>
+    <div class="box2-body">123</div>
+</div>
+    </div>
+</div>
+<include file="Index:footer" />

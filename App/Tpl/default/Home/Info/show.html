@@ -1,0 +1,28 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(7)").addClass("cc");
+</script>
+
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+	<div class="fl w71">
+<h3>{$vo.title}</h3>
+<div class="sub-m">{$vo.update_time|toDate}</div>
+<div id="body-m">{$vo.content}</div>
+    </div>
+<div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+<div class="box6-title">缤纷活动</div>
+<ul class="list2">
+<leishi:huodong order="create_time desc" type="1" limit="8">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+    </div>
+    </div>
+<include file="Index:footer" />

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Image</title>
+		<style type="text/css" rel="stylesheet">
+			body {
+				margin: 0;
+				font:12px/1.5 "sans serif",tahoma,verdana,helvetica;
+				background-color:#F0F0EE;
+				color:#222222;
+				overflow:hidden;
+			}
+			form {
+				margin:0;
+			}
+			label {
+				cursor:pointer;
+			}
+			#resetBtn {
+				margin-left:10px;
+				cursor:pointer;
+			}
+			.main {
+				margin: 0 10px;
+			}
+			.table  {
+				list-style-image:none;
+				list-style-position:outside;
+				list-style-type:none;
+				margin:0;
+				padding:0;
+				display:block;
+			}
+			.table li {
+				padding:0;
+				margin-bottom:10px;
+				display:list-item;
+			}
+			.table li label {
+				font-weight:bold;
+			}
+			.table li input {
+				vertical-align:middle;
+			}
+			.table li img {
+				vertical-align:middle;
+			}
+		</style>
+		<script type="text/javascript">
+			var KE = parent.KindEditor;
+			location.href.match(/\?id=([\w-]+)/i);
+			var id = RegExp.$1;
+			var lang = KE.lang.plugins.image;
+			KE.event.ready(function() {
+				var tmarginBox = KE.$('tmargin', document);
+				var bmarginBox = KE.$('bmargin', document);
+				var lmarginBox = KE.$('lmargin', document);
+				var rmarginBox = KE.$('rmargin', document);
+				var imgNode = KE.plugin['editimage'].getSelectedNode(id);
+				if (imgNode) {
+					tmarginBox.value = parseInt(imgNode.style.marginTop || 0, 10);
+					bmarginBox.value = parseInt(imgNode.style.marginBottom || 0, 10);
+					lmarginBox.value = parseInt(imgNode.style.marginLeft || 0, 10);
+					rmarginBox.value = parseInt(imgNode.style.marginRight || 0, 10);
+				}
+				KE.util.hideLoadingPage(id);
+			}, window, document);
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<iframe name="uploadIframe" id="uploadIframe" style="display:none;"></iframe>
+			<input type="hidden" id="type" name="type" value="" />
+			<form id="uploadForm" name="uploadForm" method="post" enctype="multipart/form-data" target="uploadIframe">
+				<input type="hidden" id="editorId" name="id" value="" />
+				<input type="hidden" id="referMethod" name="referMethod" value="" />
+				<input type="hidden" name="imgBorder" value="0" />
+				<ul class="table">
+					<li>
+						<label for="hmargin">上间距</label>
+						<input type="text" id="tmargin" name="tmargin" value="" maxlength="4" style="width:40px;" />　
+						<label for="hmargin">下间距</label>
+                      <input type="text" id="bmargin" name="bmargin" value="" maxlength="4" style="width:40px;" />
+				  </li>
+					<li>
+						<label for="vmargin">左间距</label>
+						<input type="text" id="lmargin" name="lmargin" value="" maxlength="4" style="width:40px;" />　
+						<label for="hmargin">右间距</label>
+                      <input type="text" id="rmargin" name="rmargin" value="" maxlength="4" style="width:40px;" />
+			      </li>
+				    </ul>
+			</form>
+		</div>
+	</body>
+</html>

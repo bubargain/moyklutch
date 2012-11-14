@@ -1,0 +1,51 @@
+<include file="Index:header" />
+<load href="__PUBLIC__/Js/Util/Calendar.js" />
+<script>
+$("div#nav ul li:nth-child(3)").addClass("cc");
+$("#jf-gp > a").click(function(){
+	$(this).addClass("jfc");
+});
+</script>
+
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+<div id="jf-fl">
+	<div id="jf-title">
+<span class="fl">秒杀商品分类</span>
+<span class="fr">您当前选的分类是：<if condition="$classname eq ''">全部<else/>{$classname}</if></span>
+    </div>
+    <div id="jf-gp">
+<a href="__URL__/slist">全部</a>
+<volist name="classlist" id="vo">
+
+<a href="__URL__/index/cid/{$vo.id}"
+<eq name="vo.id" value="$Think.get.cid"> class="jfc"</eq>
+>{$vo.title}</a>
+
+</volist>
+    </div>
+</div>
+<div class="cr"></div>
+<div class="msha-now">
+	<form action="__URL__/slist" method="POST">
+	<p class="title"><span>根据时间排列：
+	<input type="text" name='stime' size=10 onFocus="ShowCalendar(this)">&nbsp;至&nbsp;<input type="text" name='etime' size=10 onFocus="ShowCalendar(this)"><input name="search" type="submit" value="查询">
+	</span>最新秒杀成功商品</p></form>
+    <div class="cr"></div>
+    <ul class="listms2 ah">
+	<volist name="slist" id="s">
+<li>
+	<p class="msha-ct"><a href="#">{$s.title}</a></p>
+    <p><span class="fr ms1">￥{$s.price}</span>市场价格：</p>
+    <p class="msha-ct"><img src="{$s.thumpath}" width="168" height="118" /></p>
+    <p><span class="fr ms2">-{$s.score}</span>所需积分：</p>
+	<p><span class="fr ms4">{$s.starttime|date="m-d H:i:s",###}</span>开始时间：</p>
+	<p class="msha-ct"><a href="__URL__/content/id/{$s.id}#c">立 刻 报 名</a></p>
+	</form>
+</li>
+	</volist>
+	</ul>
+</div> 
+
+<include file="Index:footer" />

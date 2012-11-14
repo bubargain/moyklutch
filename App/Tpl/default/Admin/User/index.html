@@ -1,0 +1,277 @@
+{// 引入标签库 }
+<tagLib name="html" />
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<script language="javascript">
+function setdate(id){
+	if(id=="")
+	{
+	  document.getElementById("tt1").value="";
+	  document.getElementById("tt2").value="";
+	}else{
+	  var now = new Date();
+	  var n=now.getDay();
+	  if(id=="11"){  //今天
+		  t1=now.getTime();
+		  t2=now.getTime();
+		  var tdate=new Date();
+		  tdate.setTime(t1);
+	      var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ldate=new Date();
+		  ldate.setTime(t2);
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=ldate.getDate();
+	  }else if(id=="22"){  //昨天
+		  t1=now.getTime();
+		  t2=t1-24*60*60*1000;
+		  var tdate=new Date();
+		  tdate.setTime(t1);
+	      var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ldate=new Date();
+		  ldate.setTime(t2);
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=ldate.getDate();
+	  }else if(id=="33"){  //本周
+		  var tdate=new Date();
+		  tdate.setDate(now.getDate()-n+7);
+	      var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ldate=new Date();
+		  ldate.setDate(now.getDate()-n+1);
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=ldate.getDate();
+	  }else if(id=="44"){  //上周
+	  	  var ldate=new Date(now-(now.getDay()+6)*86400000);
+		  var tdate=new Date((ldate/1000+6*86400)*1000);
+		  var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=ldate.getDate();
+	  }else if(id=="55"){  //本月
+		  t1=now.getTime()+24*60*60*1000;
+		  t2=now.getTime();
+		  var tdate=new Date();
+		  tdate.setTime(t1);
+	      var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ldate=new Date();
+		  ldate.setTime(t2);
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=1;
+	  }else if(id=="66"){  //上月
+	  	  var ldate=new Date(now.getYear(),now.getMonth()-1,1);
+		  var MonthNextFirstDay=new Date(now.getYear(),now.getMonth(),1);
+		  var tdate=new Date(MonthNextFirstDay-86400000);
+	      var y=tdate.getFullYear();
+	      var m=tdate.getMonth()+1;
+	      var d=tdate.getDate();
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=1;
+	  }else{
+		  var ldate2=new Date();
+		  t1=now.getTime()-24*60*60*1000;
+		  ldate2.setTime(t1);
+		  var y=ldate2.getFullYear();
+		  var m=ldate2.getMonth()+1;
+		  var d=ldate2.getDate();
+		  var ldate=new Date();
+		  t2=t1-24*60*60*1000*id;
+		  ldate.setTime(t2);
+		  var ly=ldate.getFullYear();
+		  var lm=ldate.getMonth()+1;
+		  var ld=ldate.getDate();
+	  }
+	document.getElementById("tt1").value=ly+"-"+lm+"-"+ld;
+	document.getElementById("tt2").value=y+"-"+m+"-"+d;
+	}
+}
+</script>
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+
+<!-- 主体内容  -->
+<div class="content" >
+<div class="title">用户列表</div>
+<!--  功能操作区域  -->
+<div class="operate" >
+<input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();"><input type="button" name="email" value="邮件群发" class="small hMargin shadow submit" onclick="sendmail();"><input type="button" name="exp" value="导出" class="small hMargin shadow submit" onclick="formsubmit();"><form method='post' name="form1" id="form1" action="__URL__">
+</div>
+<!-- 高级查询区域 -->
+<div id="searchM">
+<table width="1105" cellpadding="1" cellspacing="0"><input type="hidden" name="flag" value="1" />
+<tr><td width="125">编号：</td><td width="118"><input type="text" name="id" title="用户ID" size="10" value="{$id}"></td>
+<td width="101">用户名：</td><td width="222"><input type="text" name="account" title="帐号查询" size="10" value="{$account}" ></td>
+<td width="106">真实姓名：</td><td colspan="2"><input type="text" name="realname" title="姓名查询" size="10" value="{$realname}"></td>
+</tr>
+<tr>
+<td width="125">个人信息：</td><td width="118"><select name="userinfo_if">
+  <option value="">不限</option>
+  <option <eq name="userinfo_if" value="1" >selected</eq> value="1">已填写</option>
+  <option <eq name="userinfo_if" value="0" >selected</eq> value="0">未填写</option>
+</select></td><td width="101">
+会员卡：</td><td width="222"><select name="card_if">
+  <option value="-1">不限</option>
+  <option <eq name="card_if" value="1" >selected</eq> value="1">已绑定</option>
+  <option <eq name="card_if" value="0" >selected</eq> value="0">未绑定</option>
+</select></td><td>
+用户组：</td><td width="58"><select name="type_id">
+  <option  value="">不限</option>
+  <option <eq name="type_id" value="0" >selected</eq> value="0">管理员</option>
+  <option <eq name="type_id" value="1" >selected</eq> value="1">商家</option>
+  <option <eq name="type_id" value="2" >selected</eq> value="2">普通会员</option>
+</select></td><td width="359" align="center"><input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
+<tr>
+<td>验证邮箱：</td><td><select name="email_if">
+  <option value="">不限</option>
+  <option <eq name="email_if" value="0" >selected</eq> value="0">未验证</option>
+  <option <eq name="email_if" value="1" >selected</eq> value="1">已验证</option>
+</select></td><td>
+验证手机：</td><td><select name="mobile_if">
+  <option value="">不限</option>
+  <option <eq name="mobile_if" value="0" >selected</eq> value="0">未验证</option>
+  <option <eq name="mobile_if" value="1" >selected</eq> value="1">已验证</option>
+</select></td><td>WAP网站：</td><td><select name="wap_if">
+  <option value="">不限</option>
+  <option <eq name="wap_if" value="0" >selected</eq> value="0">未访问</option>
+  <option <eq name="wap_if" value="1" >selected</eq> value="1">已访问</option>
+</select></td><td width="359" align="center"></td></tr>
+<tr>
+<td>积分：</td><td><input type="text" name="money1" size="3" value="{$money1}">~<input type="text" name="money2" size="3" value="{$money2}"></td>
+<td>创建时间：</td><td><input type="text" name="time1" size="8" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="8" onFocus="ShowCalendar(this)" value="{$time2}"></td><td>用户状态：</td><td><select name="status">
+  <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
+  <option <eq name="status" value="3" >selected</eq> value="3">不限</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">已删除</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">禁用</option>
+</select></td><td></td></tr><tr>
+<td colspan="3">统计筛选:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">全部</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >今天</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >昨天</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >本周</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >上周</option>
+  <option <eq name="tt" value="55" >selected</eq> value="55" >本月</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >上月</option>
+  <option <eq name="tt" value="7"  >selected</eq> value="7"  >过去7天</option>
+  <option <eq name="tt" value="30" >selected</eq> value="30" >过去30天</option>
+  <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
+</select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"></td>
+<td colspan="4">结果排序：<select name="resultid">
+  <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
+  <option <eq name="resultid" value="card_id" >selected</eq> value="card_id" >会员卡</option>
+  <option <eq name="resultid" value="account" >selected</eq> value="account" >用户名</option>
+  <option <eq name="resultid" value="last_login_time" >selected</eq> value="last_login_time" >登录时间</option>
+  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >注册时间</option>
+  <option <eq name="resultid" value="point" >selected</eq> value="point" >点击</option>
+  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >收藏</option>
+  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >打印</option>
+  <option <eq name="resultid" value="realname" >selected</eq> value="realname" >真实姓名</option>
+  <option <eq name="resultid" value="mobile" >selected</eq> value="mobile" >手机号</option>
+  <option <eq name="resultid" value="address" >selected</eq> value="address" >地址</option>
+  <option <eq name="resultid" value="money" >selected</eq> value="money" >积分</option>
+</select>
+<select name="sortid">
+  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
+  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
+</select>
+</td>
+</tr><tr><td colspan="7">显示字段：
+<input name="clist[]" type="checkbox"  value="card_id" <eq name="menucard_id" value="1" >checked="checked" </eq> />会员卡&nbsp;
+<input name="clist[]" type="checkbox"  value="address" <eq name="menuaddress" value="1" >checked="checked" </eq> />地址&nbsp;
+<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>点击&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>打印&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>收藏&nbsp;
+<input name="clist[]" type="checkbox"  value="type_id" <eq name="menutype_id" value="1" >checked="checked" </eq>/>用户组&nbsp;
+<input name="clist[]" type="checkbox"  value="money"  <eq name="menumoney" value="1" >checked="checked" </eq>/>金币&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>注册时间&nbsp;
+<input name="clist[]" type="checkbox"  value="remark"  <eq name="menuremark" value="1" >checked="checked" </eq>/>备注&nbsp;
+<input name="clist[]" type="checkbox"  value="mobile"  <eq name="menumobile" value="1" >checked="checked" </eq>/>手机&nbsp;
+<input name="clist[]" type="checkbox"  value="email"  <eq name="menuemail" value="1" >checked="checked" </eq>/>邮箱&nbsp;
+<input name="clist[]" type="checkbox"  value="phone"  <eq name="menuphone" value="1" >checked="checked" </eq>/>电话&nbsp;
+<input name="clist[]" type="checkbox"  value="sex"    <eq name="menusex" value="1" >checked="checked" </eq>/>性别&nbsp;
+</form></td></tr>
+</table>
+</div>
+<!-- 功能操作区域结束 -->
+<!-- 列表显示区域  -->
+<div class="list">
+<table cellpadding="0" cellspacing="0" class="list">
+<tr><td height="5" colspan="16" class="topTd"></td></tr>
+<tr class="row" align="center">
+<th width="50"><a href="javascript:sortBy('id','{$sort}','index')">编号</a></th>
+<th width="130"><a href="javascript:sortBy('account','{$sort}','index')">用户名</a></th>
+<eq name="menucard_id" value="1" ><th width="90"><a href="javascript:sortBy('card_id','{$sort}','index')">会员卡</a></th></eq>
+<eq name="menuaddress" value="1" ><th width="204">地址</th></eq>
+<eq name="menuemail" value="1" ><th width="130">邮箱</th></eq>
+<eq name="menusex" value="1" ><th width="40">性别</th></eq>
+<eq name="menumobile" value="1" ><th width="120">手机</th></eq>
+<eq name="menuphone" value="1" ><th width="140">电话</th></eq>
+<eq name="menupoint" value="1" ><th width="55"><a href="javascript:sortBy('point','{$sort}','index')">点击</a></th></eq>
+<eq name="menuprints" value="1" ><th width="55"><a href="javascript:sortBy('prints','{$sort}','index')">打印</a></th></eq>
+<eq name="menucollect" value="1" ><th width="53"><a href="javascript:sortBy('collect','{$sort}','index')">收藏</a></th></eq>
+<eq name="menutype_id" value="1" ><th width="75">用户组</th></eq>
+<eq name="menumoney" value="1" ><th width="65"><a href="javascript:sortBy('score','{$sort}','index')">积分</a></th></eq>
+<eq name="menucreate_time" value="1" ><th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">注册时间</a></th></eq>
+<eq name="menuremark" value="1" ><th width="215">备注</th></eq>
+<th width="137">操作</th></tr>
+<foreach name= "list" item= "vo"><!--ondblclick="show_more('more{$vo.id}');"-->
+<tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" ondblclick="show_more('more{$vo.id}');" align="center">
+<td>{$vo.id}</td>
+<td>{$vo.account}</td>
+<eq name="menucard_id" value="1" ><td>{$vo.card_id}</td></eq>
+<eq name="menuaddress" value="1" ><td>{$vo.address}</td></eq>
+<eq name="menuemail" value="1" ><td width="130">{$vo.email}</td></eq>
+<eq name="menusex" value="1" ><td width="40"><eq name="vo.sex" value="0" >男</eq><eq name="vo.sex" value="1" >女</eq></td></eq>
+<eq name="menumobile" value="1" ><td width="120">{$vo.mobile}</td></eq>
+<eq name="menuphone" value="1" ><td width="140">{$vo.phone}</td></eq>
+<eq name="menupoint" value="1" ><td><a href="javascript:showcount('User',0,'{$vo.id}')">{$vo.point}</a></td></eq>
+<eq name="menuprints" value="1" ><td><a href="javascript:showcount('User',1,'{$vo.id}')">{$vo.prints}</a></td></eq>
+<eq name="menucollect" value="1" ><td><a href="javascript:showcount('User',2,'{$vo.id}')">{$vo.collect}</a></td></eq>
+<eq name="menutype_id" value="1" ><td><eq name="vo.type_id" value="0" >管理员</eq><eq name="vo.type_id" value="1" >商家</eq><eq name="vo.type_id" value="2" >普通会员</eq></td></eq>
+<eq name="menumoney" value="1" ><td><a href="javascript:showscore('User','{$vo.id}')">{$vo.score}</a></td></eq>
+<eq name="menucreate_time" value="1" ><td>{$vo.create_time|date="Y-m-d",###}</td></eq>
+<eq name="menuremark" value="1" ><td><input type="text" id="remark{$vo.id}" name="remark" size="30" value="{$vo.remark}" style="border:#FFF 1px solid;" onchange="aupdate('User','{$vo.id}','remark')"></td></eq>
+<td><a href="__APP__/Admin/User/addscore/id/{$vo.id}">充值</a>&nbsp;<a href="javascript:;" onclick="edit('{$vo.id}')">编辑</a>&nbsp;<neq name="vo.id" value="1" ><eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq></neq>&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a></td>
+</tr>
+<tr ondblclick="hidden_more('more{$vo.id}')"><td colspan="16">
+<div id="more{$vo.id}" class="listdiv" style="display:none;">
+<div style="float:left;padding-right:10px;"><if condition= "$vo.logo eq ''"><img src="__ROOT__/Public/Uploads/noavatar.gif" width="48" height="48"><else/><img src="__ROOT__{$vo.logo}" width="48" height="48"></if></div>
+<div style="float:left;">
+<li>真实姓名：{$vo.realname}</li>
+<li>手机：{$vo.mobile}</li>
+<li>性别：{$vo.sex}</li>
+<li>生日：{$vo.birthday|date="Y-m-d",###}</li>
+<li>邮箱：{$vo.email}</li>
+<li>联系电话：{$vo.phone}</li>
+<li>地址：{$vo.address}</li>
+<li>管理的商家：<a href="__GROUP__/Trade/index/id/{$vo.trade_id}">{$vo.trade_id|get_trade}</a></li>
+<li>邮箱是否验证：<eq name="vo.email_if" value="0" >否</eq><eq name="vo.email_if" value="1" >是</eq></li>
+<li>手机是否验证：<eq name="vo.mobile_if" value="0" >否</eq><eq name="vo.mobile_if" value="1" >是</eq></li>
+<li>是否访问过wap网站：<eq name="vo.wap_if" value="0" >否</eq><eq name="vo.wap_if" value="1" >是</eq></li>
+<li>用户状态：<eq name="vo.status" value="-1" >已删除</eq><eq name="vo.status" value="1" >正常</eq><eq name="vo.status" value="0" >禁用</eq></li>
+</div></div></td>
+</tr>
+</foreach>
+<tr><td height="5" colspan="16" class="bottomTd"></td></tr>
+</table></div>
+<!--  分页显示区域 -->
+<div class="page">{$page}</div>
+<!-- 列表显示区域结束 -->
+</div>
+<!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+

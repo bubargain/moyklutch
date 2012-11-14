@@ -1,0 +1,63 @@
+<include file="Index:header" />
+<script src="/js/jquery.tools.min.js"></script>
+<tagLib name="cx,leishi" />
+<script>
+function Juge(myform)
+{
+    if(myform.content.value == "")
+	{
+		alert("内容不能为空!");
+		myform.content.focus();
+		return (false);
+	}
+}
+</script>
+<style>
+   .msginfo{
+     color:#444;
+     padding-left:3em;
+   }
+   .errmsg{
+     color:red;
+     font-weight:bold;
+     padding-left:2em;
+   }
+</style>
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">绑定会员卡</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:nth-child(5) a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<form id="form1" action="__APP__/Home/User/savebind" method="post" onSubmit="return Juge(this)">
+<table class="infotable" border="0" cellspacing="0" cellpadding="0" align="center">
+<if condition="empty($card_id)">
+<tr><td style="padding-left:40px;">请输入会员卡密码：<input name="card_password" type="password" id="" class="text" />
+<notempty name="error"><span class="errmsg">{$error}</span></notempty></td>
+</tr>
+<tr><td><span class="msginfo">注意哦，绑定会员卡，您可以额外得到奖励积分 {$score_card},快点来参加</span></td></tr>
+<tr><td align="center">
+<input name="default_score" type="hidden" value="{$score_card}" />
+<input type="submit" value="提&nbsp;交" /></td></tr>
+<else/>
+<tr><td>卡号</td><td>绑定时间</td><td>操作</td></tr>
+<tr><td>{$card_id}</td><td>{$card_time|date="Y-m-d H:i:s",###}</td><td><a href="__URL__/delbind">解绑</a></td></tr>
+</if>
+
+</table></form></div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+
+    </div>
+</div>
+<include file="Index:footer" />

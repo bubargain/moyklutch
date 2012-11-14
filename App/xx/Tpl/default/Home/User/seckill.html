@@ -1,0 +1,56 @@
+<include file="Index:header" />
+<script src="/js/jquery.tools.min.js"></script>
+<tagLib name="cx,leishi" />
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">我的秒杀</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:nth-child(7) a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<table border="0" cellspacing="0" cellpadding="0" class="tabs" align="center">
+<tr><td colspan="4" align="center">秒杀记录</td></tr>
+<tr>
+<th></th>
+<th>商品名</th>
+<th>开始时间</th>
+<th>失败返还积分</th>
+<th>状态</th>
+</tr>
+<volist name= "list" id= "vo">
+<tr>
+<td>{$i}</td>
+<td><a href="__GROUP__/Seckill/content/id/{$vo.gid}">{$vo.title}</a></td>
+<td>{:date('Y-m-d H:i:s',$vo[starttime])}</td>
+<td>{$vo[score]*$vo[failscore]/100|intval}</td>
+<td>
+<eq name="vo.sectype" value="0">
+	<if condition="$vo.endtime gt time()">
+		等待秒杀
+	<else/>
+		秒杀失败
+	</if>
+</eq>
+<eq name="vo.sectype" value="1"><span style="color:red">成功待领取</span></eq>
+<eq name="vo.sectype" value="2">已领取</eq>
+</td>
+</tr>
+</volist>
+<tr><td colspan="4" align="right">{$page}</td></tr>
+</table>
+</div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+
+    </div>
+</div>
+<include file="Index:footer" />

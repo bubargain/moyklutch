@@ -1,0 +1,26 @@
+{// 引入标签库 }
+<tagLib name="html" />
+{// 加载头部公共文件 }
+<include file="Public:header" />
+<!-- 菜单区域  -->
+<!-- 主页面开始 -->
+<div id="main" class="main" >
+<div class="content" >
+<div class="title">授权用户</div>
+<div class="list">
+<!-- 查询区域 -->
+<table id="checkList" cellpadding="0" cellspacing="0" width="437" class="list">
+<tr>
+<td class="tLfet" colspan="2" align="left"><form method='post' id="form1" action="__URL__/touser"><input type="hidden" id="id" name="id" value="{$id}" >授权用户：<input type="text" id="account" name="account" value="" ><INPUT type="submit" value="提交" class="submit" style="height:25px"></form></td>
+</tr>
+<tr><td height="5" colspan="2" class="topTd"></td></tr>
+<foreach name="list" item="vo">
+<tr class="row"  align="center"><td width="52" height="28"><if condition= "$vo.logo eq ''"><img src="__ROOT__/Public/Uploads/noavatar.gif" width="48" height="48"><else/><img src="__ROOT__{$vo.user_id|getuseravtar}" width="48" height="48"></if><a href="__APP__/Trade/touser/id/{$id}/did/{$vo.id}">删除</a></td><td width="383" align="left">{$vo.user_id|get_userinfo}&nbsp;&nbsp;&nbsp;&nbsp;授权时间：{$vo.create_time|date="Y年-m月-d日 H-i-s",###}</td></tr>
+</foreach>
+<tr><td height="5" colspan="2" class="bottomTd"></td></tr>
+</table></div>
+</div>
+<!-- 主体内容结束 -->
+</div>
+<!-- 主页面结束 -->
+

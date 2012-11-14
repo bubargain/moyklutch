@@ -1,0 +1,65 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">添加商品 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/insert/" enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >商品名：</td>
+	<td class="tLeft" ><input type="text" name="title" value="" size="60"></td>
+</tr>
+<tr>
+	<td class="tRight" >商品分类：</td>
+	<td class="tLeft" >
+	<select name="cid">
+	<volist name="list" id="vo">
+	 <option value="{$vo.id}">{$vo.title}</option>
+	</volist>
+</select></td>
+</tr>
+<tr>
+	<td class="tRight" >日期：</td>
+	<td class="tLeft" ><input type="text" name="sectime" onFocus="ShowCalendar(this)" size="15" value="">
+	开始时间：<input type="text" name="starttime" size="10" value="">&nbsp;&nbsp;
+	结束时间：<input type="text" name="endtime" size="10" value="">
+	</td>
+</tr>
+<tr>
+	<td class="tRight" >商品数量：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >商品积分：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >报名扣分比：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="signupscore" value="">%</td>
+</tr>
+<tr>
+	<td class="tRight" >失败扣分比：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="failscore" value="">%</td>
+</tr>
+<tr>
+	<td class="tRight" >市场价格：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="price" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >展示图片：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/></td>
+</tr>
+<tr>
+	<td class="tRight tTop">产品详细介绍：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px"></html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center">
+	<input type="submit" value="添 加"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

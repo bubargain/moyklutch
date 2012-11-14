@@ -1,0 +1,27 @@
+<?php
+return array (
+  0 => 'id',
+  1 => 'name',
+  2 => 'title',
+  3 => 'logo',
+  4 => 'attach_id',
+  5 => 'contact',
+  6 => 'phone',
+  7 => 'mobile',
+  8 => 'address',
+  9 => 'fax',
+  10 => 'email',
+  11 => 'tags',
+  12 => 'sort',
+  13 => 'keyword',
+  14 => 'introduce',
+  15 => 'status',
+  16 => 'getmoney',
+  17 => 'money',
+  18 => 'create_time',
+  19 => 'update_time',
+  20 => 'extra',
+  '_autoinc' => true,
+  '_pk' => 'id',
+);
+?>

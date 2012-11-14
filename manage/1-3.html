@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="xtyle.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+</head>
+
+<body>
+<div id="mleft">
+	<h1>唐山优惠券管理平台</h1>
+    <h3>
+<a href="index.html">后台首页</a>|
+<a href="#">网站首页</a>|
+<a href="#">退出登陆</a>
+    </h3>
+<div id="l-box">
+<div class="l-box">
+<p><img src="img/ico0.gif" />管理面板</p>
+<ul style="display:block;">
+<li><a href="1-2.html">用户管理</a></li>
+<li><a href="1-3.html">商家管理</a></li>
+<li><a href="1-4.html">机器管理</a></li>
+<li><a href="1-5.html">分类管理</a></li>
+<li><a href="1-6.html">新闻管理</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico1.gif" />日常审核</p>
+<ul>
+<li><a href="2-1.html">用户审核</a></li>
+<li><a href="2-2.html">商家审核</a></li>
+<li><a href="2-3.html">优惠券审核</a></li>
+<li><a href="2-4.html">展位租赁审核</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico2.gif" />日志管理</p>
+<ul>
+<li><a href="3-1.html">打印机错误报告</a></li>
+<li><a href="3-2.html">后台操作日志</a></li>
+</ul>
+</div>
+<div class="l-box">
+<p><img src="img/ico3.gif" />系统配置</p>
+<ul>
+<li><a href="4-1.html">系统配置</a></li>
+<li><a href="4-2.html">其他相关配置</a></li>
+<li><a href="4-3.html">商圈管理</a></li>
+<li><a href="4-4.html">产品类别</a></li>
+<li><a href="4-5.html">标签配置</a></li>
+</ul>
+</div>
+</div>
+<SCRIPT>
+$(function() { 
+$("#l-box").tabs("div.l-box ul", {tabs: 'p', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+</div>
+
+<div id="mright">
+<div id="snav"><span>你的角色是:</span><label class="sc1">管理员</label>&nbsp;|&nbsp;admin
+<a href="user-manager.html" class="snav0">角色管理</a>
+<a href="user-tools.html" class="snav5">小工具</a>
+<a href="#" class="snav1">清空缓存</a>
+<a href="#" class="snav2">修改密码</a>
+<a href="#" class="snav3">修改资料</a>
+<a href="#" class="snav4">退 出</a>
+</div>
+<div id="mbody">
+<div class="in">
+<div id="setp1">
+<span class="snv">商家列表</span>
+</div>
+<div class="cr8"></div>
+<div id="tbs">
+<input type="submit" value="新增" class="btn1 green" />
+<input type="submit" value="设置列表项" class="btn1 green" />
+<input type="submit" value="导出" class="btn1 red" />
+<div class="cr8"></div>
+<div id="tbst">
+	<div>
+<ul><li class="tabd1">用户名：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">密码：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">昵称：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">生日：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">地址：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">邮箱：</li><li><input type="text" /></li><li class="tabd2">（必填）</li></ul>
+<ul><li class="tabd1">手机：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">电话：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">会员卡：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">用户组：</li><li><select><option>普通用户</option></select></li></ul>	
+<ul><li class="tabd1">状态：</li><li><select><option>启用</option></select></li></ul>
+<ul><li class="tabd1">备 注：</li><li><textarea></textarea></li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="添加" class="btn2" /></li></ul>
+    </div>
+    <div>
+<ul><li class="tabd1"></li><li>
+   <input name="clist[]" type="checkbox"  value="card_id" checked="checked" />会员卡&nbsp;
+<input name="clist[]" type="checkbox"  value="address" checked="checked" />地址&nbsp;
+<input name="clist[]" type="checkbox"  value="point"   checked="checked"/>点击&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  checked="checked"/>打印&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" checked="checked"/>收藏&nbsp;
+<input name="clist[]" type="checkbox"  value="type_id" checked="checked"/>用户组&nbsp;
+<input name="clist[]" type="checkbox"  value="money"  checked="checked"/>金币&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" checked="checked"/>注册时间&nbsp;
+<input name="clist[]" type="checkbox"  value="remark"  checked="checked"/>备注&nbsp;
+<input name="clist[]" type="checkbox"  value="mobile"  />手机&nbsp;
+<input name="clist[]" type="checkbox"  value="email"  />邮箱&nbsp;
+<input name="clist[]" type="checkbox"  value="phone"  />电话&nbsp;
+<input name="clist[]" type="checkbox"  value="sex"    />性别&nbsp;
+</li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="设置" class="btn2" /></li></ul>
+    </div>
+</div>
+<SCRIPT>
+$(function() { 
+$("#tbs").tabs("div#tbst div", {tabs: 'input.green', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabv" id="search1">
+<tr><td>
+商家名称：<input type="text" />&nbsp;&nbsp;<input type="submit" value="查询" class="btn1" />&nbsp;&nbsp;<input type="submit" value="高级查询" class="btn1 blue" id="sh2" />
+</td>
+  <td>&nbsp;</td>
+</tr>
+</table>
+<SCRIPT>
+$("#sh2").click(function(){
+  $("#search1").hide({effect: 'slide'});
+  $("#search2").show({effect: 'slide'});
+});</SCRIPT>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabv" id="search2">
+  <tr>
+    <td>编号：</td>
+    <td><input type="text" /></td>
+    <td>商家名称：</td>
+    <td><input type="text" /></td>
+    <td>标签：</td>
+    <td><input type="text" /></td>
+  </tr>
+  <tr>
+    <td>归属商圈：</td>
+    <td><select><option>请选择</option></select>&nbsp;&nbsp;小商圈&nbsp;&nbsp;<select><option>请选择</option></select></td>
+    <td>商品大类：</td>
+    <td><select><option>请选择</option></select>&nbsp;&nbsp;小类&nbsp;&nbsp;<select><option>请选择</option></select></td>
+    <td>状态：</td>
+    <td><select><option>正常</option></select></td>
+  </tr>
+  <tr>
+    <td>结算金额：</td>
+    <td><input type="text" size="5" />~<input type="text" size="5" /></td>
+    <td>储值：</td>
+    <td><input type="text" size="5" />~<input type="text" size="5" /></td>
+    <td>创建时间：</td>
+    <td><input type="text" size="5" />~<input type="text" size="5" /></td>
+  </tr>
+  <tr>
+    <td>统计筛选：</td>
+    <td><select><option>全部</option></select>&nbsp;&nbsp;<input type="text" size="5" />~<input type="text" size="5" /></td>
+    <td>结果排序：</td>
+    <td><select><option>ID</option></select>&nbsp;&nbsp;<select><option>递增</option></select></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" value="查询" class="btn1" />&nbsp;&nbsp;<input type="submit" value="模糊查询" class="btn1 blue" id="sh1" /></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<SCRIPT>
+$("#sh1").click(function(){
+  $("#search2").hide({effect: 'slide'});
+  $("#search1").show({effect: 'slide'});
+});</SCRIPT>
+<div class="cr8"></div>
+<table cellpadding="0" cellspacing="0" class="tabs" id="pp"><tr>
+	<th>ID</th>
+    <th>商家名称</th>
+    <th>券数量</th>
+    <th>点击</th>
+    <th>打印</th>
+    <th>收藏</th>
+    <th>展位</th>
+    <th>更新时间</th>
+    <th>状态</th>
+    <th>储值</th>
+    <th>结算</th>
+    <th>操作</th>
+</tr>
+  <tr class="pp1">
+    <td align="center">1</td>
+    <td align="center">新月网络</td>
+    <td align="center"><button rel="#c1" type="button">1</button></td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center"><button rel="#c2" type="button">1</button></td>
+    <td align="center">2011-03-31 11:45:08</td>
+    <td align="center">正常</td>
+    <td align="center"><button rel="#c3" type="button">0.00</button></td>
+    <td align="center">0.00</td>
+    <td align="center">
+<button rel="#c4" type="button">充值</button> 
+<button rel="#c5" type="button">添加优惠券</button>
+<button rel="#c6" type="button">授权用户</button> 
+<button rel="#c7" type="button">加分店</button> 
+<button rel="#c8" type="button">编辑</button> 
+<a href="#" class="del">删除</a>
+<script> 
+$(function() {
+		$("button[rel]").overlay({mask: '#000'});
+});
+</script> 
+<div class="overlay" id="c1">
+<div id="tbsj">
+<input type="submit" value="设置列表项" class="btn1 green" />
+<input type="submit" value="导出" class="btn1 red" />
+<div class="cr8"></div>
+<div id="tbstj">
+    <div>
+<ul><li class="tabd1"></li><li>
+   <input name="clist[]" type="checkbox"  value="card_id" checked="checked" />会员卡&nbsp;
+<input name="clist[]" type="checkbox"  value="address" checked="checked" />地址&nbsp;
+<input name="clist[]" type="checkbox"  value="point"   checked="checked"/>点击&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  checked="checked"/>打印&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" checked="checked"/>收藏&nbsp;
+<input name="clist[]" type="checkbox"  value="type_id" checked="checked"/>用户组&nbsp;
+<input name="clist[]" type="checkbox"  value="money"  checked="checked"/>金币&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" checked="checked"/>注册时间&nbsp;
+<input name="clist[]" type="checkbox"  value="remark"  checked="checked"/>备注&nbsp;
+<input name="clist[]" type="checkbox"  value="mobile"  />手机&nbsp;
+<input name="clist[]" type="checkbox"  value="email"  />邮箱&nbsp;
+<input name="clist[]" type="checkbox"  value="phone"  />电话&nbsp;
+<input name="clist[]" type="checkbox"  value="sex"    />性别&nbsp;
+</li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="设置" class="btn2" /></li></ul>
+    </div>
+</div>
+</div>
+<SCRIPT>
+$(function() { 
+$("#tbsj").tabs("div#tbstj div", {tabs: 'input.green', effect: 'slide', initialIndex: null});
+});
+</SCRIPT>
+<table cellpadding="0" cellspacing="0" class="tabs"><tr>
+	<th>ID</th>
+    <th>优惠券名称</th>
+    <th>分类</th>
+    <th>商家</th>
+    <th>打印所需积分</th>
+    <th>开始时间</th>
+    <th>结束时间</th>
+    <th>点击</th>
+    <th>收藏</th>
+    <th>打印</th>
+    <th>状态</th>
+    <th>操作</th>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+</table>
+</div>
+<div class="overlay" id="c2">
+<table cellpadding="0" cellspacing="0" class="tabs" id="accordion"><tr>
+	<th>编号</th>
+    <th>打印机位置</th>
+    <th>按钮位置</th>
+    <th>商家</th>
+    <th>打印</th>
+    <th>开始时间</th>
+    <th>结束时间</th>
+    <th>申请时间</th>
+    <th>备注</th>
+    <th>状态</th>
+    <th>操作</th>
+</tr>
+<tr>
+<td>1</td>
+<td>三利</td>
+<td>DX1</td>
+<td>sdfsdfs</td>
+<td>0</td>
+<td>2011-04-01</td>
+<td>2011-04-30</td>
+<td>2011-04-31</td>
+<td><textarea></textarea></td>
+<td>正常</td>
+<td><button>编辑</button><a href="#" class="del">删除</a></td>
+</tr>
+<tr class="panet">
+<td colspan="11">123</td>
+</tr>
+<tr>
+<td>1</td>
+<td>三利</td>
+<td>DX1</td>
+<td>sdfsdfs</td>
+<td>0</td>
+<td>2011-04-01</td>
+<td>2011-04-30</td>
+<td>2011-04-31</td>
+<td><textarea></textarea></td>
+<td>正常</td>
+<td><button>编辑</button><a href="#" class="del">删除</a></td>
+</tr>
+<tr class="panet">
+<td colspan="11">456</td>
+</tr>
+</table>
+<script>
+$("#accordion").tabs("#accordion tr.panet", {tabs: 'button', effect: 'fade', initialIndex: null});
+</script>
+</div>
+<div class="overlay" id="c3">
+<div id="setp1">
+<span class="snv">sdfsdfs的充值记录</span>
+</div>
+<ul><li><input type="text" />&nbsp;&nbsp;~&nbsp;&nbsp;<input type="text" />&nbsp;&nbsp;<input type="submit" value="查询" class="btn1" /></li></ul>
+<table cellpadding="0" cellspacing="0" class="tabs"><tr>
+	<th>ID</th>
+    <th>充值时间</th>
+    <th>操作方式</th>
+    <th>事项</th>
+    <th>充值金额</th>
+    <th>余额</th>
+</tr>
+<tr>
+<td>1</td>
+<td>三利</td>
+<td>DX1</td>
+<td>sdfsdfs</td>
+<td>0</td>
+<td>2011-04-01</td>
+</tr>
+</table>
+
+</div>
+<div class="overlay" id="c4">
+<ul><li class="tabd1">账户余额：</li><li>0.00元</li><li class="tabd2">商家：新月网络</li></ul>
+<ul><li class="tabd1">输入充值金额：</li><li><input type="text" />&nbsp;&nbsp;元</li></ul>
+<ul><li class="tabd1">备注：</li><li><textarea></textarea></li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="确定" class="btn2" /></li></ul>
+</div>
+<div class="overlay" id="c5">
+<ul><li class="tabd1">名称：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">商品类别：</li><li><select><option>请选择</option></select></li><li class="tabd1">子类：</li><li><select><option>请选择</option></select></li></ul>
+<ul><li class="tabd1">状态：</li><li><select><option>待审核</option></select></li><li class="tabd1">数量：</li><li><input type="text" value="-1" /></li><li class="tabd2">(-1代表无限制)</li></ul>
+<ul><li class="tabd1">优惠券开始时间：</li><li><input type="text" /></li><li class="tabd1">结束时间：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">商家获得结算额：</li><li><input type="text" value="0" /></li><li class="tabd1">下载需扣积分：</li><li><input type="text" value="0" /></li></ul>
+<ul><li class="tabd1">上传展示图片：</li><li><input type="text" value="选择文件" /></li><li class="tabd2">未选择文件</li></ul>
+<ul><li class="tabd1">关键字：</li><li><input type="text" /></li><li class="tabd1">标签：</li><li><input type="text" /></li><li class="tabd1">排序：</li><li><input type="text" size="5" /></li><li class="tabd2">数值大的排前</li></ul>
+<ul><li class="tabd1">详细内容：</li><li><textarea></textarea></li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="添加" class="btn2" /></li></ul>
+</div>
+<div class="overlay" id="c6">
+<ul><li class="tabd1">授权用户：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1"></li><li><li><input type="submit" value="提交" class="btn2" /></li></ul>
+</div>
+<div class="overlay" id="c7">
+<ul><li class="tabd1">分店名称：</li><li><input type="text" /></li><li class="tabd2">(必填内容)</li></ul>
+<ul><li class="tabd1">归属地区：</li><li><select><option>请选择</option></select></li><li class="tabd1">小商圈：</li><li><select><option>请选择</option></select></li></ul>
+<ul><li class="tabd1">详细地址：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">联系电话：</li><li><input type="text" /></li></ul>
+<ul><li class="tabd1">备注：</li><li><textarea></textarea></li></ul>
+<ul><li class="tabd1"></li><li><input type="submit" value="保存" class="btn2" /><input type="submit" value="清空" class="btn2" /></li></ul>
+</div>
+<div class="overlay" id="c8">8</div>
+    </td>
+  </tr>
+  <tr class="pp2"><td colspan="12">123</td></tr>
+
+  <tr class="pp1">
+    <td align="center">1</td>
+    <td align="center">新月网络</td>
+    <td align="center"><button rel="#c1" type="button">1</button></td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center">0</td>
+    <td align="center"><button rel="#c2" type="button">1</button></td>
+    <td align="center">2011-03-31 11:45:08</td>
+    <td align="center">正常</td>
+    <td align="center"><button rel="#c3" type="button">0.00</button></td>
+    <td align="center">0.00</td>
+    <td align="center">
+<button rel="#c4" type="button">充值</button> 
+<button rel="#c5" type="button">添加优惠券</button>
+<button rel="#c6" type="button">授权用户</button> 
+<button rel="#c7" type="button">加分店</button> 
+<button rel="#c8" type="button">编辑</button> 
+<a href="#" class="del">删除</a>
+    </td>
+  </tr>
+  <tr class="pp2"><td colspan="12">123</td></tr>
+</table>
+<script>
+$(function(){  
+    $("table#pp .pp1").toggle(function(){  
+        $(this).next(".pp2").show();  
+    },function(){  
+        $(this).next(".pp2").hide();  
+    })  
+})  
+
+</script>
+<div class="cr8"></div>
+<div id="fpage">3 条记录&nbsp;&nbsp; 1/1 页</div>
+</div>
+<div id="footer">
+	<p>Copyright 2005-2010 优购乐 优惠券网 All Right</p>
+    <p>技术支持：Newmoon.cn 新月技术服务有限公司 服务电话：2035113 移动电话：13131512345</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(4)").addClass("cc");
+</script>
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="fl w71">
+<div class="box1-title">{$title}</div>
+<div class="box1">
+<ul class="list9u">
+<foreach name= "list" item= "vo">
+	<li>
+<a href="__GROUP__/Huodong/show/id/{$vo.id}" class="cover-9"><img src="__ROOT__{$vo.thumpath}"  width="100" height="80"/></a>
+<p class="title-9"><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></p>
+<p>[活动时间]</p>
+<p><span>{$vo.start_time|toDate}</span>~<span>{$vo.close_time|toDate}</span></p>
+	</li>
+</foreach>
+</ul>
+<div class="cr"></div>
+<div id="fpage">共{$count}条记录 |{$page}</div>
+</div>
+</div>    
+    <div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+<div class="box6-title">最新动态</div>
+<ul class="list2">
+<leishi:news order="create_time desc" type="1" limit="8">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+</ul>
+    </div>
+</div>
+<include file="Index:footer" />

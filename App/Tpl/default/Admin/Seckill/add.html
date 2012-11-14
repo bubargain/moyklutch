@@ -1,0 +1,52 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">添加 兑换或秒杀 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/insert/" enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >标题：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >价值：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="price" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >积分：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >人数限制：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="limit_count" value="99">(请根据需要填写,秒杀请设为1)</td>
+</tr>
+<tr>
+	<td class="tRight" >开始时间：</td>
+	<td class="tLeft" ><input type="text" name="begin_time" size="10" onFocus="ShowCalendar(this)" value=""></td>
+</tr>
+<tr>
+	<td class="tRight" >类型：</td>
+	<td class="tLeft" ><select name="ktype">
+  <option value="1">兑换</option>
+  <option value="2">秒杀</option>
+</select></td>
+</tr>
+<tr>
+	<td class="tRight" >上传展示图片：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/></td>
+</tr>
+<tr>
+	<td class="tRight tTop">活动简介：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px"></html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center">
+	<input type="submit" value="添 加"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

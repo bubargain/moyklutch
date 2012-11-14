@@ -1,0 +1,154 @@
+<include file="Public:header" />
+<script src="__PUBLIC__/Js/AjaxCls.js" type="text/javascript" ></script>
+<script language="javascript">
+function alertContents()
+{
+  if(Http_Request.readyState==4)
+  {
+     if(Http_Request.status==200)
+     {
+        XMLDocument=Http_Request.responseText;
+		if(XMLDocument!="None")
+        {
+		   Fillset(XMLDocument);
+	    }
+	 }
+     else
+     {
+        XMLDocument=null;
+     }
+  }
+	  else
+  {
+     XMLDocument=null;
+  }
+}
+function Fillset(str)
+{
+  var strarr=str.split('|');
+  document.getElementById("area").options.length=0;
+  //form1.selCity.options.length=0;
+  for(var i=0;i<strarr.length;i++)
+  {
+	  var cate=strarr[i].split(',');
+      document.getElementById("area").options.add(new Option(cate[0],cate[1]));
+  }
+}
+function setcate(bid)
+{
+  oAjax.sendUrl="index.php?m=Area&s=ajaxarea&id="+bid;
+  oAjax.getRequest();
+  oAjax.getXMLResponse();
+}
+function checkval(myform,car){
+	var name=document.getElementById(car).value;
+	if(name=="")
+	{
+		alert("请选择!");
+		return (false);
+	}
+	}
+function Juge(myform)
+{
+    if(myform.name.value == "")
+	{
+		alert("名称不能为空!");
+		myform.name.focus();
+		return (false);
+	}
+	else if (myform.macno.value == "")
+	{
+		alert("请填写机器码!");
+		myform.macno.focus();
+		return (false);
+	}else if (myform.macno.value.length >8)
+         {
+                alert("机器码不能超过8位!");
+		myform.macno.focus();
+		return (false);
+         }
+	else if (myform.start_time.value == "")
+	{
+		alert("请填写地点租赁开始时间！");
+		myform.start_time.focus();
+		return (false);
+	}
+	else if (myform.close_time.value == "")
+	{
+		alert("请填写地点租赁结束时间！");
+		myform.close_time.focus();
+		return (false);
+	}
+}
+</script>
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/" name="myform"  onSubmit="return Juge(this)">
+<tr>
+	<td class="tRight" >地点名称：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="名称不能为空,且不能含有空格" name="name" value="{$vo.name}"></td>
+</tr>
+<tr>
+	<td class="tRight" >归属地区：</td>
+	<td class="tLeft" >{$vo.area|get_position}</td>
+</tr>
+<tr>
+	<td class="tRight" >详细地址：</td>
+	<td class="tLeft" ><input type="text" name="address" size="25" value="{$vo.address}"></td>
+</tr>
+<tr>
+	<td class="tRight" >联系人：</td>
+	<td class="tLeft" ><input type="text" name="contact" size="25" value="{$vo.contact}"></td>
+</tr>
+<tr>
+	<td class="tRight" >联系电话：</td>
+	<td class="tLeft" ><input type="text" name="phone" size="25" value="{$vo.phone}"></td>
+</tr>
+<tr>
+	<td class="tRight" >机器码：</td>
+	<td class="tLeft" ><input type="text" name="macno" size="10" value="{$vo.macno}"></td>
+</tr>
+<tr>
+	<td class="tRight" >展位租金：</td>
+	<td class="tLeft" ><input type="text" name="money" size="10" value="{$vo.money}">元/周</td>
+</tr>
+<tr>
+	<td class="tRight" >开机时间：</td>
+	<td class="tLeft" ><input type="text" name="open" size="10" value="{$vo.open}">时(24小时制)</td>
+</tr>
+<tr>
+	<td class="tRight" >关机时间：</td>
+	<td class="tLeft" ><input type="text" name="close" size="10" value="{$vo.close}">时(24小时制)</td>
+</tr>
+<tr>
+	<td class="tRight" >租赁开始时间：</td>
+	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.start_time|date="Y-m-d",###}"></td>
+</tr>
+<tr>
+	<td class="tRight" >租赁到期时间：</td>
+	<td class="tLeft" ><input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.close_time|date="Y-m-d",###}"></td>
+</tr>
+<tr>
+	<td class="tRight">状态：</td>
+	<td class="tLeft"><SELECT class="small bLeft"  name="status">
+    <option <eq name="vo.status" value="1" >selected</eq> value="1">正常</option>
+	<option <eq name="vo.status" value="-1" >selected</eq> value="-1">过期</option>
+	<option <eq name="vo.status" value="0" >selected</eq> value="0">预约</option>
+	</SELECT></td>
+</tr>
+<tr>
+	<td class="tRight tTop">备  注：</td>
+	<td class="tLeft"><TEXTAREA class="large bLeft"  name="remark" rows="5" cols="57">{$vo.remark}</textarea></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
+	<input type="submit" value="保 存" class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

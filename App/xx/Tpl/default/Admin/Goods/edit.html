@@ -1,0 +1,66 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑商品 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/"  enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >商品名：</td>
+	<td class="tLeft" ><input type="text" size="60" name="title" value="{$vo.title}"></td>
+</tr>
+<tr>
+	<td class="tRight" >商品分类：</td>
+	<td class="tLeft" >
+	<select name="cid">
+	<volist name="list" id="voo">
+	 <option value="{$voo.id}" <eq name="voo.id" value="$vo.cid">selected</eq>>{$voo.title}</option>
+	</volist>
+</select></td>
+</tr>
+<tr>
+	<td class="tRight" >日期：</td>
+	<td class="tLeft" ><input type="text" name="sectime" onFocus="ShowCalendar(this)" size="15" value='{$vo.starttime|date="Y-m-d",###}'>
+	开始时间：<input type="text" name="starttime" size="10" value='{$vo.starttime|date="H:i:s",###}'>&nbsp;&nbsp;
+	结束时间：<input type="text" name="endtime" size="10" value='{$vo.endtime|date="H:i:s",###}'>
+	</td>
+</tr>
+<tr>
+	<td class="tRight" >商品数量：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value="{$vo.num}"></td>
+</tr>
+<tr>
+	<td class="tRight" >积分：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value="{$vo.score}"></td>
+</tr>
+<tr>
+	<td class="tRight" >报名扣分比：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="signupscore" value="{$vo.signupscore}">%</td>
+</tr>
+<tr>
+	<td class="tRight" >失败扣分比：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="failscore" value="{$vo.failscore}">%</td>
+</tr>
+<tr>
+	<td class="tRight" >市场价格</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="price" value="{$vo.price}"></td>
+</tr>
+<tr>
+	<td class="tRight" >展示图片：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/><img src="{$vo.thumpath}"></td>
+</tr>
+<tr>
+	<td class="tRight tTop">产品详细介绍：</td>
+	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px">{$vo.content}</html:editor></td>
+</tr>
+<tr>
+	<td></td>
+	<td class="center">
+	<input name="id" type="hidden" value="{$vo.id}" />
+	<input type="submit" value="修 改"  class="small submit">
+	</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

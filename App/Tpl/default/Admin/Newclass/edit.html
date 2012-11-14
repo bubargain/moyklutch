@@ -1,0 +1,19 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">编辑新闻分类 [ <a href="__URL__">返回列表</a> ]</div>
+<table cellpadding=3 cellspacing=3>
+<form method='post' id="form1" action="__URL__/update/"  enctype="multipart/form-data">
+<tr>
+	<td class="tRight" >类别名称：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="name" value="{$vo.name}"></td>
+</tr>
+<td ><input type="hidden" name="id" value="{$vo.id}" >
+<input type="submit" value="编辑"  class="small submit">
+</td>
+</tr>
+</table>
+</form>
+</div>
+</div>

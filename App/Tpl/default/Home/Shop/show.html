@@ -1,0 +1,88 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(6)").addClass("cc");
+</script>
+
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+	<div class="fl w71">
+<div id="space">当前位置：<a href="__APP__">首页</a>&gt;商家详情&gt;{$vo.title}</div>
+	<h3>{$vo.title}</h3>
+    <div class="sub-m">Time:{$vo.update_time|toDate}</div>
+    <div id="body-m">{$vo.introduce}</div>
+<div class="cr"></div>
+<div class="box5-title">此商家的所有优惠券</div>
+<div class="box1">
+<ul class="list1">
+<leishi:ticket result="voo" trade_id="vo[id]">
+<li>
+<div class="fl"><label>{$vo.id}</label><a href="__APP__/Ticket/show/id/{$voo.id}"><img src="__ROOT__/img/imagethum/{$voo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name">{$voo.trade_id|get_trade}</p>
+<p class="q-inf">{$voo.title|t_substr=0,10}</p>
+<p class="q-pr"><a href="__GROUP__/User/ticket_col/id/{$voo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a></p>
+</div>
+</li>
+</leishi:ticket>
+</ul>
+</div>
+    <p class="pfs">网友评分：</p>
+<div class="cr"></div>
+<div id="shop-c">
+<foreach name= "comment" item= "com">
+<p><span>—{$com.create_time|date="Y年m月d日:H i s",###}</span>评论者：{$com.user_id|get_user}</p>
+<div>{$com.content}</div>
+</foreach>
+</div>
+<div class="cr"></div>
+<div id="fpage">
+{$page}
+</div>
+{//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx加的内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx }
+<if condition="($config_list eq 1)"> 
+{// end }
+
+<form method="post" action="__GROUP__/Comment/insert" name="form1" onsubmit=" return checkvalue(this)">
+<p id="star">
+  <label>
+    <input type="radio" name="star" value="1" id="star_0" />
+    <img src="__PUBLIC__/home_image/star1.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="2" id="star_1" />
+    <img src="__PUBLIC__/home_image/star2.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="3" checked="checked" id="star_2" />
+    <img src="__PUBLIC__/home_image/star3.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="4" id="star_3" />
+    <img src="__PUBLIC__/home_image/star4.gif" /></label>
+  <label>
+    <input type="radio" name="star" value="5" id="star_4" />
+    <img src="__PUBLIC__/home_image/star5.gif" /></label>
+</p>
+<input type="hidden" name="pid" value="{$vo.id}">
+<input type="hidden" name="module" value="trade" />
+<div><textarea id="content" name="content" style="width:100%;" rows="5"></textarea></div>
+<div class="cr"></div>
+<p align="center"><input type="submit" value="提交评论" /></p>
+</form>
+{//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx加的内容xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx }
+</if>
+{//end}
+    </div>
+    <div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+<div class="box6-title">最新活动</div>
+<ul class="list2">
+<leishi:huodong order="id" type="1" limit="3">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+    </div>
+</div>
+<include file="Index:footer" />

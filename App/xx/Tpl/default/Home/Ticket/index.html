@@ -1,0 +1,142 @@
+<include file="Index:header" />
+<script>
+$("div#nav ul li:nth-child(2)").addClass("cc");
+</script>
+<tagLib name="cx,leishi" />
+<div class="w96">
+<div class="cr"></div>
+<div class="fl w71">
+<div id="quanzi"><ul>
+<li><span>热门分类：</span>
+<foreach name= "hotcate" item= "vo">
+<a href="__APP__/Ticket/index/cate_id/{$vo.cate_id}/searchtag/{$vo.cate_id|get_cate}" <eq name="search.cate_id" value="$vo['cate_id']">style="color:red;"</eq> >{$vo.cate_id|get_cate}</a>&nbsp;&nbsp;
+</foreach>
+</li>
+<li><span>热门商圈：</span>
+<leishi:area order="id" pid="1" limit="5">
+<a href="__APP__/Ticket/index/area/{$vo.id}/searchtag/{$vo.title}"  <eq name="search.area" value="$vo['id']">style="color:red;"</eq> >{$vo.title}</a>&nbsp;&nbsp;
+</leishi:area>
+</li>
+<li><span>热门搜索：</span><leishi:tag order="search_count" limit="8">
+<a href="__APP__/Ticket/index/search/{$vo.id}/searchtag/{$vo.title}"  <eq name="search.search" value="$vo['id']">style="color:red;"</eq> >{$vo.title}</a>&nbsp;&nbsp;
+</leishi:tag>
+</li>
+</ul></div>
+
+<div class="box1-title"><span><label>您搜索的优惠券共{$count}条</label>{$_GET.searchtag}&nbsp;&nbsp;&nbsp;&nbsp;</span>最新优惠券</div>
+<div class="box1">
+	<ul class="list1">
+<foreach name= "list" item= "vo">
+<li>
+<div class="fl"><label>{$vo.id}</label><a href="__APP__/Ticket/show/id/{$vo.id}"><img src="__ROOT__/img/imagethum/{$vo.id}.jpg" width="166" height="83"/></a></div>
+<div class="fr">
+<p class="q-name"><a href="__GROUP__/Shop/show/id/{$vo.trade_id}">{$vo.trade_id|get_trade}</a></p>
+<p class="q-inf">{$vo.title|t_substr=0,20}</p>
+<p class="q-pr">
+<if condition="$vo.score gt 0">
+ <a href="__GROUP__/User/ticket_col/id/{$vo.id}">加入收藏</a>
+<else/>
+ <a href="__GROUP__/User/ticket_col/id/{$vo.id}">加入收藏</a>|<a href="javascript:;" class="prt">立即打印</a>
+</if>
+</p>
+</div>
+</li>
+</foreach>
+    </ul>
+<div class="cr"></div>
+<div id="dpage">{$page}</div>
+    </div>
+</div>
+<div class="fr w24">
+<div class="box">
+	<p class="box7-title">会员登录</p>
+<include file="Index:taglogin" />
+</div>
+<div class="cr"></div>
+
+<div class="box">
+<p class="box7-title">行业分类</p>
+
+<div id="bfl">
+<leishi:cate order="id" result="voo" limit="8">
+<h5><span></span><a href="__APP__/Ticket/index/cate_id/{$voo.id}">{$voo.title}</a></h5>
+
+<div class="panet">
+<leishi:cate order="id" result="vooo" type="voo[id]">
+<a href="__APP__/Ticket/index/cate_id/{$vooo.id}">{$vooo.title}</a>
+</leishi:cate>
+</div>
+</leishi:cate>
+</div>
+<script>
+$("#bfl div").eq(0).show();
+</script>
+
+<script>
+$("#bfl").tabs("#bfl div.panet", {tabs: 'h5 span', effect: 'slide', initialIndex: null});
+</script>
+
+</div>
+<div class="cr"></div>
+<div class="box6-title">最新活动</div>
+<ul class="list2">
+<leishi:huodong order="id" type="1" limit="3">
+	<li><a href="__GROUP__/Huodong/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:huodong>
+</ul>
+<div class="cr"></div>
+	<ul class="box2-title tabs2">
+<li><a href="#">热门商家</a></li>
+<li><a href="#">最新商家</a></li>
+    </ul>
+    <div class="box2 panes2"><ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>
+<ul>
+<li id="box2a">
+<leishi:shop order="id" limit="1">
+	<a href="__GROUP__/Shop/show/id/{$vo.id}" class="fl"><img src="{$vo.logo}" width="71" height="56" /></a>
+    <div class="fr">
+<p><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></p>
+<p class="box2b">{$vo.status}种优惠</p>
+    </div>
+
+</leishi:shop>
+</li>
+<leishi:shop order="id" limit="6">
+	<li><a href="__GROUP__/Shop/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:shop>
+    </ul>    </div>
+<script>
+$(function() {
+	$("ul.tabs2").tabs("div.panes2 > ul",{  event: 'click'});
+});
+</script>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/q4.jpg" /></div>
+<div class="cr"></div>
+<div class="box6-title">网友热评</div>
+<ul class="list2">
+<leishi:news limit="5" where="'cid=52'">
+<li><a href="__GROUP__/News/show/id/{$vo.id}">{$vo.title}</a></li>
+</leishi:news>
+</ul>
+<div class="cr"></div>
+<div class="ad"><img src="/imgs/q4.jpg" /></div>
+</div>
+
+</div>
+<div class="cr"></div>
+<include file="Index:footer" />

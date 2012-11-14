@@ -1,0 +1,48 @@
+<include file="Index:header" />
+<tagLib name="cx,leishi" />
+<script>
+function Juge(myform)
+{
+    if(myform.money.value == "")
+	{
+		alert("请输入充值金额!");
+		myform.money.focus();
+		return (false);
+	}else{
+	    var zip_code=/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+	     flag=zip_code.test(myform.money.value);
+		 if(!flag){
+		   alert('你输入的金额不对'); return false;
+		}
+	}
+}
+</script>
+<div class="w96 ah">
+	<div class="fl w71">
+	<div class="box5-title">用户充值</div>
+<div class="ad1">
+<include file="User:left" />
+<script>
+$("ul.uilist li:nth-child(8) a").addClass("uc");
+</script>
+<div id="uinforight" class="box1">
+<p class="titlen"><span></span></p>
+<div class="box1-body">
+<form id="form1" action="__APP__/User/payoff" method="post" onSubmit="return Juge(this)">
+<table class="infotable" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr><td>当&nbsp;&nbsp;&nbsp;&nbsp;前&nbsp;&nbsp;&nbsp;&nbsp;积&nbsp;&nbsp;&nbsp;&nbsp;分</td><td>{$vo.score}</td></tr>
+<tr><td>请输入充值金额</td><td><input name="money" size="16" type="type"/>&nbsp;&nbsp;元(兑换规则一元兑换{$rate}个积分)</td></tr>
+<tr><td align="center" colspan="2">
+<input type="submit" value="充值" /></td></tr>
+
+</table></form></div>
+<p class="bottom"><span class="fl"></span><span class="fr"></span></p>
+</div>
+</div>
+    </div>
+    <div class="fr w24">
+<include file="Index:news" />
+<div class="ad1"><a href="#"><img src="__PUBLIC__/home_image/ad.jpg" /></a></div>
+    </div>
+</div>
+<include file="Index:footer" />

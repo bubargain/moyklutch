@@ -1,0 +1,31 @@
+<tagLib name="html" />
+<include file="Public:header" />
+<div id="main" class="main" >
+<div class="content">
+<div class="title">用户加分</div>
+<div style="float:left;">
+<form method=post id="order-pay-form"  action="__URL__/sendmail" sid="charge">
+<table cellpadding=3 cellspacing=3>
+<tr>
+	<td class="tRight" >发信人：</td>
+	<td class="tLeft" ><input type="text" name="title" value="唐山优惠券网" />
+</tr>
+<tr>
+	<td class="tRight" >标题：</td>
+	<td class="tLeft" ><input name="subject" type="text" VALUE="" /></td>
+</tr>
+<tr>
+	<td class="tRight" >内容：</td>
+	<td class="tLeft" ><textarea name="body" id="body" cols="40" rows="4"></textarea></td>
+</tr>
+<tr>
+	<td ></td>
+	<td class="center"><div style="width:85%">
+	<input type="submit" name="submit" value="发送" class=" shadow submit">
+	</div></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>
