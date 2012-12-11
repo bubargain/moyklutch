@@ -276,7 +276,7 @@ $(function() {
     <div class="box1 panes">
 <?php $_result=M('Cate')->order('id')->where("1=1 and pid = 0")->limit(5)->select(); if ($_result): $i=0;foreach($_result as $key=>$cate):++$i;$mod = ($i % 2 );?><div>
 	<ul class="list1">
-<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1352629806 and ticket.cate_id in(SELECT id from think_cate where pid=$cate[id])",'order by ticket.create_time desc','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
+<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1355230057 and ticket.cate_id in(SELECT id from think_cate where pid=$cate[id])",'order by ticket.create_time desc','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
 <div class="fl"><label><?php echo ($voo["id"]); ?></label><a href="__APP__/Ticket/show/id/<?php echo ($voo["id"]); ?>"><img src="__ROOT__/img/imagethum/<?php echo ($voo["id"]); ?>.jpg" width="166" height="83"/></a></div>
 <div class="fr">
 <p class="q-name"><?php echo (get_trade($voo["trade_id"])); ?></p>
@@ -305,7 +305,7 @@ $(function() {
     <div class="box5 panes3">
 <?php $_result=M('Cate')->order('id')->where("1=1 and pid = 0")->limit(5)->select(); if ($_result): $i=0;foreach($_result as $key=>$cate):++$i;$mod = ($i % 2 );?><div>
 	<ul class="list1">
-<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1352629806 and ticket.keyword like '%鐑棬%' and ticket.cate_id in(SELECT id from think_cate where pid=$cate[id])",'order by ticket.create_time desc','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
+<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1355230057 and ticket.keyword like '%鐑棬%' and ticket.cate_id in(SELECT id from think_cate where pid=$cate[id])",'order by ticket.create_time desc','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
 <div class="fl"><label><?php echo ($voo["id"]); ?></label><a href="__APP__/Ticket/show/id/<?php echo ($voo["id"]); ?>"><img src="__ROOT__/img/imagethum/<?php echo ($voo["id"]); ?>.jpg" width="166" height="83"/></a></div>
 <div class="fr">
 <p class="q-name"><?php echo (get_trade($voo["trade_id"])); ?></p>
@@ -444,7 +444,7 @@ $(function() {
 
 <div class="cr"></div>
 <ul class="list1">
-<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1352629806 and ticket.keyword like '%澶╃┖%'",'','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
+<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1355230057 and ticket.keyword like '%澶╃┖%'",'','4',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
 <div class="fl"><label><?php echo ($voo["id"]); ?></label><a href="__APP__/Ticket/show/id/<?php echo ($voo["id"]); ?>"><img src="__ROOT__/img/imagethum/<?php echo ($voo["id"]); ?>.jpg" width="166" height="83"/></a></div>
 <div class="fr">
 <p class="q-name"><?php echo (get_trade($voo["trade_id"])); ?></p>

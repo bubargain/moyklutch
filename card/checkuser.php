@@ -51,6 +51,12 @@ if($card!=false){
 	//	if($card['limit_count']>=$_SCONFIG['limit_count']){ //如果数量超出限制
 	//	    exit("打印数量已超出限制");
 	//		}
+	
+	//test output
+		$fp = fopen('./data.txt',"a");
+		fwrite($fp,"[record]: ".$card['card_id']." ; [new_use_count]=".$new_use_count.";;;; \n");
+		fclose($fp);
+		
 
 	//}
 }

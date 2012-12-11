@@ -24,11 +24,9 @@ ThinkAjax.updateTip	=	'Loading ～';
 function loginHandle(data,status){
 if (status==1)
 {
-//$this->ajaxReturn($result,"型号增加成功！",1);
 $('result').innerHTML	=	'<span style="color:blue"><img SRC="__PUBLIC__/Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle" > Login succeed！ jump in 3 seconds～</span>';
 $('form1').reset();
-alert("123");
-window.location = '__URL__/Admin';
+window.location = '__URL__';
 }
 }
 function keydown(e){

@@ -267,7 +267,11 @@ function asc2bin ($html) {
 			while ($temp!=''){
 				$out_str = explode('| |',getstr($temp,floor(384/$fontsize[0]),'utf-8'));
 				$temp = substr($temp,strlen($out_str[0]));
+				
+				//tanslate utf-8 characters into gb2312
 				$out_str[0] = iconv( "UTF-8", "gb2312//IGNORE",$out_str[0]);
+				//$out_str[0] = iconv( "UTF-8", "ASCII//TRANSLIT",$out_str[0]);
+				
 				//修正反色
 				if($fanses[0] == 1){
 					if($aligns[0]=='left'){

@@ -13,11 +13,11 @@
  
  //open the debug model
 define( 'NO_CACHE_RUNTIME' , True);
-define('APP_DEBUG',true);
+define('APP_DEBUG',false);
  //define('SHOW_PAGE_TRACE',true);	
 // 定义ThinkPHP框架路径
 define('THINK_PATH', './ThinkPHP/');
-define('STRIP_RUNTIME_SPACE',false);
+//define('STRIP_RUNTIME_SPACE',false);
 //定义项目名称和路径
 define('APP_NAME', 'App');
 define('APP_PATH', './App/');

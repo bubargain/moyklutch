@@ -3,7 +3,7 @@ if (!defined('THINK_PATH')) exit();
 return $array=array(
 		'URL_MODEL'=>1,                 // 如果你的环境不支持PATHINFO 请设置为3
 		'DB_TYPE'=>'mysql',
-		'DB_HOST'=>'192.168.1.104',     //数据库所在IP地址
+		'DB_HOST'=>'www.uhquan.com',     //数据库所在IP地址
 		'DB_USER'=>'root',     //数据库用户
 		'DB_PWD' =>'RooT',  	 //数据库密码
 		'DB_NAME'=>'ticket',     //数据库名
@@ -17,7 +17,7 @@ return $array=array(
 
 		//uc配置
 		'UC_CONNECT'         => 'POST',
-		'UC_IP'              => 'localhost',
+		'UC_IP'              => 'www.moyklutch.net',
 		'UC_CLIENT_PATH'     => APP_NAME.'/uc_client/',
 		'UC_API'             => 'http://www.uhquan.com/uc',
 		'UC_CHARSET'         => 'utf8',

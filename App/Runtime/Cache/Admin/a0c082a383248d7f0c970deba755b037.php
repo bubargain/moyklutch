@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>『唐山优惠券管理平台』By ThinkPHP <?php echo (THINK_VERSION); ?></title>
+<title>『MoyKlutch』By ThinkPHP <?php echo (THINK_VERSION); ?></title>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/style.css" />
 <script type="text/javascript" src="__PUBLIC__/Js/jquery.js"></script>
 <script type="text/javascript" src="__PUBLIC__/Js/common.js"></script>
@@ -27,7 +27,7 @@ ImageLoader.startLoad();
 </head>
 
 <body onload="loadBar(0)">
-<div id="loader" >页面加载中...</div>
+<div id="loader" >Page Loading...</div>
 <!-- 菜单区域  -->
 <script src="__PUBLIC__/Js/AjaxCls.js" type="text/javascript" ></script>
 <script language="javascript">

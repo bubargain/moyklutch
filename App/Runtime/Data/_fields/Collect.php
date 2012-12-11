@@ -7,6 +7,7 @@ return array (
   4 => 'close_time',
   5 => 'create_time',
   6 => 'action_type',
+  7 => 'trade_id',
   '_autoinc' => true,
   '_pk' => 'id',
 );

@@ -236,7 +236,7 @@
         if (!isset($_SESSION[C('USER_AUTH_KEY')])) {
             $this->display();
         } else {
-            $this->redirect('Admin/Index/index');
+            $this->redirect('Index/index');
         }
     }
 
@@ -321,8 +321,8 @@
             $User->save($data);
 
             // 缓存访问权限
-           // $this->success('Change succeed！',true);
-           $this->ajaxReturn('','用户名正确~',1); 
+            $this->success('Change succeed!' , 'Admin');
+           //$this->ajaxReturn('','用户名正确~',1); 
            
         }
     }
@@ -352,8 +352,8 @@
             import('@.ORG.Uc');
             $Uc = new Uc();
 			$data = $Uc->editUserInfo($list['account'],$_POST['oldpassword'],$_POST['password'],$list['email']);
-           // $this->success('Change succeed！',true);
-            $this->ajaxReturn('','登录成功！',1); 
+            $this->success('Change succeed!',false);
+           // $this->ajaxReturn('','登录成功！',1); 
         }
     }
 

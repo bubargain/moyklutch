@@ -189,7 +189,7 @@ $("div#nav ul li:nth-child(6)").addClass("cc");
 <div class="box5-title">此商家的所有优惠券</div>
 <div class="box1">
 <ul class="list1">
-<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1352822286 and ticket.trade_id =$vo[id]",'','',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
+<?php $_result=D('Ticket')->getlist("where ticket.status=1 and ticket.close_time > 1355227625 and ticket.trade_id =$vo[id]",'','',''); if ($_result): $i=0;foreach($_result as $key=>$voo):++$i;$mod = ($i % 2 );?><li>
 <div class="fl"><label><?php echo ($vo["id"]); ?></label><a href="__APP__/Ticket/show/id/<?php echo ($voo["id"]); ?>"><img src="__ROOT__/img/imagethum/<?php echo ($voo["id"]); ?>.jpg" width="166" height="83"/></a></div>
 <div class="fr">
 <p class="q-name"><?php echo (get_trade($voo["trade_id"])); ?></p>

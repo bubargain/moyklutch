@@ -35,6 +35,7 @@ return array (
   32 => 'verify_mobile',
   33 => 'mobile_if',
   34 => 'score',
+  35 => 'card_type',
   '_autoinc' => true,
   '_pk' => 'id',
 );
