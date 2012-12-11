@@ -13,7 +13,8 @@
  
  //open the debug model
 define( 'NO_CACHE_RUNTIME' , True);
-define('APP_DEBUG',true);
+//echo "test:".$_SERVER['DOCUMENT_ROOT'];
+define('APP_DEBUG',false);
  //define('SHOW_PAGE_TRACE',true);	
 // 定义ThinkPHP框架路径
 define('THINK_PATH', './ThinkPHP/');
@@ -23,6 +24,6 @@ define('APP_NAME', 'App');
 define('APP_PATH', './App/');
 
 // 加载框架入口文件
-require(THINK_PATH."/thinkphp.php");
+require_once(THINK_PATH."ThinkPHP.php");
 //实例化一个网站应用实例
 App::run();
