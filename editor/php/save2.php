@@ -14,6 +14,7 @@ require('../../Config/config_card.php');
 require('../../Lib/function_common.php');
 include_once('simple_html_dom.php');
 include_once('../class_image.php');
+include_once('translateUTF8ToASCII.php');
 $html = str_get_html($_POST['content']);
 $id=$_POST['tid'];
 $ffid=$id;
@@ -30,7 +31,7 @@ function asc2bin ($html) {
 	//默认值
 	$align = 'left'; //1B 61 ====   00=left  01=center   02=right
 	$zoom = '1';  //1B 57 01
-	$font = 'cnfont';  //汉字1C 26 英文1C 2E
+	$font = 'rufont';  //汉字1C 26 英文1C 2E 俄文 1B 38 01
 	$line_height = 0; //打印机默认3  1B 31 00
 	$fanse = 0; //取消反白 1D 42 00 反白 1D 42 01
 	$echo_str='';
@@ -75,9 +76,9 @@ function asc2bin ($html) {
 			}
 		}
 		if($p->first_child() && $p->first_child()->tag == 'img'){
-			if($font!='cnfont'){
-				$font='cnfont';
-				$temp_setting .= '1C26';
+			if($font!='rufont'){
+				$font='rufont';
+				$temp_setting .= '1B38';
 			}
 			if($zoom !=1){
 				$zoom = 1;
@@ -92,18 +93,18 @@ function asc2bin ($html) {
 			//字体
 			if(strstr($p->class,'font')!=false){
 				if(strstr($p->class,$font)==false){
-					if($font=='cnfont'){
+					if($font=='rufont'){
 						$font='enfont';
 						$temp_setting .= '1C2E';
 					}else{
-						$font='cnfont';
-						$temp_setting .= '1C26';
+						$font='rufont';
+						$temp_setting .= '1C38';
 					}
 				}
 			}else{
-				if($font != 'cnfont'){
-					$temp_setting .= '1C26';
-					$font = 'cnfont';
+				if($font != 'rufont'){
+					$temp_setting .= '1C38';
+					$font = 'rufont';
 				}
 			}
 			//字体放大
@@ -129,11 +130,12 @@ function asc2bin ($html) {
 				}
 			}
 			//字体大小
-			$font_size = ($font == 'cnfont') ? (12*$zoom) : (6*$zoom);
+			//$font_size = ($font == 'rufont') ? (12*$zoom) : (6*$zoom);
+			$font_size = 6 * $zoom;
 			//行高
 			if($p->style){
-				if($line_height != intval(str_replace('line-height:','',$p->style)) - (($font == 'cnfont') ? $font_size*2 : $font_size/6*8)){
-					$line_height = intval(str_replace('line-height:','',$p->style)) - (($font == 'cnfont') ? $font_size*2 : $font_size/6*8);
+				if($line_height != intval(str_replace('line-height:','',$p->style)) - (($font == 'rufont') ? $font_size*2 : $font_size/6*8)){
+					$line_height = intval(str_replace('line-height:','',$p->style)) - (($font == 'rufont') ? $font_size*2 : $font_size/6*8);
 				}
 			}else{
 				if($line_height != 0){
@@ -269,9 +271,10 @@ function asc2bin ($html) {
 				$temp = substr($temp,strlen($out_str[0]));
 				
 				//tanslate utf-8 characters into gb2312
-				$out_str[0] = iconv( "UTF-8", "gb2312//IGNORE",$out_str[0]);
-				//$out_str[0] = iconv( "UTF-8", "ASCII//TRANSLIT",$out_str[0]);
+				//$out_str[0] = iconv( "UTF-8", "gb2312//IGNORE",$out_str[0]);
+						
 				
+				//echo $out_str[0];
 				//修正反色
 				if($fanses[0] == 1){
 					if($aligns[0]=='left'){
@@ -299,12 +302,22 @@ function asc2bin ($html) {
 				}else{
 					$fanse= 0;
 				}
-
-				$len = strlen($out_str[0]); 
-				$temp_hex = '';
-				for ($i=0; $i<$len; $i++){
-					$temp_hex .= sprintf("%02x",ord(substr($out_str[0],$i,1))); 
-				}
+				
+				
+				/*
+				 * translate out_str from utf8 into Extend-ASCII
+				 * Author: Daniel
+				 */
+				
+				$RussiaOut=splitRussiaChar($out_str[0]);
+				
+				//$len = strlen($out_str[0]); 
+				$temp_hex = $RussiaOut;
+				//echo $temp_hex;
+				//for ($i=0; $i<$len; $i++){
+					//$temp_hex .= sprintf("%02x",ord(substr($out_str[0],$i,1))); 
+					
+				//}
 				//补行
 				if($fanses[0] == 1){
 					$data[] =$lineheight_str[0]. '0a1b57011c2e20202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020';
@@ -325,10 +338,12 @@ function asc2bin ($html) {
 		array_shift($fanses);
 		array_shift($aligns);
 	}
-	//var_dump($data);
+	//test data
+	var_dump($data);
+	
 	$data = array_reverse($data);
 	$data = implode('',$data);
-	return '1b61001b57011c261b31001d4200'.$data.'0d0d0d0d0d0d0d';
+	return '1b61001b57011C381b31001d4200'.$data.'0d0d0d0d0d0d0d';
 }
 
 ///////////////生成gif文件，文件名：content+id.gif
@@ -420,15 +435,15 @@ foreach($html->find('p') as $p) {
 			$fontsize = 18;
 			//中文字体
 			if(strstr($p->class,'enfont')==false){
-				if(strstr($p->class,'cnfont1')){
+				if(strstr($p->class,'rufont1')){
 					//点数
 					$fontsize = 18;
 				}
-				if(strstr($p->class,'cnfont2')){
+				if(strstr($p->class,'rufont2')){
 					//点数
 					$fontsize = 36;
 				}
-				if(strstr($p->class,'cnfont3')){
+				if(strstr($p->class,'rufont3')){
 					//点数
 					$fontsize = 54;
 				}
@@ -453,7 +468,7 @@ foreach($html->find('p') as $p) {
 					}
 				}
 				if(strstr($p->class,'fanse')==false){
-					ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83)+floor($line_height/2),$black,"simsun.ttc",$out_str[0]); 
+					ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83)+floor($line_height/2),$black,"Kremlin Duma Bold.ttf",$out_str[0]); 
 					$fanse = 0;
 				}else{
 					if($fanse == 0){
@@ -463,7 +478,7 @@ foreach($html->find('p') as $p) {
 						imagerectangle($im,0,$top,383,$top+$fontsize/3*4+6,$black);
 					}
 					imagefill($im,1,$top+1,$black);
-					ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83),$white,"simsun.ttc",$out_str[0]); 
+					ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83),$white,"Kremlin Duma Bold.ttf",$out_str[0]); 
 					$top+=6;
 					$fanse = 1;
 				}
@@ -502,7 +517,7 @@ foreach($html->find('p') as $p) {
 				}
 				if(strstr($p->class,'fanse')==false){
 					for($i=0;$i<=$out_str[1];$i++){
-						ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83)+floor($line_height/2),$black,"cour.ttf",substr($out_str[0],$i,1)); 
+						ImageTTFText($im,$fontsize,0,$left,$top+floor($fontsize/3*4*0.83)+floor($line_height/2),$black,"Kremlin Duma Bold.ttf",substr($out_str[0],$i,1)); 
 						$left+=$fontsize;
 					}
 						$fanse = 0;
