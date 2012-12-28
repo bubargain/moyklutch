@@ -275,6 +275,7 @@
 
     // 登录检测
     public function checkLogin() {
+    	ob_clean();
         if (empty($_POST['account'])) {
             $this->error('Account Error!');
         } elseif (empty($_POST['password'])) {
@@ -334,11 +335,12 @@
             $data['login_count'] = array('exp', 'login_count+1');
             $data['last_login_ip'] = $ip;
             $User->save($data);
-
-            // 缓存访问权限
-           // $this->success('Change succeed!' ,false);
+			
+            ob_clean();
+           //页面跳转
+              $this->ajaxReturn("","Weclome, MoyKlutch!",1 );
            // $this->redirect("Index/index");
-           $this->ajaxReturn('','用户名正确~',1); 
+         
            
         }
     }
