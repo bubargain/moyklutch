@@ -17,6 +17,21 @@
             $this->error('try login again');
         }
     }
+    
+    public function verify()
+    {
+    	//echo "should import ready";
+    	import ( "ORG.Util.Image" );
+    	ob_end_clean();
+		Image::buildImageVerify ( );
+    }
+   
+    /*public function verify() {
+        $type = isset($_GET['type']) ? $_GET['type'] : 'gif';
+        import("@.ORG.Image");
+        Image::buildImageVerify(4, 1, $type);
+        
+    }*/
 
     // 顶部页面
     public function top() {
@@ -265,9 +280,9 @@
         } elseif (empty($_POST['password'])) {
             $this->error('You need Input Password!');
         } 
-        //elseif (empty($_POST['verify'])) {
-        //    $this->error('验证码必须！');
-        // }
+        elseif (empty($_POST['verify'])) {
+            $this->error('验证码必须！');
+         }
         //生成认证条件
         $map = array();
         // 支持使用绑定帐号登录
@@ -275,9 +290,9 @@
         $map["status"] = array('gt', 0);
         
       
-      // if ($_SESSION['verify'] != md5($_POST['verify'])) {
-      //      $this->error('验证码错误！');
-      //  }
+       if ($_SESSION['verify'] != md5($_POST['verify'])) {
+            $this->error('验证码错误！');
+        }
        $authInfo=M("User")->where($map)->find();
         if (false === $authInfo) {
             $this->error("Account don't exsit or forbiddened, please contact ");
@@ -321,8 +336,9 @@
             $User->save($data);
 
             // 缓存访问权限
-            $this->success('Change succeed!' , 'Admin');
-           //$this->ajaxReturn('','用户名正确~',1); 
+           // $this->success('Change succeed!' ,false);
+           // $this->redirect("Index/index");
+           $this->ajaxReturn('','用户名正确~',1); 
            
         }
     }
@@ -352,7 +368,8 @@
             import('@.ORG.Uc');
             $Uc = new Uc();
 			$data = $Uc->editUserInfo($list['account'],$_POST['oldpassword'],$_POST['password'],$list['email']);
-            $this->success('Change succeed!',false);
+            
+			$this->success('Change succeed!',false);
            // $this->ajaxReturn('','登录成功！',1); 
         }
     }
@@ -365,12 +382,7 @@
         $this->display();
     }
 
-    public function verify() {
-         $type = isset($_GET['type']) ? $_GET['type'] : 'gif';
-        import("@.ORG.Image");
-        Image::buildImageVerify(4, 1, $type);
-        
-    }
+    
 
 // 修改资料
     public function change() {

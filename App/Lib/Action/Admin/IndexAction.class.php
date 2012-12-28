@@ -7,6 +7,8 @@
   * @author liu21st，zzguo28，who
   +------------------------------------------------------------------------------
  */
+
+
 class IndexAction extends CommonAction {
 	// 框架首页
 	public function index() {
@@ -24,8 +26,10 @@ class IndexAction extends CommonAction {
 	}
 	public function verify() {
 		import ( "ORG.Util.Image" );
-		Image::buildImageVerify ( 4 );
-	}
+		//clear the content before
+		//ob_end_clean();
+		Image::buildImageVerify ( );
+	} 
 
 }
 ?>
