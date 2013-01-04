@@ -188,10 +188,10 @@ function setarea(bid)
 
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">商家列表</div>
+<div class="title">Merchant List</div>
 <!--  功能操作区域  -->
 <div class="operate" >
-<input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();"><input type="button" name="exp" value="导出" class="small hMargin shadow submit" onclick="formsubmit();"><form method='post' name="form1" id="form1" action="__URL__">
+<input type="button" name="add" value="ADD"  class="small hMargin shadow submit" onclick="add();"><input type="button" name="exp" value="Export" class="small hMargin shadow submit" onclick="formsubmit();"><form method='post' name="form1" id="form1" action="__URL__">
 </div>
 <!-- 查询区域 -->
 <!-- 高级查询区域 -->
@@ -199,40 +199,40 @@ function setarea(bid)
 <div id="searchM">
 <table width="1133" cellpadding="1" cellspacing="0">
 <input type="hidden" name="flag" value="1" />
-<tr><td width="336">编号：
+<tr><td width="336">No：
   <input type="text" name="id" title="ID" size="10" value="{$id}"></td>
-<td width="327">商家名称：
+<td width="327">Name：
   <input type="text" name="title" title="商家名称" size="10" value="{$title}"></td>
 
-<td width="462">标签：
+<td width="462">Label：
   <input type="text" name="tags" title="标签" size="10" value="{$tags}"></td></tr>
-<tr><td colspan="3">归属商圈：
+<tr><td colspan="3">City：
   <select name="areab" onchange="setarea(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_area_option();</php>
 </select>
-小商圈：<select name="area" id="area">
-<option value="">-请选择-</option>
-</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品大类：
+Region：<select name="area" id="area">
+<option value="">-Choose-</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category：
   <select name="cate_bid" id="cate_bid" onchange="setcate(this.options[this.selectedIndex].value,'cate_id');">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_cate_option();</php>
 </select>
-子类：<select name="cate_id" id="cate_id">
-<option value="">-请选择-</option>
+Ch-：<select name="cate_id" id="cate_id">
+<option value="">-Choose-</option>
 </select>
-&nbsp;&nbsp;&nbsp;状态：
+&nbsp;&nbsp;&nbsp;Status：
   <select name="status">
-  <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
-  <option <eq name="status" value="3" >selected</eq> value="3">不限</option>
-  <option <eq name="status" value="-1" >selected</eq> value="-1">禁用</option>
-  <option <eq name="status" value="0" >selected</eq> value="0">待审核</option>
+  <option <eq name="status" value="1" >selected</eq> value="1">Normal</option>
+  <option <eq name="status" value="3" >selected</eq> value="3">Unlimit</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">Forbidden</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">unChecked</option>
 </select></td></tr>
-<tr><td width="336">结算金额：
+<tr><td width="336">Debt：
   <input type="text" name="getmoney1" size="10" value="{$getmoney1}">~<input type="text" name="getmoney2" size="10" value="{$getmoney2}"></td>
-  <td width="336">储值：
+  <td width="336">Saving：
   <input type="text" name="money1" size="10" value="{$money1}">~<input type="text" name="money2" size="10" value="{$money2}"></td>
-<td>创建时间：
+<td>Create Time：
   <input type="text" name="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}"></td></tr>
   <tr>
   <td width="462">统计筛选:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
@@ -248,7 +248,7 @@ function setarea(bid)
   <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
 </select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"></td><td>结果排序：<select name="resultid">
   <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
-  <option <eq name="resultid" value="title" >selected</eq> value="title" >商家名称</option>
+  <option <eq name="resultid" value="title" >selected</eq> value="title" >Merchant</option>
   <option <eq name="resultid" value="update_time" >selected</eq> value="update_time" >更新时间</option>
   <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >创建时间</option>
   <option <eq name="resultid" value="money" >selected</eq> value="money" >储值</option>
@@ -289,23 +289,23 @@ function setarea(bid)
 <tr><td height="5" colspan="16" class="topTd"></td></tr>
 <tr class="row" align="center">
 <th width="50"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th>
-<th width="130"><a href="javascript:sortBy('title','{$sort}','index')">商家名称</a></th>
-<eq name="menuticket" value="1" ><th width="50">券数量</th></eq>
-<eq name="menubranch" value="1" ><th width="50">分店</th></eq>
-<eq name="menumobile" value="1" ><th width="80">手机</th></eq>
-<eq name="menuemail" value="1" ><th width="100">邮箱</th></eq>
-<eq name="menufax" value="1" ><th width="100">传真</th></eq>
-<eq name="menuaddress" value="1" ><th width="150">地址</th></eq>
-<eq name="menupoint" value="1" ><th width="50"><a href="javascript:sortBy('point','{$sort}','index')">点击</a></th></eq>
-<eq name="menuprints" value="1" ><th width="50"><a href="javascript:sortBy('prints','{$sort}','index')">打印</a></th></eq>
-<eq name="menucollect" value="1" ><th width="50"><a href="javascript:sortBy('collect','{$sort}','index')">收藏</a></th></eq>
-<eq name="menuexh" value="1" ><th width="40">展位</th></eq>
-<eq name="menucreate_time" value="1" ><th width="100"><a href="javascript:sortBy('create_time','{$sort}','index')">创建时间</a></th></eq>
-<eq name="menuupdate_time" value="1" ><th width="100"><a href="javascript:sortBy('update_time','{$sort}','index')">更新时间</a></th></eq>
-<eq name="menustatus" value="1" ><th width="100"><a href="javascript:sortBy('status','{$sort}','index')">状态</a></th></eq>
-<th width="70"><a href="javascript:sortBy('money','{$sort}','index')">储值</a></th>
-<th width="70"><a href="javascript:sortBy('getmoney','{$sort}','index')">结算</a></th>
-<th width="350">操作</th>
+<th width="130"><a href="javascript:sortBy('title','{$sort}','index')">Merchant</a></th>
+<eq name="menuticket" value="1" ><th width="50">Coupon Amount</th></eq>
+<eq name="menubranch" value="1" ><th width="50">Store</th></eq>
+<eq name="menumobile" value="1" ><th width="80">Mobile</th></eq>
+<eq name="menuemail" value="1" ><th width="100">Email</th></eq>
+<eq name="menufax" value="1" ><th width="100">Fax</th></eq>
+<eq name="menuaddress" value="1" ><th width="150">Addr</th></eq>
+<eq name="menupoint" value="1" ><th width="50"><a href="javascript:sortBy('point','{$sort}','index')">Checked</a></th></eq>
+<eq name="menuprints" value="1" ><th width="50"><a href="javascript:sortBy('prints','{$sort}','index')">Printed</a></th></eq>
+<eq name="menucollect" value="1" ><th width="50"><a href="javascript:sortBy('collect','{$sort}','index')">Collected</a></th></eq>
+<eq name="menuexh" value="1" ><th width="40">Postions</th></eq>
+<eq name="menucreate_time" value="1" ><th width="100"><a href="javascript:sortBy('create_time','{$sort}','index')">Created Time</a></th></eq>
+<eq name="menuupdate_time" value="1" ><th width="100"><a href="javascript:sortBy('update_time','{$sort}','index')">Update Time</a></th></eq>
+<eq name="menustatus" value="1" ><th width="100"><a href="javascript:sortBy('status','{$sort}','index')">Status</a></th></eq>
+<th width="70"><a href="javascript:sortBy('money','{$sort}','index')">Debt</a></th>
+<th width="70"><a href="javascript:sortBy('getmoney','{$sort}','index')">Charge</a></th>
+<th width="350">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" ondblclick="show_more('more{$vo.id}');" align="center">
@@ -332,7 +332,7 @@ function setarea(bid)
 </td></eq>
 <td><a href="javascript:showmoney('Trade','{$vo.id}')">{$vo.money}</a></td>
 <td>{$vo.getmoney}</td>
-<td><a href="__URL__/addmoney/id/{$vo.id}">充值</a>&nbsp;&nbsp;<a href="__APP__/Admin/Ticket/add/id/{$vo.id}">添加优惠券</a>&nbsp;&nbsp;<a href="javascript:showuser('{$vo.id}')">授权用户</a>&nbsp;<a href="__URL__/addbranch/id/{$vo.id}">加分店</a>&nbsp;<a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;&nbsp;<switch name="vo.status"><case value="1"><a href="javascript:forbidden('{$vo.id}')">删除</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="3"><a href="__URL__/validcont/id/{$vo.id}">审核</a></case>
+<td><a href="__URL__/addmoney/id/{$vo.id}">充值</a>&nbsp;&nbsp;<a href="__APP__/Admin/Ticket/add/id/{$vo.id}"><font color="red">AddCoupon</font></a>&nbsp;&nbsp;<a href="javascript:showuser('{$vo.id}')">授权用户</a>&nbsp;<a href="__URL__/addbranch/id/{$vo.id}">AddSub-Store</a>&nbsp;<a href="javascript:edit('{$vo.id}')">Edit</a>&nbsp;&nbsp;<switch name="vo.status"><case value="1"><a href="javascript:forbidden('{$vo.id}')">Del</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="3"><a href="__URL__/validcont/id/{$vo.id}">审核</a></case>
 </switch>
 </td>
 </tr>

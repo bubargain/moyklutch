@@ -206,10 +206,10 @@ function setdate2(id){
 
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">展位租赁列表</div>
+<div class="title">Rent List</div>
 <!--  功能操作区域  -->
 <div class="operate" >
-<input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();"><input type="button" name="exp" value="导出" class="small hMargin shadow submit" onclick="formsubmit();"><input type="button" name="exp" value="导出明天生效的展位" class="hMargin shadow submit" onclick="tomorrow();">
+<input type="button" name="add" value="ADD" class="small hMargin shadow submit" onclick="add();"><input type="button" name="exp" value="Export" class="small hMargin shadow submit" onclick="formsubmit();"><input type="button" name="exp" value="Export Tomorrow Availble" class="hMargin shadow submit" onclick="tomorrow();">
 <form method='post' name="form1" id="form1" action="__URL__">
 </div>
 <!-- 查询区域 -->
@@ -253,7 +253,7 @@ function setdate2(id){
 <select name="sortid">
   <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
   <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
-</select><input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
+</select><input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 </table>
 </div>
 </div></form>
@@ -264,16 +264,16 @@ function setdate2(id){
 <table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
 <tr><td height="5" colspan="12" class="topTd"></td></tr>
 <tr class="row" align="center">
-<th width="40"><a href="javascript:sortBy('id','{$sort}','index')">编号</a></th>
-</th><th width="105"><a href="javascript:sortBy('p_id','{$sort}','index')">打印机位置</a></th>
-<th width="70"><a href="javascript:sortBy('bt_position','{$sort}','index')">按钮位置</a></th>
-<th width="100"><a href="javascript:sortBy('trade_id','{$sort}','index')">商家</a></th>
-<th width="40">打印</th>
-<th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">开始时间</a></th>
-<th width="90"><a href="javascript:sortBy('close_time','{$sort}','index')">结束时间</a></th>
-<th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">申请时间</a></th>
-<th width="205">备注</th><th width="50"><a href="javascript:sortBy('status','{$sort}','index')">状态</th>
-<th width="70">操作</th>
+<th width="40"><a href="javascript:sortBy('id','{$sort}','index')">No</a></th>
+</th><th width="105"><a href="javascript:sortBy('p_id','{$sort}','index')">Printer Position</a></th>
+<th width="70"><a href="javascript:sortBy('bt_position','{$sort}','index')">Button</a></th>
+<th width="100"><a href="javascript:sortBy('trade_id','{$sort}','index')">Merchant</a></th>
+<th width="40">Printed Amount</th>
+<th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">Start</a></th>
+<th width="90"><a href="javascript:sortBy('close_time','{$sort}','index')">End</a></th>
+<th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">Applied Time</a></th>
+<th width="205">Note</th><th width="50"><a href="javascript:sortBy('status','{$sort}','index')">Status</th>
+<th width="70">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
@@ -286,11 +286,11 @@ function setdate2(id){
 <td>{$vo.close_time|date="Y-m-d",###}</td>
 <td>{$vo.create_time|date="Y-m-d",###}</td>
 <td><input type="text" id="remark{$vo.id}" name="remark" size="28" value="{$vo.remark}" style="border:#FFF 1px solid;" onchange="aupdate('tenancy','{$vo.id}','remark')"></td>
-<td><eq name="vo.status" value="1" >正常</eq>
-<eq name="vo.status" value="0" >预订</eq>
-<eq name="vo.status" value="-1" >到期</eq>
-<eq name="vo.status" value="-2" >撤销</eq></td>
-<td><a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a></td>
+<td><eq name="vo.status" value="1" >Normal</eq>
+<eq name="vo.status" value="0" >Ordered</eq>
+<eq name="vo.status" value="-1" >Over-period</eq>
+<eq name="vo.status" value="-2" >Cancelled</eq></td>
+<td><a href="javascript:edit('{$vo.id}')">EDIT</a>&nbsp;<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Resume</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>&nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a></td>
 </tr>
 </foreach>
 <tr><td height="5" colspan="12" class="bottomTd"></td></tr>

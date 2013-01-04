@@ -9,14 +9,14 @@
 
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">待审核展位租赁列表</div>
+<div class="title">Rent Audit</div>
 <!--  功能操作区域  -->
 <!-- 功能操作区域结束 -->
 <div id="fRig">
 <div id="searchM">
 <table width="1133" cellpadding="1" cellspacing="0">
   <form method='post' action="__URL__">
-<tr><td><input type="submit" name="submit" value="导出" class="small hMargin shadow submit"></td></tr></form>
+<tr><td><input type="submit" name="submit" value="Export" class="small hMargin shadow submit"></td></tr></form>
 </table>
 </div>
 </div>
@@ -25,15 +25,15 @@
 <table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
 <tr><td height="5" colspan="11" class="topTd"></td></tr>
 <tr class="row" align="center">
-<th width="40"><a href="javascript:sortBy('id','{$sort}','index')">编号</a></th>
-</th><th width="105"><a href="javascript:sortBy('p_id','{$sort}','index')">打印机位置</a></th>
-<th width="70"><a href="javascript:sortBy('bt_position','{$sort}','index')">按钮位置</a></th>
-<th width="100"><a href="javascript:sortBy('trade_id','{$sort}','index')">商家</a></th>
-<th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">开始时间</a></th>
-<th width="90"><a href="javascript:sortBy('close_time','{$sort}','index')">结束时间</a></th>
-<th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">申请时间</a></th>
-<th width="205">备注</th><th width="50"><a href="javascript:sortBy('status','{$sort}','index')">状态</th>
-<th width="70">操作</th>
+<th width="40"><a href="javascript:sortBy('id','{$sort}','index')">No</a></th>
+</th><th width="105"><a href="javascript:sortBy('p_id','{$sort}','index')">Printer </a></th>
+<th width="70"><a href="javascript:sortBy('bt_position','{$sort}','index')">Button</a></th>
+<th width="100"><a href="javascript:sortBy('trade_id','{$sort}','index')">Merchant</a></th>
+<th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">Start</a></th>
+<th width="90"><a href="javascript:sortBy('close_time','{$sort}','index')">End</a></th>
+<th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">Apply Time</a></th>
+<th width="205">Note</th><th width="50"><a href="javascript:sortBy('status','{$sort}','index')">Status</th>
+<th width="70">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
@@ -45,11 +45,11 @@
 <td>{$vo.close_time|date="Y-m-d",###}</td>
 <td>{$vo.create_time|date="Y-m-d",###}</td>
 <td><input type="text" id="remark{$vo.id}" name="remark" size="28" value="{$vo.remark}" style="border:#FFF 1px solid;" onchange="aupdate('tenancy','{$vo.id}','remark')"></td>
-<td><eq name="vo.status" value="1" >正常</eq>
-<eq name="vo.status" value="0" >预订</eq>
-<eq name="vo.status" value="-1" >到期</eq>
-<eq name="vo.status" value="-2" >撤销</eq></td>
-<td><a href="javascript:edit('{$vo.id}')">编辑</a></td>
+<td><eq name="vo.status" value="1" >Normal</eq>
+<eq name="vo.status" value="0" >Ordered</eq>
+<eq name="vo.status" value="-1" >Over-period</eq>
+<eq name="vo.status" value="-2" >Cancelled</eq></td>
+<td><a href="javascript:edit('{$vo.id}')">EDIT</a></td>
 </tr>
 </foreach>
 <tr><td height="5" colspan="11" class="bottomTd"></td></tr>

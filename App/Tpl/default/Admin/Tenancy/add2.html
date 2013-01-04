@@ -1,10 +1,10 @@
 <include file="Public:header" />
 <div id="main" class="main" >
 <div class="content">
-<div class="title">请选择确认商家 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Confirm Merchant [ <a href="__URL__">Return</a> ]</div>
 <table width="476" cellpadding=3 cellspacing=3>
 <tr>
-	<td width="103" class="tRight" >商家名称：</td>
+	<td width="103" class="tRight" >Merchant Name：</td>
 	<td width="350" class="tLeft" ><foreach name= "list" item= "vo">
     <a href="__URL__/add3/id/{$vo.id}/title/{$vo.encodeTitle}">{$vo.title}</a>&nbsp;&nbsp;
     </foreach></td>

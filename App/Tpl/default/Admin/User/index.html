@@ -105,103 +105,103 @@ function setdate(id){
 
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">用户列表</div>
+<div class="title">User List</div>
 <!--  功能操作区域  -->
 <div class="operate" >
-<input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();"><input type="button" name="email" value="邮件群发" class="small hMargin shadow submit" onclick="sendmail();"><input type="button" name="exp" value="导出" class="small hMargin shadow submit" onclick="formsubmit();"><form method='post' name="form1" id="form1" action="__URL__">
+<input type="button" name="add" value="ADD" class="small hMargin shadow submit" onclick="add();"><input type="button" name="email" value="EmailTo" class="small hMargin shadow submit" onclick="sendmail();"><input type="button" name="exp" value="Export" class="small hMargin shadow submit" onclick="formsubmit();"><form method='post' name="form1" id="form1" action="__URL__">
 </div>
 <!-- 高级查询区域 -->
 <div id="searchM">
 <table width="1105" cellpadding="1" cellspacing="0"><input type="hidden" name="flag" value="1" />
-<tr><td width="125">编号：</td><td width="118"><input type="text" name="id" title="用户ID" size="10" value="{$id}"></td>
-<td width="101">用户名：</td><td width="222"><input type="text" name="account" title="帐号查询" size="10" value="{$account}" ></td>
-<td width="106">真实姓名：</td><td colspan="2"><input type="text" name="realname" title="姓名查询" size="10" value="{$realname}"></td>
+<tr><td width="125">No：</td><td width="118"><input type="text" name="id" title="用户ID" size="10" value="{$id}"></td>
+<td width="101">UserName：</td><td width="222"><input type="text" name="account" title="帐号查询" size="10" value="{$account}" ></td>
+<td width="106">RealName：</td><td colspan="2"><input type="text" name="realname" title="姓名查询" size="10" value="{$realname}"></td>
 </tr>
 <tr>
-<td width="125">个人信息：</td><td width="118"><select name="userinfo_if">
-  <option value="">不限</option>
-  <option <eq name="userinfo_if" value="1" >selected</eq> value="1">已填写</option>
-  <option <eq name="userinfo_if" value="0" >selected</eq> value="0">未填写</option>
+<td width="125">PersonalInfo：</td><td width="118"><select name="userinfo_if">
+  <option value="">N/A</option>
+  <option <eq name="userinfo_if" value="1" >selected</eq> value="1">Exist</option>
+  <option <eq name="userinfo_if" value="0" >selected</eq> value="0">Non-Exist</option>
 </select></td><td width="101">
-会员卡：</td><td width="222"><select name="card_if">
-  <option value="-1">不限</option>
-  <option <eq name="card_if" value="1" >selected</eq> value="1">已绑定</option>
-  <option <eq name="card_if" value="0" >selected</eq> value="0">未绑定</option>
+VipCard：</td><td width="222"><select name="card_if">
+  <option value="-1">N/A</option>
+  <option <eq name="card_if" value="1" >selected</eq> value="1">Exist</option>
+  <option <eq name="card_if" value="0" >selected</eq> value="0">Non-Exist</option>
 </select></td><td>
-用户组：</td><td width="58"><select name="type_id">
-  <option  value="">不限</option>
-  <option <eq name="type_id" value="0" >selected</eq> value="0">管理员</option>
-  <option <eq name="type_id" value="1" >selected</eq> value="1">商家</option>
-  <option <eq name="type_id" value="2" >selected</eq> value="2">普通会员</option>
-</select></td><td width="359" align="center"><input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
+UserGroup：</td><td width="58"><select name="type_id">
+  <option  value="">N/A</option>
+  <option <eq name="type_id" value="0" >selected</eq> value="0">Admin</option>
+  <option <eq name="type_id" value="1" >selected</eq> value="1">Merchant</option>
+  <option <eq name="type_id" value="2" >selected</eq> value="2">Normal</option>
+</select></td><td width="359" align="center"><input type="submit" value="Query" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 <tr>
-<td>验证邮箱：</td><td><select name="email_if">
+<td>Email：</td><td><select name="email_if">
   <option value="">不限</option>
-  <option <eq name="email_if" value="0" >selected</eq> value="0">未验证</option>
-  <option <eq name="email_if" value="1" >selected</eq> value="1">已验证</option>
+  <option <eq name="email_if" value="0" >selected</eq> value="0">Unverify</option>
+  <option <eq name="email_if" value="1" >selected</eq> value="1">verify</option>
 </select></td><td>
-验证手机：</td><td><select name="mobile_if">
+Phone：</td><td><select name="mobile_if">
   <option value="">不限</option>
-  <option <eq name="mobile_if" value="0" >selected</eq> value="0">未验证</option>
-  <option <eq name="mobile_if" value="1" >selected</eq> value="1">已验证</option>
-</select></td><td>WAP网站：</td><td><select name="wap_if">
+  <option <eq name="mobile_if" value="0" >selected</eq> value="0">Unverify</option>
+  <option <eq name="mobile_if" value="1" >selected</eq> value="1">verify</option>
+</select></td><td>WapSite：</td><td><select name="wap_if">
   <option value="">不限</option>
   <option <eq name="wap_if" value="0" >selected</eq> value="0">未访问</option>
   <option <eq name="wap_if" value="1" >selected</eq> value="1">已访问</option>
 </select></td><td width="359" align="center"></td></tr>
 <tr>
-<td>积分：</td><td><input type="text" name="money1" size="3" value="{$money1}">~<input type="text" name="money2" size="3" value="{$money2}"></td>
-<td>创建时间：</td><td><input type="text" name="time1" size="8" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="8" onFocus="ShowCalendar(this)" value="{$time2}"></td><td>用户状态：</td><td><select name="status">
+<td>Credit：</td><td><input type="text" name="money1" size="3" value="{$money1}">~<input type="text" name="money2" size="3" value="{$money2}"></td>
+<td>CreateTime：</td><td><input type="text" name="time1" size="8" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="8" onFocus="ShowCalendar(this)" value="{$time2}"></td><td>用户状态：</td><td><select name="status">
   <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
   <option <eq name="status" value="3" >selected</eq> value="3">不限</option>
   <option <eq name="status" value="-1" >selected</eq> value="-1">已删除</option>
   <option <eq name="status" value="0" >selected</eq> value="0">禁用</option>
 </select></td><td></td></tr><tr>
-<td colspan="3">统计筛选:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
-  <option  value="" selected="selected">全部</option>
-  <option <eq name="tt" value="11" >selected</eq> value="11" >今天</option>
-  <option <eq name="tt" value="22" >selected</eq> value="22" >昨天</option>
-  <option <eq name="tt" value="33" >selected</eq> value="33" >本周</option>
-  <option <eq name="tt" value="44" >selected</eq> value="44" >上周</option>
-  <option <eq name="tt" value="55" >selected</eq> value="55" >本月</option>
-  <option <eq name="tt" value="66" >selected</eq> value="66" >上月</option>
-  <option <eq name="tt" value="7"  >selected</eq> value="7"  >过去7天</option>
-  <option <eq name="tt" value="30" >selected</eq> value="30" >过去30天</option>
-  <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
+<td colspan="3">Stat:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">All</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >Today</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >Yesterday</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >ThisWeek</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >LastWeek</option>
+  <option <eq name="tt" value="55" >selected</eq> value="55" >ThisMon</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >LastMon</option>
+  <option <eq name="tt" value="7"  >selected</eq> value="7"  >Last7days</option>
+  <option <eq name="tt" value="30" >selected</eq> value="30" >Last30days</option>
+  <option <eq name="tt" value="90" >selected</eq> value="90" >Last90days</option>
 </select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"></td>
-<td colspan="4">结果排序：<select name="resultid">
+<td colspan="4">SortResult：<select name="resultid">
   <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
-  <option <eq name="resultid" value="card_id" >selected</eq> value="card_id" >会员卡</option>
-  <option <eq name="resultid" value="account" >selected</eq> value="account" >用户名</option>
-  <option <eq name="resultid" value="last_login_time" >selected</eq> value="last_login_time" >登录时间</option>
-  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >注册时间</option>
-  <option <eq name="resultid" value="point" >selected</eq> value="point" >点击</option>
-  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >收藏</option>
-  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >打印</option>
-  <option <eq name="resultid" value="realname" >selected</eq> value="realname" >真实姓名</option>
-  <option <eq name="resultid" value="mobile" >selected</eq> value="mobile" >手机号</option>
-  <option <eq name="resultid" value="address" >selected</eq> value="address" >地址</option>
-  <option <eq name="resultid" value="money" >selected</eq> value="money" >积分</option>
+  <option <eq name="resultid" value="card_id" >selected</eq> value="card_id" >VipCard</option>
+  <option <eq name="resultid" value="account" >selected</eq> value="account" >UserName</option>
+  <option <eq name="resultid" value="last_login_time" >selected</eq> value="last_login_time" >Login_time</option>
+  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >Reg_time</option>
+  <option <eq name="resultid" value="point" >selected</eq> value="point" >Click_count</option>
+  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >collect_count</option>
+  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >print_count</option>
+  <option <eq name="resultid" value="realname" >selected</eq> value="realname" >RealName</option>
+  <option <eq name="resultid" value="mobile" >selected</eq> value="mobile" >Phone</option>
+  <option <eq name="resultid" value="address" >selected</eq> value="address" >Addr</option>
+  <option <eq name="resultid" value="money" >selected</eq> value="money" >Credit</option>
 </select>
 <select name="sortid">
-  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
-  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
+  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >Desc</option>
+  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >Increase</option>
 </select>
 </td>
-</tr><tr><td colspan="7">显示字段：
-<input name="clist[]" type="checkbox"  value="card_id" <eq name="menucard_id" value="1" >checked="checked" </eq> />会员卡&nbsp;
-<input name="clist[]" type="checkbox"  value="address" <eq name="menuaddress" value="1" >checked="checked" </eq> />地址&nbsp;
-<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>点击&nbsp;
-<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>打印&nbsp;
-<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>收藏&nbsp;
-<input name="clist[]" type="checkbox"  value="type_id" <eq name="menutype_id" value="1" >checked="checked" </eq>/>用户组&nbsp;
-<input name="clist[]" type="checkbox"  value="money"  <eq name="menumoney" value="1" >checked="checked" </eq>/>金币&nbsp;
-<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>注册时间&nbsp;
-<input name="clist[]" type="checkbox"  value="remark"  <eq name="menuremark" value="1" >checked="checked" </eq>/>备注&nbsp;
-<input name="clist[]" type="checkbox"  value="mobile"  <eq name="menumobile" value="1" >checked="checked" </eq>/>手机&nbsp;
-<input name="clist[]" type="checkbox"  value="email"  <eq name="menuemail" value="1" >checked="checked" </eq>/>邮箱&nbsp;
-<input name="clist[]" type="checkbox"  value="phone"  <eq name="menuphone" value="1" >checked="checked" </eq>/>电话&nbsp;
-<input name="clist[]" type="checkbox"  value="sex"    <eq name="menusex" value="1" >checked="checked" </eq>/>性别&nbsp;
+</tr><tr><td colspan="7">Apparent segment：
+<input name="clist[]" type="checkbox"  value="card_id" <eq name="menucard_id" value="1" >checked="checked" </eq> />VipCard&nbsp;
+<input name="clist[]" type="checkbox"  value="address" <eq name="menuaddress" value="1" >checked="checked" </eq> />Addr&nbsp;
+<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>Click&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>Print&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>Collect&nbsp;
+<input name="clist[]" type="checkbox"  value="type_id" <eq name="menutype_id" value="1" >checked="checked" </eq>/>UserGroup&nbsp;
+<input name="clist[]" type="checkbox"  value="money"  <eq name="menumoney" value="1" >checked="checked" </eq>/>Credt&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>reg_time&nbsp;
+<input name="clist[]" type="checkbox"  value="remark"  <eq name="menuremark" value="1" >checked="checked" </eq>/>Comment&nbsp;
+<input name="clist[]" type="checkbox"  value="mobile"  <eq name="menumobile" value="1" >checked="checked" </eq>/>Mobile&nbsp;
+<input name="clist[]" type="checkbox"  value="email"  <eq name="menuemail" value="1" >checked="checked" </eq>/>Email&nbsp;
+<input name="clist[]" type="checkbox"  value="phone"  <eq name="menuphone" value="1" >checked="checked" </eq>/>Phone&nbsp;
+<input name="clist[]" type="checkbox"  value="sex"    <eq name="menusex" value="1" >checked="checked" </eq>/>Gender&nbsp;
 </form></td></tr>
 </table>
 </div>
@@ -211,22 +211,22 @@ function setdate(id){
 <table cellpadding="0" cellspacing="0" class="list">
 <tr><td height="5" colspan="16" class="topTd"></td></tr>
 <tr class="row" align="center">
-<th width="50"><a href="javascript:sortBy('id','{$sort}','index')">编号</a></th>
-<th width="130"><a href="javascript:sortBy('account','{$sort}','index')">用户名</a></th>
-<eq name="menucard_id" value="1" ><th width="90"><a href="javascript:sortBy('card_id','{$sort}','index')">会员卡</a></th></eq>
-<eq name="menuaddress" value="1" ><th width="204">地址</th></eq>
-<eq name="menuemail" value="1" ><th width="130">邮箱</th></eq>
-<eq name="menusex" value="1" ><th width="40">性别</th></eq>
-<eq name="menumobile" value="1" ><th width="120">手机</th></eq>
-<eq name="menuphone" value="1" ><th width="140">电话</th></eq>
-<eq name="menupoint" value="1" ><th width="55"><a href="javascript:sortBy('point','{$sort}','index')">点击</a></th></eq>
-<eq name="menuprints" value="1" ><th width="55"><a href="javascript:sortBy('prints','{$sort}','index')">打印</a></th></eq>
-<eq name="menucollect" value="1" ><th width="53"><a href="javascript:sortBy('collect','{$sort}','index')">收藏</a></th></eq>
-<eq name="menutype_id" value="1" ><th width="75">用户组</th></eq>
-<eq name="menumoney" value="1" ><th width="65"><a href="javascript:sortBy('score','{$sort}','index')">积分</a></th></eq>
-<eq name="menucreate_time" value="1" ><th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">注册时间</a></th></eq>
-<eq name="menuremark" value="1" ><th width="215">备注</th></eq>
-<th width="137">操作</th></tr>
+<th width="50"><a href="javascript:sortBy('id','{$sort}','index')">No.</a></th>
+<th width="130"><a href="javascript:sortBy('account','{$sort}','index')">UserName</a></th>
+<eq name="menucard_id" value="1" ><th width="90"><a href="javascript:sortBy('card_id','{$sort}','index')">VipCard</a></th></eq>
+<eq name="menuaddress" value="1" ><th width="204">Location</th></eq>
+<eq name="menuemail" value="1" ><th width="130">Email</th></eq>
+<eq name="menusex" value="1" ><th width="40">Gender</th></eq>
+<eq name="menumobile" value="1" ><th width="120">Mobile</th></eq>
+<eq name="menuphone" value="1" ><th width="140">Phone</th></eq>
+<eq name="menupoint" value="1" ><th width="55"><a href="javascript:sortBy('point','{$sort}','index')">Click</a></th></eq>
+<eq name="menuprints" value="1" ><th width="55"><a href="javascript:sortBy('prints','{$sort}','index')">Print</a></th></eq>
+<eq name="menucollect" value="1" ><th width="53"><a href="javascript:sortBy('collect','{$sort}','index')">Collect</a></th></eq>
+<eq name="menutype_id" value="1" ><th width="75">UserGroup</th></eq>
+<eq name="menumoney" value="1" ><th width="65"><a href="javascript:sortBy('score','{$sort}','index')">Credt</a></th></eq>
+<eq name="menucreate_time" value="1" ><th width="90"><a href="javascript:sortBy('create_time','{$sort}','index')">Reg_time</a></th></eq>
+<eq name="menuremark" value="1" ><th width="215">Comment</th></eq>
+<th width="137">Operation</th></tr>
 <foreach name= "list" item= "vo"><!--ondblclick="show_more('more{$vo.id}');"-->
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" ondblclick="show_more('more{$vo.id}');" align="center">
 <td>{$vo.id}</td>

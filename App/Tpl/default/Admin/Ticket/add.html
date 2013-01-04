@@ -49,110 +49,110 @@ function Juge(myform)
 {
     if(myform.title.value == "")
 	{
-		alert("名称不能为空!");
+		alert("Name can't be empty!");
 		myform.title.focus();
 		return (false);
 	}
 	else if (myform.cate_id.value == "")
 	{
-		alert("请选择类别!");
+		alert("Please choose category!");
 		myform.cate_id.focus();
 		return (false);
 	}
 	else if (myform.start_time.value == "")
 	{
-		alert("请填写开始时间！");
+		alert("Choose start time！");
 		myform.start_time.focus();
 		return (false);
 	}
 	else if (myform.close_time.value == "")
 	{
-		alert("请填写结束时间！");
+		alert("Choose end Time！");
 		myform.close_time.focus();
 		return (false);
 	}else if(myform.Img.value == "")
 	{
-		alert("请上传图片!");
+		alert("Upload Pics!");
 		return (false);
 	}
 }
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">添加优惠券 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Add Coupon [ <a href="__URL__">Return</a> ]</div>
 <table cellpadding=3 cellspacing=3>
 <form method='post' id="form1" action="__URL__/insert/" enctype="multipart/form-data" onSubmit="return Juge(this)">
 <tr>
-	<td class="tRight" >名称：</td>
+	<td class="tRight" >Name：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value=""></td>
 </tr>
 <tr>
-	<td class="tRight" >商品类别：</td>
+	<td class="tRight" >Category：</td>
 	<td class="tLeft" >
   <select name="cate_bid" id="cate_bid" onchange="setcate(this.options[this.selectedIndex].value,'cate_id');">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_cate_option();</php>
 </select>
-子类：<select name="cate_id" id="cate_id">
-<option value="">-请选择-</option>
+Detailed：<select name="cate_id" id="cate_id">
+<option value="">-Choose-</option>
 </select></td>
 </tr>
 <tr>
-	<td class="tRight" >状态：</td>
+	<td class="tRight" >Status：</td>
 	<td class="tLeft" ><select name="status">
-<option value="1" >已审核</option>
-<option value="0" selected="selected">待审核</option>
-<option value="-1">禁用</option>
+<option value="1" >Permit</option>
+<option value="0" selected="selected">Unchecked</option>
+<option value="-1">Forbidden</option>
 </select></td>
 </tr>
 <tr>
-	<td class="tRight" >数量：</td>
-	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value="-1">(-1代表无限制)</td>
+	<td class="tRight" >Amount：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value="-1">(-1 infinite)</td>
 </tr>
 <tr>
-	<td class="tRight" >优惠券开始时间：</td>
-	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="">结束时间：<input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value=""></td>
+	<td class="tRight" >Start Since：</td>
+	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="">Stop at：<input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value=""></td>
 </tr>
 <tr>
-	<td class="tRight" >商家获得结算额：</td>
+	<td class="tRight" >Charge for merchatn：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="money" value="0"></td>
 </tr>
 <tr>
-	<td class="tRight" >下载需扣积分：</td>
+	<td class="tRight" >Download Credit：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value="0"></td>
 </tr>
 <tr>
-	<td class="tRight" >上传展示图片：</td>
+	<td class="tRight" >Upload Pic：</td>
 	<td class="tLeft" ><input name="Img" type="file" id="Img"/></td>
 </tr>
 <tr>
-	<td class="tRight" >关键字：</td>
+	<td class="tRight" >Keywords：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="keyword" value=""></td>
 </tr>
 <tr>
-	<td class="tRight" >标签：</td>
+	<td class="tRight" >Label：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="tags" value=""></td>
 </tr>
 <tr>
-	<td class="tRight" >排序：</td>
-	<td class="tLeft" ><input type="text" class="medium bLeft" name="sortnum" value="1">数值大的排前</td>
+	<td class="tRight" >Sort Index：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="sortnum" value="1"> Bigger one front</td>
 </tr>
 <tr>
-	<td class="tRight tTop">注意事项：</td>
+	<td class="tRight tTop">Notice：</td>
 	<td class="tLeft"><html:editor type="kindeditor" name="attention" id="attention" style="width:550px;height:220px"></html:editor></td>
 </tr>
 <tr>
-	<td class="tRight tTop">商品摘要：</td>
+	<td class="tRight tTop">Abstract Note：</td>
 	<td class="tLeft"><html:editor type="kindeditor" name="introduce" id="introduce" style="width:550px;height:220px"></html:editor></td>
 </tr>
 <tr>
-	<td class="tRight tTop">详细内容：</td>
+	<td class="tRight tTop">Detailed Desc：</td>
 	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px"></html:editor></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center"><input type="hidden" name="trade_id" value="<php>echo $_REQUEST['id'];</php>">
-	<input type="submit" value="添 加"  class="small submit">
+	<input type="submit" value="Submit"  class="small submit">
 	</td>
 </tr>
 </table>

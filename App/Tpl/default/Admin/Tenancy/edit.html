@@ -1,46 +1,46 @@
 <include file="Public:header" />
 <div id="main" class="main" >
 <div class="content">
-<div class="title">租赁编辑 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Rent Status Edit [ <a href="__URL__">Return</a> ]</div>
 <table cellpadding=3 cellspacing=3>
 <form method='post' id="form1"  action="__URL__/update/">
 <tr>
-	<td class="tRight" >商家：</td>
+	<td class="tRight" >Merchant：</td>
 	<td class="tLeft" >{$vo.trade_id|get_trade}</td>
 </tr>
 <tr>
-	<td class="tRight" >位置：</td>
+	<td class="tRight" >Postion：</td>
 	<td class="tLeft" >{$vo.p_id|get_position}</td>
 </tr>
 <tr>
-	<td class="tRight" >按钮位置：</td>
+	<td class="tRight" >Button：</td>
 	<td class="tLeft" >{$vo.bt_position}</td>
 </tr>
 <tr>
-	<td class="tRight" >开始时间：</td>
+	<td class="tRight" >Start：</td>
 	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.start_time|date="Y-m-d",###}"></td>
 </tr>
 <tr>
-	<td class="tRight" >到期时间：</td>
+	<td class="tRight" >End：</td>
 	<td class="tLeft" ><input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.close_time|date="Y-m-d",###}"></td>
 </tr>
 <tr>
-	<td class="tRight">状态：</td>
+	<td class="tRight">Status：</td>
 	<td class="tLeft"><SELECT class="small bLeft"  name="status">
-	<option <eq name="vo.status" value="1" >selected</eq> value="1">正常</option>
-	<option <eq name="vo.status" value="0" >selected</eq> value="0">预订</option>
-    <option <eq name="vo.status" value="-1" >selected</eq> value="0">到期</option>
-    <option <eq name="vo.status" value="-2" >selected</eq> value="0">撤销</option>
+	<option <eq name="vo.status" value="1" >selected</eq> value="1">Normal</option>
+	<option <eq name="vo.status" value="0" >selected</eq> value="0">Ordered</option>
+    <option <eq name="vo.status" value="-1" >selected</eq> value="0">Over-period</option>
+    <option <eq name="vo.status" value="-2" >selected</eq> value="0">Cancelled</option>
 	</SELECT></td>
 </tr>
 <tr>
-	<td class="tRight tTop">备  注：</td>
+	<td class="tRight tTop">Note：</td>
 	<td class="tLeft"><TEXTAREA class="large bLeft"  name="remark" rows="5" cols="57">{$vo.remark}</textarea></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
-	<input type="submit" value="保 存" class="small submit">
+	<input type="submit" value="Save" class="small submit">
 	</td>
 </tr>
 </table>

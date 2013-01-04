@@ -149,9 +149,9 @@ function setdate(id){
 
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">优惠券列表 </div>
+<div class="title">Coupon List </div>
 <!--  功能操作区域  -->
-<div class="operate" ><input type="button" name="exp" value="导出" class="small hMargin shadow submit" onclick="formsubmit();">
+<div class="operate" ><input type="button" name="exp" value="Export" class="small hMargin shadow submit" onclick="formsubmit();">
 <form method='post' name="form1" id="form1" action="__URL__">
 </div>
 <!-- 查询区域 -->
@@ -201,7 +201,7 @@ function setdate(id){
   <option <eq name="tt" value="7"  >selected</eq> value="7"  >过去7天</option>
   <option <eq name="tt" value="30" >selected</eq> value="30" >过去30天</option>
   <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
-</select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"><input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
+</select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"><input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 <tr><td colspan="6">结果排序：<select name="resultid">
   <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
   <option <eq name="resultid" value="cate_id" >selected</eq> value="cate_id" >分类</option>
@@ -245,21 +245,21 @@ function setdate(id){
 <tr><td height="5" colspan="16" class="topTd"></td></tr>
 <tr class="row" align="center">
 <th width="54" ><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th>
-<th width="109">优惠券名称</th>
-<eq name="menucate_id" value="1" ><th width="115"><a href="javascript:sortBy('cate_id','{$sort}','index')">分类</a></th></eq>
-<eq name="menutrade_id" value="1" ><th width="115"><a href="javascript:sortBy('trade_id','{$sort}','index')">商家</a></th></eq>
-<eq name="menuscore" value="1" ><th width="85"><a href="javascript:sortBy('score','{$sort}','index')">打印所需积分</a></th></eq>
+<th width="109">Coupon Name</th>
+<eq name="menucate_id" value="1" ><th width="115"><a href="javascript:sortBy('cate_id','{$sort}','index')">Category</a></th></eq>
+<eq name="menutrade_id" value="1" ><th width="115"><a href="javascript:sortBy('trade_id','{$sort}','index')">Merchant</a></th></eq>
+<eq name="menuscore" value="1" ><th width="85"><a href="javascript:sortBy('score','{$sort}','index')">Credit Need</a></th></eq>
 <eq name="menumoney" value="1" ><th width="85"><a href="javascript:sortBy('money','{$sort}','index')">商家结算金额</a></th></eq>
 <eq name="menukeyword" value="1" ><th width="115"><a href="javascript:sortBy('keyword','{$sort}','index')">关键字</a></th></eq>
-<eq name="menustart_time" value="1" ><th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">开始时间</a></th></eq>
-<eq name="menuclose_time" value="1" ><th width="100"><a href="javascript:sortBy('close_time','{$sort}','index')">结束时间</a></th></eq>
-<eq name="menucreate_time" value="1" ><th width="100"><a href="javascript:sortBy('create_time','{$sort}','index')">创建时间</a></th></eq>
-<eq name="menuupdate_time" value="1" ><th width="100"><a href="javascript:sortBy('update_time','{$sort}','index')">更新时间</a></th></eq>
-<eq name="menupoint" value="1" ><th width="46"><a href="javascript:sortBy('point','{$sort}','index')">点击</a></th></eq>
-<eq name="menucollect" value="1" ><th width="46"><a href="javascript:sortBy('collect','{$sort}','index')">收藏</a></th></eq>
-<eq name="menuprints" value="1" ><th width="46"><a href="javascript:sortBy('prints','{$sort}','index')">打印</a></th></eq>
-<th width="74">状态</th>
-<th width="300">操作</th>
+<eq name="menustart_time" value="1" ><th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">Since</a></th></eq>
+<eq name="menuclose_time" value="1" ><th width="100"><a href="javascript:sortBy('close_time','{$sort}','index')">End Time</a></th></eq>
+<eq name="menucreate_time" value="1" ><th width="100"><a href="javascript:sortBy('create_time','{$sort}','index')">Created Time</a></th></eq>
+<eq name="menuupdate_time" value="1" ><th width="100"><a href="javascript:sortBy('update_time','{$sort}','index')">Update Time</a></th></eq>
+<eq name="menupoint" value="1" ><th width="46"><a href="javascript:sortBy('point','{$sort}','index')">Click Amount</a></th></eq>
+<eq name="menucollect" value="1" ><th width="46"><a href="javascript:sortBy('collect','{$sort}','index')">Collected Amount</a></th></eq>
+<eq name="menuprints" value="1" ><th width="46"><a href="javascript:sortBy('prints','{$sort}','index')">Printed Amount</a></th></eq>
+<th width="74">Status</th>
+<th width="300">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" ondblclick="show_more('more{$vo.id}');" align="center">
@@ -278,14 +278,14 @@ function setdate(id){
 <eq name="menucollect" value="1" ><td><a href="javascript:showcount('Ticket',2,'{$vo.id}')">{$vo.collect}</a></td></eq>
 <eq name="menuprints" value="1" ><td><a href="javascript:showcount('Ticket',1,'{$vo.id}')">{$vo.prints}</a></td></eq>
 <td>
-<eq name="vo.status" value="-1" >禁用</eq>
-<eq name="vo.status" value="1" >正常</eq>
-<eq name="vo.status" value="0" >待审核</eq></td>
-<td><a href="__ROOT__/editor/demo.php?id={$vo.id}&name={$vo.title}">编辑打印图片</a>&nbsp;&nbsp;<a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;&nbsp;&nbsp;
-<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用</a></eq>
+<eq name="vo.status" value="-1" >Forbidden</eq>
+<eq name="vo.status" value="1" >Normal</eq>
+<eq name="vo.status" value="0" >UnChecked</eq></td>
+<td><a href="__ROOT__/editor/demo.php?id={$vo.id}&name={$vo.title}"><font color="red">Edit Coupon</font></a>&nbsp;&nbsp;<a href="javascript:edit('{$vo.id}')">EDIT</a>&nbsp;&nbsp;&nbsp;
+<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq>
 <eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
 <eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
-&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a>
+&nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a>
 </td>
 </tr>
 <tr class="row" ondblclick="hidden_more('more{$vo.id}')"><td colspan="16">
