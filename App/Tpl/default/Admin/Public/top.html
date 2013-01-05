@@ -13,7 +13,7 @@
 	<!-- 功能导航区 -->
 	<div class="topmenu">
 <ul>
-<li><span><eq name="Think.session.type_id" value="1" ><a href="#" onClick="sethighlight(0); parent.menu.location='__URL__/menu/';parent.main.location='__URL__/trade/';return false;">后台首页</a></eq><eq name="Think.session.type_id" value="0" ><a href="#" onClick="sethighlight(0); parent.menu.location='__URL__/menu/';parent.main.location='__URL__/main/';return false;">后台首页</a></eq></span></li>
+<li><span><eq name="Think.session.type_id" value="1" ><a href="#" onClick="sethighlight(0); parent.menu.location='__URL__/menu/';parent.main.location='__URL__/trade/';return false;">Index</a></eq><eq name="Think.session.type_id" value="0" ><a href="#" onClick="sethighlight(0); parent.menu.location='__URL__/menu/';parent.main.location='__URL__/main/';return false;">Index</a></eq></span></li>
 <volist  name= "nodeGroupList" id= "vo">
 <li><span><a href="#" onClick="sethighlight({$i});parent.menu.location='__ROOT__/Admin/Public/{$vo.menu}/';parent.main.location='__ROOT__/Admin/{$vo.module}/{$vo.action}';return false;">{$vo.title}</a></span></li>
 </volist>
@@ -21,7 +21,7 @@
 </div>
 	<div class="nav">
 	Welcome！{$Think.session.usertype}&nbsp;&nbsp;{$Think.session.loginUserName}
-	<eq name="Think.session.type_id" value="0" ><a href="__URL__/delcache/"><img SRC="__PUBLIC__/Images/error.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle">清空缓存</a><a href="__URL__/password/"><img src="__PUBLIC__/Images/checked_out.png" width="16" height="16" border="0" alt="" align="absmiddle"> 修改密码</a> <a href="__URL__/profile/"><img SRC="__PUBLIC__/Images/write.gif" WIDTH="17" HEIGHT="16" BORDER="0" ALT="" align="absmiddle"> 修改资料</a> </eq><a href="__URL__/logout/" target="_top"><img SRC="__PUBLIC__/Images/error.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle"> 退 出</a></div>
+	<eq name="Think.session.type_id" value="0" ><a href="__URL__/delcache/"><img SRC="__PUBLIC__/Images/error.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle">Clean Cookie</a><a href="__URL__/password/"><img src="__PUBLIC__/Images/checked_out.png" width="16" height="16" border="0" alt="" align="absmiddle"> Modify Password</a> <a href="__URL__/profile/"><img SRC="__PUBLIC__/Images/write.gif" WIDTH="17" HEIGHT="16" BORDER="0" ALT="" align="absmiddle"> Basic Info</a> </eq><a href="__URL__/logout/" target="_top"><img SRC="__PUBLIC__/Images/error.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle"> Logout</a></div>
 </div>
 <script>
 function sethighlight(n) {
