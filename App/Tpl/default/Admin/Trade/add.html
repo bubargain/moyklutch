@@ -6,19 +6,19 @@ function Juge(myform)
 {
     if(myform.title.value == "")
 	{
-		alert("商家名称不能为空!");
+		alert("Merchant Name can't be empty!");
 		myform.title.focus();
 		return (false);
 	}
 	if(myform.mobile.value == ""&&myform.phone.value == "")
 	{
-		alert("手机和电话必填其一!");
+		alert("Phone Number Necessory!");
 		myform.title.focus();
 		return (false);
 	}
 	if(myform.Img.value == "")
 	{
-		alert("请上传图片!");
+		alert("Please upload pic with right size!");
 		return (false);
 	}
 }
@@ -30,7 +30,7 @@ function Juge(myform)
 <form method="post" id="form1" action="__URL__/insert/" enctype="multipart/form-data" onSubmit="return Juge(this)">
 <tr>
 	<td class="tRight" >Short Name：</td>
-	<td class="tLeft" ><input type="text" class="medium "  check='^\S+$' warning="用户名不能为空,且不能含有空格" name="name" value=""></td>
+	<td class="tLeft" ><input type="text" class="medium "  check='^\S+$' warning="name can't be empty or have blank" name="name" value=""></td>
 </tr>
 <tr>
 	<td class="tRight" >Full Name：</td>

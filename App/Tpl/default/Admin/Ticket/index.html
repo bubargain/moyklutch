@@ -162,77 +162,77 @@ function setdate(id){
 <input type="hidden" name="flag" value="1" />
 <tr><td width="118">ID：
   <input type="text" name="id" title="ID" size="5" value="{$id}"></td>
-<td width="232">优惠券名称：
-  <input type="text" name="title" title="按名称查询" size="8" value="{$title}" ></td>
-<td width="140">商家：<input type="text" name="trade_id" title="按名称查询" size="8" value="{$trade_id}" ></td>
-<td width="376">优惠券大类：
+<td width="232">Coupon name：
+  <input type="text" name="title" title="Search by name" size="8" value="{$title}" ></td>
+<td width="140">Merchant Name：<input type="text" name="trade_id" title="Search by Merchant" size="8" value="{$trade_id}" ></td>
+<td width="376">Category：
   <select name="cate_bid" id="cate_bid" onchange="setcate(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_cate_option();</php>
 </select>
-子类：<select name="cate_id" id="cate_id">
-<option value="">-请选择-</option>
+Detailed：<select name="cate_id" id="cate_id">
+<option value="">-Choose-</option>
 </select>
 </td>
-<td width="305">状态：
+<td width="305">Status：
   <select name="status">
-  <option <eq name="status" value="1" >selected</eq> value="1">已审核</option>
-  <option <eq name="status" value="3" >selected</eq> value="">不限</option>
-  <option <eq name="status" value="0" >selected</eq> value="0">待审核</option>
-  <option <eq name="status" value="-1" >selected</eq> value="-1">禁用</option>
+  <option <eq name="status" value="1" >selected</eq> value="1">permit</option>
+  <option <eq name="status" value="3" >selected</eq> value="">All</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">unchecked</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">forbidden</option>
 </select></td></tr>
 <tr>
-<td colspan="5">创建时间：
-  <input type="text" name="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标签<input type="text" name="tags" size="5" value="{$tags}">&nbsp;&nbsp;&nbsp;&nbsp;券状态：
+<td colspan="5">Create Time：
+  <input type="text" name="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label<input type="text" name="tags" size="5" value="{$tags}">&nbsp;&nbsp;&nbsp;&nbsp;Status：
   <select name="tstatus">
-  <option value="">全部</option>
-  <option <eq name="tstatus" value="1" >selected</eq> value="1">有效</option>
-  <option <eq name="tstatus" value="-1" >selected</eq> value="-1">过期</option>
-  <option <eq name="tstatus" value="0" >selected</eq> value="0">未开始</option>
+  <option value="">ALL</option>
+  <option <eq name="tstatus" value="1" >selected</eq> value="1">Available</option>
+  <option <eq name="tstatus" value="-1" >selected</eq> value="-1">Overperiod</option>
+  <option <eq name="tstatus" value="0" >selected</eq> value="0">unstart</option>
   
-</select>&nbsp;&nbsp;&nbsp;&nbsp;统计筛选:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
-  <option  value="" selected="selected">全部</option>
-  <option <eq name="tt" value="11" >selected</eq> value="11" >今天</option>
-  <option <eq name="tt" value="22" >selected</eq> value="22" >昨天</option>
-  <option <eq name="tt" value="33" >selected</eq> value="33" >本周</option>
-  <option <eq name="tt" value="44" >selected</eq> value="44" >上周</option>
-  <option <eq name="tt" value="55" >selected</eq> value="55" >本月</option>
-  <option <eq name="tt" value="66" >selected</eq> value="66" >上月</option>
-  <option <eq name="tt" value="7"  >selected</eq> value="7"  >过去7天</option>
-  <option <eq name="tt" value="30" >selected</eq> value="30" >过去30天</option>
-  <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp; Time Limit:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">All</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >Today</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >Yesterday</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >This week</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >Last week</option>
+  <option <eq name="tt" value="55" >selected</eq> value="55" >This month</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >Last month</option>
+  <option <eq name="tt" value="7"  >selected</eq> value="7"  >Last 7 days</option>
+  <option <eq name="tt" value="30" >selected</eq> value="30" >Last 30 days</option>
+  <option <eq name="tt" value="90" >selected</eq> value="90" >Last 90 days</option>
 </select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"><input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
-<tr><td colspan="6">结果排序：<select name="resultid">
+<tr><td colspan="6">Sort by：<select name="resultid">
   <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
-  <option <eq name="resultid" value="cate_id" >selected</eq> value="cate_id" >分类</option>
-  <option <eq name="resultid" value="trade_id" >selected</eq> value="trade_id" >商家</option>
-  <option <eq name="resultid" value="score" >selected</eq> value="score" >打印积分</option>
-  <option <eq name="resultid" value="money" >selected</eq> value="money" >结算金额</option>
-  <option <eq name="resultid" value="start_time" >selected</eq> value="start_time" >开始时间</option>
-  <option <eq name="resultid" value="close_time" >selected</eq> value="close_time" >结束时间</option>
-  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >创建时间</option>
-  <option <eq name="resultid" value="update_time" >selected</eq> value="update_time" >更新时间</option>
-  <option <eq name="resultid" value="point" >selected</eq> value="point" >点击</option>
-  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >收藏</option>
-  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >打印</option>
+  <option <eq name="resultid" value="cate_id" >selected</eq> value="cate_id" >Category</option>
+  <option <eq name="resultid" value="trade_id" >selected</eq> value="trade_id" >Merchant</option>
+  <option <eq name="resultid" value="score" >selected</eq> value="score" >Points</option>
+  <option <eq name="resultid" value="money" >selected</eq> value="money" >payment</option>
+  <option <eq name="resultid" value="start_time" >selected</eq> value="start_time" >Start Time</option>
+  <option <eq name="resultid" value="close_time" >selected</eq> value="close_time" >End Time</option>
+  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >Create Time</option>
+  <option <eq name="resultid" value="update_time" >selected</eq> value="update_time" >Update Time</option>
+  <option <eq name="resultid" value="point" >selected</eq> value="point" >Click</option>
+  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >Collection</option>
+  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >print</option>
 </select>
 <select name="sortid">
-  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
-  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
+  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >Desc</option>
+  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >Inc</option>
 </select>
-显示字段：
-<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>点击&nbsp;
-<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>打印&nbsp;
-<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>收藏&nbsp;
-<input name="clist[]" type="checkbox"  value="trade_id" <eq name="menutrade_id" value="1" >checked="checked" </eq>/>商家&nbsp;
-<input name="clist[]" type="checkbox"  value="cate_id" <eq name="menucate_id" value="1" >checked="checked" </eq>/>分类&nbsp;
-<input name="clist[]" type="checkbox"  value="score"  <eq name="menuscore" value="1" >checked="checked" </eq>/>积分&nbsp;
-<input name="clist[]" type="checkbox"  value="start_time" <eq name="menustart_time" value="1" >checked="checked" </eq>/>开始时间&nbsp;
-<input name="clist[]" type="checkbox"  value="close_time" <eq name="menuclose_time" value="1" >checked="checked" </eq>/>结束时间&nbsp;
-<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>创建时间&nbsp;
-<input name="clist[]" type="checkbox"  value="update_time" <eq name="menuupdate_time" value="1" >checked="checked" </eq>/>更新时间&nbsp;
-<input name="clist[]" type="checkbox"  value="keyword"  <eq name="menukeyword" value="1" >checked="checked" </eq>/>关键字&nbsp;
-<input name="clist[]" type="checkbox"  value="money"  <eq name="menumoney" value="1" >checked="checked" </eq>/>商家结算金额&nbsp;
+Show in the table：
+<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>Click&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>Print&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>Collection&nbsp;
+<input name="clist[]" type="checkbox"  value="trade_id" <eq name="menutrade_id" value="1" >checked="checked" </eq>/>Merchant&nbsp;
+<input name="clist[]" type="checkbox"  value="cate_id" <eq name="menucate_id" value="1" >checked="checked" </eq>/>Category&nbsp;
+<input name="clist[]" type="checkbox"  value="score"  <eq name="menuscore" value="1" >checked="checked" </eq>/>Poins &nbsp;
+<input name="clist[]" type="checkbox"  value="start_time" <eq name="menustart_time" value="1" >checked="checked" </eq>/>Start Time&nbsp;
+<input name="clist[]" type="checkbox"  value="close_time" <eq name="menuclose_time" value="1" >checked="checked" </eq>/>End Time&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>Create Time&nbsp;
+<input name="clist[]" type="checkbox"  value="update_time" <eq name="menuupdate_time" value="1" >checked="checked" </eq>/>Update Time&nbsp;
+<input name="clist[]" type="checkbox"  value="keyword"  <eq name="menukeyword" value="1" >checked="checked" </eq>/>Keyword&nbsp;
+<input name="clist[]" type="checkbox"  value="money"  <eq name="menumoney" value="1" >checked="checked" </eq>/>Payments&nbsp;
 </td></tr>
 </table>
 </div>
@@ -249,8 +249,8 @@ function setdate(id){
 <eq name="menucate_id" value="1" ><th width="115"><a href="javascript:sortBy('cate_id','{$sort}','index')">Category</a></th></eq>
 <eq name="menutrade_id" value="1" ><th width="115"><a href="javascript:sortBy('trade_id','{$sort}','index')">Merchant</a></th></eq>
 <eq name="menuscore" value="1" ><th width="85"><a href="javascript:sortBy('score','{$sort}','index')">Credit Need</a></th></eq>
-<eq name="menumoney" value="1" ><th width="85"><a href="javascript:sortBy('money','{$sort}','index')">商家结算金额</a></th></eq>
-<eq name="menukeyword" value="1" ><th width="115"><a href="javascript:sortBy('keyword','{$sort}','index')">关键字</a></th></eq>
+<eq name="menumoney" value="1" ><th width="85"><a href="javascript:sortBy('money','{$sort}','index')">Payments</a></th></eq>
+<eq name="menukeyword" value="1" ><th width="115"><a href="javascript:sortBy('keyword','{$sort}','index')">Keywords</a></th></eq>
 <eq name="menustart_time" value="1" ><th width="100"><a href="javascript:sortBy('start_time','{$sort}','index')">Since</a></th></eq>
 <eq name="menuclose_time" value="1" ><th width="100"><a href="javascript:sortBy('close_time','{$sort}','index')">End Time</a></th></eq>
 <eq name="menucreate_time" value="1" ><th width="100"><a href="javascript:sortBy('create_time','{$sort}','index')">Created Time</a></th></eq>
@@ -283,8 +283,8 @@ function setdate(id){
 <eq name="vo.status" value="0" >UnChecked</eq></td>
 <td><a href="__ROOT__/editor/demo.php?id={$vo.id}&name={$vo.title}"><font color="red">Edit Coupon</font></a>&nbsp;&nbsp;<a href="javascript:edit('{$vo.id}')">EDIT</a>&nbsp;&nbsp;&nbsp;
 <eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq>
-<eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
-<eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
+<eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq>
+<eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq>
 &nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a>
 </td>
 </tr>
@@ -292,15 +292,15 @@ function setdate(id){
 <div id="more{$vo.id}" class="listdiv" style="display:none;">
 <div style="float:left;padding-right:10px;"><if condition= "$vo.logo eq ''"><img src="__ROOT__/Public/Uploads/noavatar.gif" width="48" height="48"><else/><img src="__ROOT__{$vo.logo}" width="140" height="70"></if></div>
 <div style="float:left;">
-<li>优惠券英文：{$vo.name}</li>
-<li>商家获得结算金额：{$vo.address}</li>
-<li>注意事项：{$vo.attention}</li>
-<li>关键字：{$vo.keyword}</li>
-<li>介绍：{$vo.introduce}</li>
-<li>标签：{$vo.tags}</li>
-<li>创建时间：{$vo.create_time|date="Y-m-d",###}</li>
-<li>更新时间：{$vo.update_time|date="Y-m-d",###}</li>
-<li>状态：<eq name="vo.status" value="-1" >禁用</eq><eq name="vo.status" value="1" >正常</eq><eq name="vo.status" value="0" >待审核</eq></li>
+<li>Name：{$vo.name}</li>
+<li>Payment：{$vo.address}</li>
+<li>Notice：{$vo.attention}</li>
+<li>Keywords：{$vo.keyword}</li>
+<li>Introduction：{$vo.introduce}</li>
+<li>Tags：{$vo.tags}</li>
+<li>Create Time：{$vo.create_time|date="Y-m-d",###}</li>
+<li>Update Time：{$vo.update_time|date="Y-m-d",###}</li>
+<li>Status：<eq name="vo.status" value="-1" >Forbidden</eq><eq name="vo.status" value="1" >Normal</eq><eq name="vo.status" value="0" >Unchecked</eq></li>
 </div></div></td>
 </tr>
 </foreach>

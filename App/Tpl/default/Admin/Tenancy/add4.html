@@ -5,13 +5,13 @@ function Juge(myform)
 {
     if(myform.rend.value == "")
 	{
-		alert("用户名不能为空!");
+		alert("User name can't be empty!");
 		myform.rend.focus();
 		return (false);
 	}
 	else if (myform.rend.value >12)
 	{
-		alert("不能大于12周!");
+		alert("Can't large than 12 weeks!");
 		myform.rend.value="12";
 		myform.rend.focus();
 		return (false);
@@ -21,20 +21,20 @@ function Juge(myform)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">确认<font color="#990000">{$title}</font>将购买的展位 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Confirm purchase of:<font color="#990000">{$title}</font>! [ <a href="__URL__">Return</a> ]</div>
 <form action="__URL__/add5/" method="post" onSubmit="return Juge(this)"><input type="hidden" name="id" value="{$id}" /><input type="hidden" name="title" value="{$title}" />
 <table width="1126" cellpadding="1" cellspacing="0" align="left">
-<tr><td>租期：<input type="text" name="rend" size="4"  value="1">周 （最多12周）<input type="submit" value="确定购买" class="small hMargin shadow submit"></td></tr>
+<tr><td>Rent period：<input type="text" name="rend" size="4"  value="1">weeks （Maxium: 12 weeks）<input type="submit" value="确定购买" class="small hMargin shadow submit"></td></tr>
 </table></div>
 <div class="list">
 <table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
 <tr><td height="5" colspan="11" class="topTd"></td></tr>
 <tr class="row" align="center">
 <th width="41"></th>
-<th width="136">编号</th>
-<th width="309">打印机位置</th>
-<th width="239">按钮位置</th>
-<th width="583">状态</th>
+<th width="136">No.</th>
+<th width="309">Printer position</th>
+<th width="239">Button </th>
+<th width="583">Status</th>
 </tr>
 <foreach name= "exhlist" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">

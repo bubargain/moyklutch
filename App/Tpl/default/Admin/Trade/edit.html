@@ -2,74 +2,74 @@
 <include file="Public:header" />
 <div id="main" class="main" >
 <div class="content">
-<div class="title">编辑商家 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Merchant Information [ <a href="__URL__">Return</a> ]</div>
 <table cellpadding=3 cellspacing=3>
 <form method='post' id="form1" action="__URL__/update/" enctype="multipart/form-data">
 <tr>
-	<td class="tRight" >英文名：</td>
-	<td class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="用户名不能为空,且不能含有空格" name="name" value="{$vo.name}"></td>
+	<td class="tRight" >Short Name：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="No blank or  empty" name="name" value="{$vo.name}"></td>
 </tr>
 <tr>
-	<td class="tRight" >商家名称：</td>
+	<td class="tRight" >Name：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value="{$vo.title}"></td>
 </tr>
 <tr>
-	<td class="tRight" >联系人：</td>
+	<td class="tRight" >Contact Person：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="contact" value="{$vo.contact}"></td>
 </tr>
 <tr>
-	<td class="tRight" >电话：</td>
+	<td class="tRight" >Phone No.：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="phone" value="{$vo.phone}"></td>
 </tr>
 <tr>
-	<td class="tRight" >手机：</td>
+	<td class="tRight" >Mobile No.：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="mobile" value="{$vo.mobile}"></td>
 </tr>
 <tr>
-	<td class="tRight" >传真：</td>
+	<td class="tRight" >Fax No.：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="fax" value="{$vo.fax}"></td>
 </tr>
 <tr>
-	<td class="tRight" >邮箱：</td>
+	<td class="tRight" >Email：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="email" value="{$vo.email}"></td>
 </tr>
 <tr>
-	<td class="tRight" >上传展示图片：</td>
-	<td class="tLeft" ><input name="Img" type="file" id="Img"/><if condition= "$vo.logo eq ''"><else/><img src="__ROOT__{$vo.logo}" width="150" height="100"></if>(请上传尺寸为1063X709的图片)</td>
+	<td class="tRight" >Upload Picture：</td>
+	<td class="tLeft" ><input name="Img" type="file" id="Img"/><if condition= "$vo.logo eq ''"><else/><img src="__ROOT__{$vo.logo}" width="150" height="100"></if>(Size must be 1063 X 709 Pixels)</td>
 </tr>
 <tr>
-	<td class="tRight" >标签：</td>
+	<td class="tRight" >Labels：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="tags" value="{$vo.tags}"></td>
 </tr>
 <tr>
-	<td class="tRight" >排序位：</td>
+	<td class="tRight" >Sort Index：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="sort" value="{$vo.sort}"></td>
 </tr>
 <tr>
-	<td class="tRight" >关键字：</td>
+	<td class="tRight" >Keywords：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="keyword" value="{$vo.keyword}"></td>
 </tr>
 <tr>
-	<td class="tRight">状态：</td>
+	<td class="tRight">Status：</td>
 	<td class="tLeft"><SELECT class="small bLeft"  name="status">
-	<option <eq name="vo.status" value="1" >selected</eq> value="1">启用</option>
-	<option <eq name="vo.status" value="0" >selected</eq> value="0">禁用</option>
+	<option <eq name="vo.status" value="1" >selected</eq> value="1">Available</option>
+	<option <eq name="vo.status" value="0" >selected</eq> value="0">Forbidden</option>
 	</SELECT></td>
 </tr>
 <tr>
-	<td class="tRight tTop">商家介绍：</td>
+	<td class="tRight tTop">Merchant Introduction：</td>
 	<td class="tLeft"><html:editor type="kindeditor" name="introduce" id="introduce" style="width:550px;height:220px">{$vo.introduce}</html:editor></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
-	<input type="submit" value="保 存"  class="small submit">
+	<input type="submit" value="Save"  class="small submit">
 	</td>
 </tr>
 </form>
 <form method='post' id="form1" action="__URL__/edit/id/{$vo.id}" enctype="multipart/form-data">
 <tr>
-	<td class="tRight" >上传更多展示图片：</td>
+	<td class="tRight" >More Pictures：</td>
 	<td class="tLeft" ><input name="Img" type="file" id="Img"/></td>
 </tr>
 <tr>
@@ -80,7 +80,7 @@
 </tr></form>
 <tr><td colspan="2">
 <foreach name= "att" item= "vo">
-<img src="__ROOT__{$vo.path}" width="150" height="100"><a href="__APP__/Admin/Trade/delattach/id/{$vo.id}">删除</a>&nbsp;
+<img src="__ROOT__{$vo.path}" width="150" height="100"><a href="__APP__/Admin/Trade/delattach/id/{$vo.id}">Delete</a>&nbsp;
 </foreach>
 </td></tr>
 </table>

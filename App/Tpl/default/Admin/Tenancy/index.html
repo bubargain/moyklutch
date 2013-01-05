@@ -216,43 +216,43 @@ function setdate2(id){
 <div id="fRig">
 <div id="searchM">
 <table width="982" cellpadding="1" cellspacing="0" align="left"><input type="hidden" name="flag" value="1" />
-<td width="185">商家ID<input type="text" name="trade_id" title="商家ID" size="10" value="{$trade_id}"></td>
-<td width="371">机器放置地点ID<input type="text" name="p_id" title="放置地点ID" size="10" value="{$p_id}"></td>
-<td width="150">状态：<select name="status">
-  <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
-  <option <eq name="status" value="" >selected</eq> value="">不限</option>
-  <option <eq name="status" value="0" >selected</eq> value="0">预约</option>
-  <option <eq name="status" value="-1" >selected</eq> value="-1">删除或到期</option>
+<td width="185">Merchant ID<input type="text" name="trade_id" title="Merchant ID" size="10" value="{$trade_id}"></td>
+<td width="371">Location ID<input type="text" name="p_id" title="Location ID" size="10" value="{$p_id}"></td>
+<td width="150">Status：<select name="status">
+  <option <eq name="status" value="1" >selected</eq> value="1">Normal</option>
+  <option <eq name="status" value="" >selected</eq> value="">ALL</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">Ordered</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">Cancel or OverPeriod</option>
 </select></td>
 </tr>
 <tr>
-<td colspan="2">租赁起始时间:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
-  <option  value="" selected="selected">全部</option>
-  <option <eq name="tt" value="11" >selected</eq> value="11" >明日</option>
-  <option <eq name="tt" value="22" >selected</eq> value="22" >3日内</option>
-  <option <eq name="tt" value="33" >selected</eq> value="33" >5日内</option>
-  <option <eq name="tt" value="44" >selected</eq> value="44" >下周</option>
-  <option <eq name="tt" value="66" >selected</eq> value="66" >下月</option>
+<td colspan="2">Start Time:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">All</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >Tomorrow</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >In 3 days</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >In 5 days</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >Next week</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >Next month</option>
 </select><input type="text" id="s_time1" name="s_time1" size="10" onFocus="ShowCalendar(this)" value="{$s_time1}">~<input type="text" id="s_time2" name="s_time2" size="10" onFocus="ShowCalendar(this)" value="{$s_time2}"></td>
-<td colspan="2">租赁到期时间：<select name="ttt" onchange="setdate2(this.options[this.selectedIndex].value);">
-  <option  value="" selected="selected">全部</option>
-  <option <eq name="tt" value="11" >selected</eq> value="11" >明日</option>
-  <option <eq name="tt" value="22" >selected</eq> value="22" >3日内</option>
-  <option <eq name="tt" value="33" >selected</eq> value="33" >5日内</option>
-  <option <eq name="tt" value="44" >selected</eq> value="44" >下周</option>
-  <option <eq name="tt" value="66" >selected</eq> value="66" >下月</option>
+<td colspan="2">End Time：<select name="ttt" onchange="setdate2(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">All</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >Tomorrow</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >In 3 days</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >In 5 days</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >Next week</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >Next month</option>
 </select><input type="text" id="c_time1" name="c_time1" size="10" onFocus="ShowCalendar(this)" value="{$c_time1}">~<input type="text" id="c_time2" name="c_time2" size="10" onFocus="ShowCalendar(this)" value="{$c_time2}">
 </td></tr>
-<tr><td colspan="4">结果排序：<select name="resultid">
-  <option <eq name="resultid" value="p_id" >selected</eq> value="id" >地点ID</option>
-  <option <eq name="resultid" value="trade_id" >selected</eq> value="trade_id" >商家</option>
-  <option <eq name="resultid" value="start_time" >selected</eq> value="start_time" >开始时间</option>
-  <option <eq name="resultid" value="close_time" >selected</eq> value="close_time" >结束时间</option>
+<tr><td colspan="4">Sort by：<select name="resultid">
+  <option <eq name="resultid" value="p_id" >selected</eq> value="id" >location ID</option>
+  <option <eq name="resultid" value="trade_id" >selected</eq> value="trade_id" >Merchant</option>
+  <option <eq name="resultid" value="start_time" >selected</eq> value="start_time" >StartTime</option>
+  <option <eq name="resultid" value="close_time" >selected</eq> value="close_time" >EndTime</option>
   <option <eq name="resultid" value="prints" >selected</eq> value="prints" >打印</option>
 </select>
 <select name="sortid">
-  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
-  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
+  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >Desc</option>
+  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >Incr</option>
 </select><input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 </table>
 </div>
@@ -290,7 +290,7 @@ function setdate2(id){
 <eq name="vo.status" value="0" >Ordered</eq>
 <eq name="vo.status" value="-1" >Over-period</eq>
 <eq name="vo.status" value="-2" >Cancelled</eq></td>
-<td><a href="javascript:edit('{$vo.id}')">EDIT</a>&nbsp;<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Resume</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>&nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a></td>
+<td><a href="javascript:edit('{$vo.id}')">EDIT</a>&nbsp;<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Resume</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq>&nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a></td>
 </tr>
 </foreach>
 <tr><td height="5" colspan="12" class="bottomTd"></td></tr>

@@ -113,9 +113,9 @@ function setdate(id){
 <!-- 高级查询区域 -->
 <div id="searchM">
 <table width="1105" cellpadding="1" cellspacing="0"><input type="hidden" name="flag" value="1" />
-<tr><td width="125">No：</td><td width="118"><input type="text" name="id" title="用户ID" size="10" value="{$id}"></td>
-<td width="101">UserName：</td><td width="222"><input type="text" name="account" title="帐号查询" size="10" value="{$account}" ></td>
-<td width="106">RealName：</td><td colspan="2"><input type="text" name="realname" title="姓名查询" size="10" value="{$realname}"></td>
+<tr><td width="125">No：</td><td width="118"><input type="text" name="id" title="User ID" size="10" value="{$id}"></td>
+<td width="101">UserName：</td><td width="222"><input type="text" name="account" title="UserName" size="10" value="{$account}" ></td>
+<td width="106">RealName：</td><td colspan="2"><input type="text" name="realname" title="RealName" size="10" value="{$realname}"></td>
 </tr>
 <tr>
 <td width="125">PersonalInfo：</td><td width="118"><select name="userinfo_if">
@@ -136,26 +136,26 @@ UserGroup：</td><td width="58"><select name="type_id">
 </select></td><td width="359" align="center"><input type="submit" value="Query" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 <tr>
 <td>Email：</td><td><select name="email_if">
-  <option value="">不限</option>
+  <option value="">ALL</option>
   <option <eq name="email_if" value="0" >selected</eq> value="0">Unverify</option>
   <option <eq name="email_if" value="1" >selected</eq> value="1">verify</option>
 </select></td><td>
 Phone：</td><td><select name="mobile_if">
-  <option value="">不限</option>
+  <option value="">ALL</option>
   <option <eq name="mobile_if" value="0" >selected</eq> value="0">Unverify</option>
   <option <eq name="mobile_if" value="1" >selected</eq> value="1">verify</option>
 </select></td><td>WapSite：</td><td><select name="wap_if">
-  <option value="">不限</option>
-  <option <eq name="wap_if" value="0" >selected</eq> value="0">未访问</option>
-  <option <eq name="wap_if" value="1" >selected</eq> value="1">已访问</option>
+  <option value="">ALL</option>
+  <option <eq name="wap_if" value="0" >selected</eq> value="0">Never Access</option>
+  <option <eq name="wap_if" value="1" >selected</eq> value="1">Accessed</option>
 </select></td><td width="359" align="center"></td></tr>
 <tr>
 <td>Credit：</td><td><input type="text" name="money1" size="3" value="{$money1}">~<input type="text" name="money2" size="3" value="{$money2}"></td>
-<td>CreateTime：</td><td><input type="text" name="time1" size="8" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="8" onFocus="ShowCalendar(this)" value="{$time2}"></td><td>用户状态：</td><td><select name="status">
-  <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
-  <option <eq name="status" value="3" >selected</eq> value="3">不限</option>
-  <option <eq name="status" value="-1" >selected</eq> value="-1">已删除</option>
-  <option <eq name="status" value="0" >selected</eq> value="0">禁用</option>
+<td>CreateTime：</td><td><input type="text" name="time1" size="8" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="8" onFocus="ShowCalendar(this)" value="{$time2}"></td><td>Status：</td><td><select name="status">
+  <option <eq name="status" value="1" >selected</eq> value="1">Normal</option>
+  <option <eq name="status" value="3" >selected</eq> value="3">All</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">Deleted</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">Forbidden</option>
 </select></td><td></td></tr><tr>
 <td colspan="3">Stat:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
   <option  value="" selected="selected">All</option>
@@ -234,17 +234,17 @@ Phone：</td><td><select name="mobile_if">
 <eq name="menucard_id" value="1" ><td>{$vo.card_id}</td></eq>
 <eq name="menuaddress" value="1" ><td>{$vo.address}</td></eq>
 <eq name="menuemail" value="1" ><td width="130">{$vo.email}</td></eq>
-<eq name="menusex" value="1" ><td width="40"><eq name="vo.sex" value="0" >男</eq><eq name="vo.sex" value="1" >女</eq></td></eq>
+<eq name="menusex" value="1" ><td width="40"><eq name="vo.sex" value="0" >Male</eq><eq name="vo.sex" value="1" >Female</eq></td></eq>
 <eq name="menumobile" value="1" ><td width="120">{$vo.mobile}</td></eq>
 <eq name="menuphone" value="1" ><td width="140">{$vo.phone}</td></eq>
 <eq name="menupoint" value="1" ><td><a href="javascript:showcount('User',0,'{$vo.id}')">{$vo.point}</a></td></eq>
 <eq name="menuprints" value="1" ><td><a href="javascript:showcount('User',1,'{$vo.id}')">{$vo.prints}</a></td></eq>
 <eq name="menucollect" value="1" ><td><a href="javascript:showcount('User',2,'{$vo.id}')">{$vo.collect}</a></td></eq>
-<eq name="menutype_id" value="1" ><td><eq name="vo.type_id" value="0" >管理员</eq><eq name="vo.type_id" value="1" >商家</eq><eq name="vo.type_id" value="2" >普通会员</eq></td></eq>
+<eq name="menutype_id" value="1" ><td><eq name="vo.type_id" value="0" >Admin</eq><eq name="vo.type_id" value="1" >Merchant</eq><eq name="vo.type_id" value="2" >User</eq></td></eq>
 <eq name="menumoney" value="1" ><td><a href="javascript:showscore('User','{$vo.id}')">{$vo.score}</a></td></eq>
 <eq name="menucreate_time" value="1" ><td>{$vo.create_time|date="Y-m-d",###}</td></eq>
 <eq name="menuremark" value="1" ><td><input type="text" id="remark{$vo.id}" name="remark" size="30" value="{$vo.remark}" style="border:#FFF 1px solid;" onchange="aupdate('User','{$vo.id}','remark')"></td></eq>
-<td><a href="__APP__/Admin/User/addscore/id/{$vo.id}">充值</a>&nbsp;<a href="javascript:;" onclick="edit('{$vo.id}')">编辑</a>&nbsp;<neq name="vo.id" value="1" ><eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq></neq>&nbsp;<a href="javascript:adel('{$vo.id}')">删除</a></td>
+<td><a href="__APP__/Admin/User/addscore/id/{$vo.id}">Pay</a>&nbsp;<a href="javascript:;" onclick="edit('{$vo.id}')">Edit</a>&nbsp;<neq name="vo.id" value="1" ><eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbidden</a></eq><eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq><eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq></neq>&nbsp;<a href="javascript:adel('{$vo.id}')">Delete</a></td>
 </tr>
 <tr ondblclick="hidden_more('more{$vo.id}')"><td colspan="16">
 <div id="more{$vo.id}" class="listdiv" style="display:none;">

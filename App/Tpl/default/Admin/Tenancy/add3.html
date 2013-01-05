@@ -43,28 +43,28 @@ function setcate(bid)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">请为<font color="#990000">{$title}</font>选择展位 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Please choose position for<font color="#990000">{$title}</font>! [ <a href="__URL__">Return</a> ]</div>
 <form method='post' name="form1" id="form1" action="">
 <table width="1126" cellpadding="1" cellspacing="0" align="left"><input type="hidden" name="id" value="{$id}" /><input type="hidden" name="flag" value="1" />
-<td width="346">大商圈：
+<td width="346">City：
   <select name="areab" onchange="setcate(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_area_option();</php>
 </select>
-小商圈：<select name="area" onchange="setpid(this.options[this.selectedIndex].value);">
-<option value="">-请选择-</option>
+Region：<select name="area" onchange="setpid(this.options[this.selectedIndex].value);">
+<option value="">-Choose-</option>
 </select>
 </td>
-<td width="193">展位状态：<select name="status">
-  <option <eq name="status" value="1" >selected</eq> value="1">可直接购买</option>
-  <option <eq name="status" value="2" >selected</eq> value="2">一个月内到期</option>
-  <option <eq name="status" value="" >selected</eq> value="">不限</option>
+<td width="193">Status：<select name="status">
+  <option <eq name="status" value="1" >selected</eq> value="1">Availble</option>
+  <option <eq name="status" value="2" >selected</eq> value="2">In one Month</option>
+  <option <eq name="status" value="" >selected</eq> value="">All</option>
 </select></td>
-<td width="435">展位价格：<input type="text" name="money1" size="5" value="{$money1}">~<input type="text" name="money2" size="5" value="{$money2}"></td>
+<td width="435">Price：<input type="text" name="money1" size="5" value="{$money1}">~<input type="text" name="money2" size="5" value="{$money2}"></td>
 </tr>
 <tr>
 
-<td colspan="3">位置：
+<td colspan="3">Position：
 <input name="tdx[]" type="checkbox" checked="checked" value="DX1" />DX1&nbsp;
 <input name="tdx[]" type="checkbox" checked="checked"  value="DX2" />DX2&nbsp;
 <input name="tdx[]" type="checkbox" checked="checked" value="DX3" />DX3&nbsp;
@@ -80,7 +80,7 @@ function setcate(bid)
 <input name="tdx[]" type="checkbox" checked="checked" value="DX13" />DX13&nbsp;
 <input name="tdx[]" type="checkbox" checked="checked" value="DX14" />DX14&nbsp;
 <input name="tdx[]" type="checkbox" checked="checked" value="DX15" />DX15&nbsp;
-<input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();">
+<input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();">
 </td></tr>
 </table>
 </form>
@@ -90,11 +90,11 @@ function setcate(bid)
 <tr><td height="5" colspan="11" class="topTd"></td></tr>
 <tr class="row" align="center">
 <th width="41"></th>
-<th width="136">编号</th>
-<th width="309">打印机位置</th>
-<th width="239">按钮位置</th>
-<th width="583">状态</th>
-</tr><form action="__URL__/add4/" method="post"><input type="submit" value="购买选中" class="small hMargin shadow submit"><input type="hidden" name="id" value="{$id}" /><input type="hidden" name="title" value="{$title}" />
+<th width="136">No.</th>
+<th width="309">Print Location</th>
+<th width="239">Button</th>
+<th width="583">Status</th>
+</tr><form action="__URL__/add4/" method="post"><input type="submit" value="Purchase" class="small hMargin shadow submit"><input type="hidden" name="id" value="{$id}" /><input type="hidden" name="title" value="{$title}" />
 <foreach name= "exhlist" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
 <th width="41"><input name="dxlist[]" type="checkbox" value="{$vo.id}" /></th>

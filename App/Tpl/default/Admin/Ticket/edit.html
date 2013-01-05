@@ -44,81 +44,81 @@ function setcate(bid)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">编辑优惠券 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Edit Coupon [ <a href="__URL__">Return</a> ]</div>
 <table cellpadding=3 cellspacing=3>
 <form method='post' id="form1" action="__URL__/update/"  enctype="multipart/form-data">
 <tr>
-	<td class="tRight" >名称：</td>
+	<td class="tRight" >Name：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="title" value="{$vo.title}"></td>
 </tr>
 <tr>
-	<td class="tRight" >商品类别：</td>
+	<td class="tRight" >Category：</td>
 	<td class="tLeft" ><select name="cate_bid" onchange="setcate(this.options[this.selectedIndex].value,'cate_id');">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_cate_option();</php>
 </select>
-子类：<select id="cate_id" name="cate_id">
+Detailed：<select id="cate_id" name="cate_id">
     <foreach name="cate" item="voo">
     <option value="{$voo.id}" <eq name= "voo.id" value= "$vo.cate_id" > selected="selected" </eq> >{$voo.title}</option>
     </foreach>
     </select></td>
 </tr>
 <tr>
-	<td class="tRight" >状态：</td>
+	<td class="tRight" >Status：</td>
 	<td class="tLeft" ><select name="status">
-<option value="1" <eq name= "vo.status" value= "1" > selected="selected" </eq> >已审核</option>
-<option value="0" <eq name= "vo.status" value= "0" > selected="selected" </eq> >待审核</option>
-<option value="-1" <eq name= "vo.status" value= "-1" > selected="selected" </eq> >禁用</option>
+<option value="1" <eq name= "vo.status" value= "1" > selected="selected" </eq> >Permit</option>
+<option value="0" <eq name= "vo.status" value= "0" > selected="selected" </eq> >unchecked</option>
+<option value="-1" <eq name= "vo.status" value= "-1" > selected="selected" </eq> >forbidden</option>
 </select></td>
 </tr>
 <tr>
-	<td class="tRight" >数量：</td>
-	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value="{$vo.num}">(-1代表无限制)</td>
+	<td class="tRight" >Print Amount：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="num" value="{$vo.num}">(-1 means infinite)</td>
 </tr>
 <tr>
-	<td class="tRight" >优惠券开始时间：</td>
-	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.start_time|toDate}">结束时间：<input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.close_time|toDate}"></td>
+	<td class="tRight" >Start Time：</td>
+	<td class="tLeft" ><input type="text" name="start_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.start_time|toDate}">End Time：<input type="text" name="close_time" size="10" onFocus="ShowCalendar(this)" value="{$vo.close_time|toDate}"></td>
 </tr>
 <tr>
-	<td class="tRight" >商家获得结算额：</td>
+	<td class="tRight" >Payment for merchant：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="money" value="{$vo.money}"></td>
 </tr>
 <tr>
-	<td class="tRight" >下载需扣积分：</td>
+	<td class="tRight" >Points need for each print：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="score" value="{$vo.score}"></td>
 </tr>
 <tr>
-	<td class="tRight" >上传logo：</td>
+	<td class="tRight" >submit logo：</td>
 	<td class="tLeft" ><input name="Img" type="file" id="Img"/><if condition= "$vo.logo eq ''"><else/><img src="__ROOT__{$vo.logo}" width="200" height="100"></if></td>
 </tr>
 <tr>
-	<td class="tRight" >排序：</td>
-	<td class="tLeft" ><input type="text" class="medium bLeft" name="sortnum" value="{$vo.sortnum}">数值大的排前</td>
+	<td class="tRight" >Sort by：</td>
+	<td class="tLeft" ><input type="text" class="medium bLeft" name="sortnum" value="{$vo.sortnum}">Desc</td>
 </tr>
 <tr>
-	<td class="tRight" >关键字：</td>
+	<td class="tRight" >Key words：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="keyword" value="{$vo.keyword}"></td>
 </tr>
 <tr>
-	<td class="tRight" >标签：</td>
+	<td class="tRight" >Labels：</td>
 	<td class="tLeft" ><input type="text" class="medium bLeft" name="tags" value="{$vo.tags}"></td>
 </tr>
 <tr>
-	<td class="tRight tTop">注意事项：</td>
+	<td class="tRight tTop">Notice：</td>
 	<td class="tLeft"><textarea class="large bLeft"  name="remark" rows="5" cols="38">{$vo.attention}</textarea></td>
 </tr>
 <tr>
-	<td class="tRight tTop">商品摘要：</td>
+	<td class="tRight tTop">Abstract：</td>
 	<td class="tLeft"><textarea class="large bLeft"  name="remark" rows="5" cols="38">{$vo.introduce}</textarea></td>
 </tr>
 <tr>
-	<td class="tRight tTop">详细内容：</td>
+	<td class="tRight tTop">Detailed Introduction：</td>
 	<td class="tLeft"><html:editor type="kindeditor" name="content" id="content" style="width:550px;height:220px">{$vo.content}</html:editor></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center"><input type="hidden" name="id" value="{$vo.id}" >
-	<input type="submit" value="编辑"  class="small submit">
+	<input type="submit" value="Edit"  class="small submit">
 	</td>
 </tr>
 </table>

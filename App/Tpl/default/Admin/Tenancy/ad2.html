@@ -46,31 +46,31 @@ function Juge(myform)
     if
 	 (myform.trade_id.value == "")
 	{
-		alert("商家ID不能为空!");
+		alert("Merchant ID can't be empty!");
 		myform.trade_id.focus();
 		return (false);
 	}
 	else if (myform.p_id.value == "")
 	{
-		alert("请选择位置!");
+		alert("Please choose machine!");
 		myform.p_id.focus();
 		return (false);
 	}
 	else if (myform.bt_position.value == "")
 	{
-		alert("请选择按钮位置！");
+		alert("please choose button！");
 		myform.bt_position.focus();
 		return (false);
 	}
 	else if (myform.start_time.value == "")
 	{
-		alert("请填写开始时间！");
+		alert("Please choose start time！");
 		myform.start_time.focus();
 		return (false);
 	}
 	else if (myform.close_time.value == "")
 	{
-		alert("请填写结束时间！");
+		alert("Please choose end time！");
 		myform.close_time.focus();
 		return (false);
 	}
@@ -88,7 +88,7 @@ function Juge(myform)
 <tr>
 	<td class="tRight" >Position：</td>
 	<td class="tLeft" ><select name="p_id" onchange="setcate(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
 <foreach name= "plist" item= "vo">
   <option value="{$vo.id}">{$vo.name}</option>
 </foreach>
@@ -97,7 +97,7 @@ function Juge(myform)
 <tr>
 	<td class="tRight" >Button：</td>
 	<td class="tLeft" ><select name="bt_position">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
 </select></td>
 </tr>
 <tr>
@@ -118,13 +118,13 @@ function Juge(myform)
 	</SELECT></td>
 </tr>
 <tr>
-	<td class="tRight tTop">备  注：</td>
+	<td class="tRight tTop">note：</td>
 	<td class="tLeft"><TEXTAREA class="large bLeft"  name="remark" rows="5" cols="57"></textarea></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center">
-	<input type="submit" value="保 存" class="small submit">
+	<input type="submit" value="Save" class="small submit">
 	</td>
 </tr>
 </table>

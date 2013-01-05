@@ -8,12 +8,12 @@
 <div id="main" class="main" >
 
 <div class="content" >
-<div class="title">{$id|get_trade}的充值记录</div>
+<div class="title">{$id|get_trade} Revenue record</div>
 <div id="searchM"><form method='post' action="__APP__/Admin/Trade/showgetmoney">
 <table width="849" cellpadding="1" cellspacing="0">
 <tr><td width="249"><input type="hidden" name="id" value="{$id}" />
 <input type="text" name="time1" id="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" id="time2" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}"></td>
-<td width="594" align="left"><input type="submit" value="查询" class="small hMargin shadow submit"></td>
+<td width="594" align="left"><input type="submit" value="Search" class="small hMargin shadow submit"></td>
 </tr>
 </table></form>
 </div>
@@ -22,7 +22,7 @@
 <table id="checkList" cellpadding="0" cellspacing="0" width="100%" class="list">
 <tr><td height="5" colspan="6" class="topTd"></td></tr>
 <tr class="row" align="center">
-<th width="78"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th><th width="181"><a href="javascript:sortBy('trade_id','{$sort}','index')">商家</a></th><th width="183"><a href="javascript:sortBy('ticket_id','{$sort}','index')">优惠券</a></th><th width="361"><a href="javascript:sortBy('user_id','{$sort}','index')">用户</a></th><th width="183"><a href="javascript:sortBy('money','{$sort}','index')">结算额</a></th><th width="202"><a href="javascript:sortBy('create_time','{$sort}','index')">记录时间</a></th></tr>
+<th width="78"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th><th width="181"><a href="javascript:sortBy('trade_id','{$sort}','index')">Merchant</a></th><th width="183"><a href="javascript:sortBy('ticket_id','{$sort}','index')">Coupon</a></th><th width="361"><a href="javascript:sortBy('user_id','{$sort}','index')">User</a></th><th width="183"><a href="javascript:sortBy('money','{$sort}','index')">Revenue</a></th><th width="202"><a href="javascript:sortBy('create_time','{$sort}','index')">Record Time</a></th></tr>
 <foreach name= "list" item= "vo">
 <tr class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
 <td>{$vo.id}</td>

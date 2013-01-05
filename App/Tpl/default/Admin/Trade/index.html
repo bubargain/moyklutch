@@ -202,10 +202,10 @@ function setarea(bid)
 <tr><td width="336">No：
   <input type="text" name="id" title="ID" size="10" value="{$id}"></td>
 <td width="327">Name：
-  <input type="text" name="title" title="商家名称" size="10" value="{$title}"></td>
+  <input type="text" name="title" title="Name" size="10" value="{$title}"></td>
 
-<td width="462">Label：
-  <input type="text" name="tags" title="标签" size="10" value="{$tags}"></td></tr>
+<td width="462">Tags：
+  <input type="text" name="tags" title="Tags" size="10" value="{$tags}"></td></tr>
 <tr><td colspan="3">City：
   <select name="areab" onchange="setarea(this.options[this.selectedIndex].value);">
   <option value="">-Choose-</option>
@@ -235,48 +235,48 @@ Ch-：<select name="cate_id" id="cate_id">
 <td>Create Time：
   <input type="text" name="time1" size="10" onFocus="ShowCalendar(this)" value="{$time1}">~<input type="text" name="time2" size="10" onFocus="ShowCalendar(this)" value="{$time2}"></td></tr>
   <tr>
-  <td width="462">统计筛选:<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
-  <option  value="" selected="selected">全部</option>
-  <option <eq name="tt" value="11" >selected</eq> value="11" >今天</option>
-  <option <eq name="tt" value="22" >selected</eq> value="22" >昨天</option>
-  <option <eq name="tt" value="33" >selected</eq> value="33" >本周</option>
-  <option <eq name="tt" value="44" >selected</eq> value="44" >上周</option>
-  <option <eq name="tt" value="55" >selected</eq> value="55" >本月</option>
-  <option <eq name="tt" value="66" >selected</eq> value="66" >上月</option>
-  <option <eq name="tt" value="7"  >selected</eq> value="7"  >过去7天</option>
-  <option <eq name="tt" value="30" >selected</eq> value="30" >过去30天</option>
-  <option <eq name="tt" value="90" >selected</eq> value="90" >过去90天</option>
-</select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"></td><td>结果排序：<select name="resultid">
+  <td width="462">Time :<select name="tt" onchange="setdate(this.options[this.selectedIndex].value);">
+  <option  value="" selected="selected">All</option>
+  <option <eq name="tt" value="11" >selected</eq> value="11" >Today</option>
+  <option <eq name="tt" value="22" >selected</eq> value="22" >Yesterday</option>
+  <option <eq name="tt" value="33" >selected</eq> value="33" >This week</option>
+  <option <eq name="tt" value="44" >selected</eq> value="44" >Last week</option>
+  <option <eq name="tt" value="55" >selected</eq> value="55" >This month</option>
+  <option <eq name="tt" value="66" >selected</eq> value="66" >Last Month</option>
+  <option <eq name="tt" value="7"  >selected</eq> value="7"  >Last 7 days</option>
+  <option <eq name="tt" value="30" >selected</eq> value="30" >last 30 days</option>
+  <option <eq name="tt" value="90" >selected</eq> value="90" >last 90 days</option>
+</select><input type="text" name="tt1" id="tt1" size="10" onFocus="ShowCalendar(this)" value="{$tt1}">~<input type="text" id="tt2" name="tt2" size="10" onFocus="ShowCalendar(this)" value="{$tt2}"></td><td>Sort by：<select name="resultid">
   <option <eq name="resultid" value="id" >selected</eq> value="id" >ID</option>
   <option <eq name="resultid" value="title" >selected</eq> value="title" >Merchant</option>
-  <option <eq name="resultid" value="update_time" >selected</eq> value="update_time" >更新时间</option>
-  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >创建时间</option>
-  <option <eq name="resultid" value="money" >selected</eq> value="money" >储值</option>
-  <option <eq name="resultid" value="getmoney" >selected</eq> value="getmoney" >结算额</option>
-  <option <eq name="resultid" value="point" >selected</eq> value="point" >点击</option>
-  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >收藏</option>
-  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >打印</option>
+  <option <eq name="resultid" value="update_time" >selected</eq> value="update_time" >Update Time</option>
+  <option <eq name="resultid" value="create_time" >selected</eq> value="create_time" >Create Time</option>
+  <option <eq name="resultid" value="money" >selected</eq> value="money" >Payment</option>
+  <option <eq name="resultid" value="getmoney" >selected</eq> value="getmoney" >Revenue</option>
+  <option <eq name="resultid" value="point" >selected</eq> value="point" >Click</option>
+  <option <eq name="resultid" value="collect" >selected</eq> value="collect" >Collection</option>
+  <option <eq name="resultid" value="prints" >selected</eq> value="prints" >Print</option>
 </select>
 <select name="sortid">
-  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >递减</option>
-  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >递增</option>
+  <option <eq name="sortid" value="desc" >selected</eq> value="desc" >Desc</option>
+  <option <eq name="sortid" value="asc" >selected</eq> value="asc" >Inc</option>
 </select></td><td>
-<input type="submit" value="查询" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
+<input type="submit" value="Search" class="small hMargin shadow submit" onclick="formsubmit2();"></td></tr>
 <tr><td colspan="3">
-&nbsp;显示字段：
-<input name="clist[]" type="checkbox"  value="ticket" <eq name="menuticket" value="1" >checked="checked" </eq>/>券数量&nbsp;
-<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>点击&nbsp;
-<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>打印&nbsp;
-<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>收藏&nbsp;
-<input name="clist[]" type="checkbox"  value="branch" <eq name="menubranch" value="1" >checked="checked" </eq>/>分店&nbsp;
-<input name="clist[]" type="checkbox"  value="exh" <eq name="menuexh" value="1" >checked="checked" </eq>/>展位&nbsp;
-<input name="clist[]" type="checkbox"  value="status"  <eq name="menustatus" value="1" >checked="checked" </eq>/>状态&nbsp;
-<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>创建时间&nbsp;
-<input name="clist[]" type="checkbox"  value="update_time" <eq name="menuupdate_time" value="1" >checked="checked" </eq>/>更新时间&nbsp;
-<input name="clist[]" type="checkbox"  value="keyword"  <eq name="menukeyword" value="1" >checked="checked" </eq>/>关键字&nbsp;
-<input name="clist[]" type="checkbox"  value="mobile"  <eq name="menumobile" value="1" >checked="checked" </eq>/>手机&nbsp;
-<input name="clist[]" type="checkbox"  value="email"  <eq name="menuemail" value="1" >checked="checked" </eq>/>邮箱&nbsp;
-<input name="clist[]" type="checkbox"  value="address"  <eq name="menuaddress" value="1" >checked="checked" </eq>/>地址
+&nbsp;Segments：
+<input name="clist[]" type="checkbox"  value="ticket" <eq name="menuticket" value="1" >checked="checked" </eq>/>Amount&nbsp;
+<input name="clist[]" type="checkbox"  value="point"   <eq name="menupoint" value="1" >checked="checked" </eq>/>Click Times&nbsp;
+<input name="clist[]" type="checkbox"  value="prints"  <eq name="menuprints" value="1" >checked="checked" </eq>/>Print Times&nbsp;
+<input name="clist[]" type="checkbox"  value="collect" <eq name="menucollect" value="1" >checked="checked" </eq>/>Collect Times&nbsp;
+<input name="clist[]" type="checkbox"  value="branch" <eq name="menubranch" value="1" >checked="checked" </eq>/>Branch&nbsp;
+<input name="clist[]" type="checkbox"  value="exh" <eq name="menuexh" value="1" >checked="checked" </eq>/>Position&nbsp;
+<input name="clist[]" type="checkbox"  value="status"  <eq name="menustatus" value="1" >checked="checked" </eq>/>Status&nbsp;
+<input name="clist[]" type="checkbox"  value="create_time" <eq name="menucreate_time" value="1" >checked="checked" </eq>/>Create time&nbsp;
+<input name="clist[]" type="checkbox"  value="update_time" <eq name="menuupdate_time" value="1" >checked="checked" </eq>/>Update time&nbsp;
+<input name="clist[]" type="checkbox"  value="keyword"  <eq name="menukeyword" value="1" >checked="checked" </eq>/>keywords&nbsp;
+<input name="clist[]" type="checkbox"  value="mobile"  <eq name="menumobile" value="1" >checked="checked" </eq>/>Phone&nbsp;
+<input name="clist[]" type="checkbox"  value="email"  <eq name="menuemail" value="1" >checked="checked" </eq>/>Email&nbsp;
+<input name="clist[]" type="checkbox"  value="address"  <eq name="menuaddress" value="1" >checked="checked" </eq>/>Address
 </td></tr>
 </table>
 </div>
@@ -324,15 +324,15 @@ Ch-：<select name="cate_id" id="cate_id">
 <eq name="menucreate_time" value="1" ><td>{$vo.create_time|date="Y-m-d H:i:s",###}</td></eq>
 <eq name="menuupdate_time" value="1" ><td>{$vo.update_time|date="Y-m-d H:i:s",###}</td></eq>
 <eq name="menustatus" value="1" ><td><switch name="vo.status">
-    <case value="0">帐户待审核</case>
-    <case value="1">正常</case>
-    <case value="-1">已删除</case>
-    <case value="3">内容待审核</case>
+    <case value="0">unauthorize</case>
+    <case value="1">Normal</case>
+    <case value="-1">Deleted</case>
+    <case value="3">unchecked</case>
 </switch>
 </td></eq>
 <td><a href="javascript:showmoney('Trade','{$vo.id}')">{$vo.money}</a></td>
 <td>{$vo.getmoney}</td>
-<td><a href="__URL__/addmoney/id/{$vo.id}">充值</a>&nbsp;&nbsp;<a href="__APP__/Admin/Ticket/add/id/{$vo.id}"><font color="red">AddCoupon</font></a>&nbsp;&nbsp;<a href="javascript:showuser('{$vo.id}')">授权用户</a>&nbsp;<a href="__URL__/addbranch/id/{$vo.id}">AddSub-Store</a>&nbsp;<a href="javascript:edit('{$vo.id}')">Edit</a>&nbsp;&nbsp;<switch name="vo.status"><case value="1"><a href="javascript:forbidden('{$vo.id}')">Del</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">恢复</a></case><case value="3"><a href="__URL__/validcont/id/{$vo.id}">审核</a></case>
+<td><a href="__URL__/addmoney/id/{$vo.id}">Pay</a>&nbsp;&nbsp;<a href="__APP__/Admin/Ticket/add/id/{$vo.id}"><font color="red">AddCoupon</font></a>&nbsp;&nbsp;<a href="javascript:showuser('{$vo.id}')">Autherize</a>&nbsp;<a href="__URL__/addbranch/id/{$vo.id}">AddSub-Store</a>&nbsp;<a href="javascript:edit('{$vo.id}')">Edit</a>&nbsp;&nbsp;<switch name="vo.status"><case value="1"><a href="javascript:forbidden('{$vo.id}')">Del</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">Recove</a></case><case value="-1"><a href="javascript:recycle('{$vo.id}')">Recover</a></case><case value="3"><a href="__URL__/validcont/id/{$vo.id}">Authorize</a></case>
 </switch>
 </td>
 </tr>
@@ -344,16 +344,16 @@ Ch-：<select name="cate_id" id="cate_id">
 </if><br />{$vo.id|get_tradelogo}
 </div>
 <div style="float:left;">
-<li>商家英文：{$vo.name}</li>
-<li>手机：{$vo.mobile}</li>
-<li>传真：{$vo.fax}</li>
-<li>地址：{$vo.address}</li>
-<li>邮箱：{$vo.email}</li>
-<li>关键字：{$vo.keyword}</li>
-<li>标签：{$vo.tags}</li>
-<li>公司介绍：{$vo.introduce}</li>
-<li>状态：<eq name="vo.status" value="-1" >已删除</eq><eq name="vo.status" value="1" >正常</eq><eq name="vo.status" value="0" >禁用</eq></li>
-<li>已授权的用户：{$vo.id|get_userbytrade}</li>
+<li>name：{$vo.name}</li>
+<li>mobile：{$vo.mobile}</li>
+<li>fax：{$vo.fax}</li>
+<li>address：{$vo.address}</li>
+<li>email：{$vo.email}</li>
+<li>keyword：{$vo.keyword}</li>
+<li>tags：{$vo.tags}</li>
+<li>introduction：{$vo.introduce}</li>
+<li>status：<eq name="vo.status" value="-1" >deleted</eq><eq name="vo.status" value="1" >normal</eq><eq name="vo.status" value="0" >forbidden</eq></li>
+<li>Authored：{$vo.id|get_userbytrade}</li>
 </div></div></td>
 </tr>
 </foreach>

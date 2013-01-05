@@ -53,7 +53,7 @@ function setcate(bid)
 <div class="title">地点列表</div>
 <!--  功能操作区域  -->
 <div class="operate" >
-<input type="button" name="add" value="新增" class="small hMargin shadow submit" onclick="add();">
+<input type="button" name="add" value="Add" class="small hMargin shadow submit" onclick="add();">
 </div>
 <!-- 查询区域 -->
 <div id="fRig">
@@ -61,37 +61,37 @@ function setcate(bid)
 <div id="searchM">
 <table width="1170" cellpadding="1" cellspacing="0">
   <form method='post' action="__URL__"><input type="hidden" name="flag" value="1" />
-<tr><td width="317">地点名称：
-  <input type="text" name="name" title="地点名称" size="6" value="{$name}"></td>
-  <td colspan="2">机器编码：
-  <input type="text" name="macno" title="机器编码" size="6" value="{$macno}">&nbsp;&nbsp;
-归属商圈：
+<tr><td width="317">Location：
+  <input type="text" name="name" title="Location" size="6" value="{$name}"></td>
+  <td colspan="2">machine name：
+  <input type="text" name="macno" title="name" size="6" value="{$macno}">&nbsp;&nbsp;
+Region：
   <select name="areab" onchange="setcate(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_area_option();</php>
 </select>
-小商圈：<select name="area" id="area">
-<option value="">-请选择-</option>
+Area：<select name="area" id="area">
+<option value="">-Choose-</option>
 </select>
 </td>
-<td width="353">状态：
+<td width="353">Status：
   <select name="status">
-  <option value="">不限</option>
-  <option <eq name="status" value="-1" >selected</eq> value="-1">过期</option>
-  <option <eq name="status" value="0" >selected</eq> value="0">预约</option>
-  <option <eq name="status" value="1" >selected</eq> value="1">正常</option>
+  <option value="">All</option>
+  <option <eq name="status" value="-1" >selected</eq> value="-1">Over-period</option>
+  <option <eq name="status" value="0" >selected</eq> value="0">order</option>
+  <option <eq name="status" value="1" >selected</eq> value="1">Normal</option>
 </select></td>
 </tr>
 <tr>
-<td>租赁开始时间：
-  <input type="text" name="s_time1" size="8" onFocus="ShowCalendar(this)" value="{$s_time1}">~<input type="text" name="s_time2" size="10" onFocus="ShowCalendar(this)" value="{$s_time2}"></td><td width="460">租赁结束时间：
-    <input type="text" name="c_time1" size="8" onFocus="ShowCalendar(this)" value="{$c_time1}">~<input type="text" name="c_time2" size="10" onFocus="ShowCalendar(this)" value="{$c_time2}"></td><td  colspan="2">地点到期时间：
+<td>Start time：
+  <input type="text" name="s_time1" size="8" onFocus="ShowCalendar(this)" value="{$s_time1}">~<input type="text" name="s_time2" size="10" onFocus="ShowCalendar(this)" value="{$s_time2}"></td><td width="460">租赁End time：
+    <input type="text" name="c_time1" size="8" onFocus="ShowCalendar(this)" value="{$c_time1}">~<input type="text" name="c_time2" size="10" onFocus="ShowCalendar(this)" value="{$c_time2}"></td><td  colspan="2">Location Contract：
   <select name="tstatus">
-  <option value="">全部</option>
-  <option <eq name="tstatus" value="1" >selected</eq> value="1">一个月</option>
-  <option <eq name="tstatus" value="2" >selected</eq> value="2">两个月</option>
-  <option <eq name="tstatus" value="3" >selected</eq> value="3">三个月</option>
-</select><input type="submit" value="查询" class="small hMargin shadow submit"></td></tr></form>
+  <option value="">All</option>
+  <option <eq name="tstatus" value="1" >selected</eq> value="1">One Month</option>
+  <option <eq name="tstatus" value="2" >selected</eq> value="2">Two Month</option>
+  <option <eq name="tstatus" value="3" >selected</eq> value="3">Three Month</option>
+</select><input type="submit" value="Search" class="small hMargin shadow submit"></td></tr></form>
 </table>
 </div>
 </div>
@@ -103,17 +103,17 @@ function setcate(bid)
 <tr><td height="5" colspan="12" class="topTd"></td></tr>
 <tr class="row" align="center">
 <th width="53"><a href="javascript:sortBy('id','{$sort}','index')">ID</a></th>
-<th width="154">地点名称</th>
-<th width="138"><a href="javascript:sortBy('area','{$sort}','index')">归属商圈</a></th>
-<th width="82">打印机编码</th>
-<th width="80">已租赁（预约）</th>
-<th width="80">打印数量</th>
-<th width="121"><a href="javascript:sortBy('money','{$sort}','index')">租金</a></th>
-<th width="90"><a href="javascript:sortBy('open','{$sort}','index')">开机时间</a></th>
-<th width="90"><a href="javascript:sortBy('close','{$sort}','index')">关机时间</a></th>
-<th width="115"><a href="javascript:sortBy('link_time','{$sort}','index')">最后连接</th>
-<th width="100">备注</th>
-<th width="120">操作</th>
+<th width="154">Location</th>
+<th width="138"><a href="javascript:sortBy('area','{$sort}','index')">Region</a></th>
+<th width="82">Printer name</th>
+<th width="80">onsale(Ordered)</th>
+<th width="80">Print Amount</th>
+<th width="121"><a href="javascript:sortBy('money','{$sort}','index')">Rent fees</a></th>
+<th width="90"><a href="javascript:sortBy('open','{$sort}','index')">Open time</a></th>
+<th width="90"><a href="javascript:sortBy('close','{$sort}','index')">Close time</a></th>
+<th width="115"><a href="javascript:sortBy('link_time','{$sort}','index')">Last Connect</th>
+<th width="100">Note</th>
+<th width="120">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr id="row{$vo.id}" class="row" onmouseover="over(event)" onmouseout="out(event)" ondblclick="show_more('more{$vo.id}');" align="center">
@@ -128,12 +128,12 @@ function setcate(bid)
 <td>{$vo.close}时</td>
 <td>{$vo.link_time|date="m-d:H-i",###}</td>
 <td><input type="text" id="remark{$vo.id}" name="remark" size="15" value="{$vo.remark}" style="border:#FFF 1px solid;" onchange="aupdate('Location','{$vo.id}','remark')"></td>
-<td><a href="javascript:showexh('{$vo.id}')">查看展位</a>&nbsp;
-<a href="javascript:edit('{$vo.id}')">编辑</a>&nbsp;<br >
-<a href="javascript:showprinten('{$vo.id}')">打印展位</a>&nbsp;
-<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">禁用</a></eq>
-<eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
-<eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">恢复</a></eq>
+<td><a href="javascript:showexh('{$vo.id}')">View</a>&nbsp;
+<a href="javascript:edit('{$vo.id}')">Edit</a>&nbsp;<br >
+<a href="javascript:showprinten('{$vo.id}')">Print</a>&nbsp;
+<eq name="vo.status" value="1" ><a href="javascript:forbidden('{$vo.id}')">Forbid</a></eq>
+<eq name="vo.status" value="-1" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq>
+<eq name="vo.status" value="0" ><a href="javascript:recycle('{$vo.id}')">Recover</a></eq>
 </td>
 </tr>
 </tr>

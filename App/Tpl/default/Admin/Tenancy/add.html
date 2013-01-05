@@ -45,7 +45,7 @@ function Juge(myform)
 {
     if(myform.title.value == "")
 	{
-		alert("商家名称不能为空!");
+		alert("Mechant name can't be empty!");
 		myform.title.focus();
 		return (false);
 	}
@@ -53,19 +53,19 @@ function Juge(myform)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">租赁编辑 [ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Tenancy Edit [ <a href="__URL__">Return</a> ]</div>
 <table cellpadding=3 cellspacing=3>
 <form method='post' id="form1"  action="__URL__/add2/" onSubmit="return Juge(this)">
 <tr>
-<td class="tRight" >商家ID：</td>
+<td class="tRight" >Merchant ID：</td>
 	<td class="tLeft" ><input name="id" /></td>
-	<td class="tRight" >商家名称：</td>
+	<td class="tRight" >Merchant Name：</td>
 	<td class="tLeft" ><input name="title" /></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center">
-	<input type="submit" value="提交" class="small submit">
+	<input type="submit" value="Submit" class="small submit">
 	</td>
 </tr>
 </table>

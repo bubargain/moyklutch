@@ -5,12 +5,12 @@
 function check(obj){
     var reNum=/^[0-9]+.?[0-9]*$/;
     if(!reNum.test(obj.value)){
-	alert("请输入大于0的数字！");
+	alert("Number must larger than 0！");
 	obj.value="";
 	 return false;
 	}
 	 if(obj.value<1){
-	alert("最少充值1元！");
+	alert("At least 1 Dollar！");
 	obj.value="";
 	 return false;
 	}
@@ -19,26 +19,26 @@ function check(obj){
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">商家充值</div>
+<div class="title">Increase Merchant Budget</div>
 <div style="float:left;">
 <form method=post id="order-pay-form"  action="__URL__/addmoney" sid="charge">
 <table cellpadding=3 cellspacing=3>
 <tr>
-	<td class="tRight" >{$vo.title}-账户余额：</td>
-	<td class="tLeft" >{$vo.money}元</td><input type="hidden" name="id" value="{$vo.id}" /><input type="hidden" name="money" value="{$vo.money}" />
+	<td class="tRight" >{$vo.title}-Account：</td>
+	<td class="tLeft" >${$vo.money}</td><input type="hidden" name="id" value="{$vo.id}" /><input type="hidden" name="money" value="{$vo.money}" />
 </tr>
 <tr>
-	<td class="tRight" >请输入充值金额：</td>
-	<td class="tLeft" ><input name="addmoney" type="text" VALUE="1" />元</td>
+	<td class="tRight" >Add：</td>
+	<td class="tLeft" ><input name="addmoney" type="text" VALUE="1" />Dollars</td>
 </tr>
 <tr>
-	<td class="tRight" >备注：</td>
+	<td class="tRight" >Note：</td>
 	<td class="tLeft" ><textarea name="remark" id="remark"></textarea></td>
 </tr>
 <tr>
 	<td ></td>
 	<td class="center"><div style="width:85%">
-	<input type="submit" value="确定" class=" shadow submit">
+	<input type="submit" value="Submit" class=" shadow submit">
 	</div></td>
 </tr>
 </table>

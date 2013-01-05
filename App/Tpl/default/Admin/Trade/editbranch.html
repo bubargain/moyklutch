@@ -45,7 +45,7 @@ function checkval(myform,car){
 	var name=document.getElementById(car).value;
 	if(name=="")
 	{
-		alert("请选择!");
+		alert("Please choose!");
 		return (false);
 	}
 	}
@@ -55,13 +55,13 @@ function Juge(myform)
     if
 	 (myform.title.value == "")
 	{
-		alert("名称不能为空!");
+		alert("name can't be empty!");
 		myform.title.focus();
 		return (false);
 	}
 	else if (myform.area.value == "")
 	{
-		alert("请选择商圈!");
+		alert("please choose area!");
 		myform.area.focus();
 		return (false);
 	}
@@ -69,43 +69,43 @@ function Juge(myform)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title">编辑分店[ <a href="__URL__">返回列表</a> ]</div>
+<div class="title">Edit Branch[ <a href="__URL__">Return</a> ]</div>
 <form method='post' id="form1" action="__URL__/updatebranch/" >
 <table cellpadding=3 cellspacing=3 width="400">
 <tr>
-	<td width="94" class="tRight" >分店名称：</td>
-	<td width="283" class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="名称不能为空,且不能含有空格" name="title" value="{$vo.title}"></td>
+	<td width="94" class="tRight" >Branch Name：</td>
+	<td width="283" class="tLeft" ><input type="text" class="medium bLeftRequire"  check='^\S+$' warning="No blank or empty" name="title" value="{$vo.title}"></td>
 </tr>
 <tr>
-	<td class="tRight" >归属地区：</td>
+	<td class="tRight" >Region：</td>
 	<td class="tLeft" >
     <select name="areab" onchange="setcate(this.options[this.selectedIndex].value);">
-  <option value="">-请选择-</option>
+  <option value="">-Choose-</option>
   <php> echo get_area_option();</php>
 </select>
-小商圈：<select name="area">
+Area：<select name="area">
 <option value="{$vo.area}">{$vo.area|get_p_cate}</option>
-<option value="">-请选择-</option>
+<option value="">-Choose-</option>
 </select>
     </td>
 </tr>
 <tr>
-	<td class="tRight" >详细地址：</td>
+	<td class="tRight" >Address：</td>
 	<td class="tLeft" ><input type="text" name="address" size="25" value="{$vo.address}"></td>
 </tr>
 <tr>
-	<td class="tRight" >联系电话：</td>
+	<td class="tRight" >Contact Person：</td>
 	<td class="tLeft" ><input type="text" name="phone" size="25" value="{$vo.phone}"></td>
 </tr>
 <tr>
-	<td class="tRight tTop">备  注：</td>
+	<td class="tRight tTop">Note：</td>
 	<td class="tLeft"><TEXTAREA class="large bLeft"  name="remark" rows="5" cols="38">{$vo.remark}</textarea></td>
 </tr>
 <tr>
 	<td></td>
 	<td class="center"><input type="hidden" name="trade_id" value="{$vo.trade_id}" /><input type="hidden" name="id" value="{$vo.id}" />
-	<input type="submit" value="保 存" class="small submit">
-	<input type="reset" class="submit  small" value="清 空">
+	<input type="submit" value="Save" class="small submit">
+	<input type="reset" class="submit  small" value="Clear">
 	</td>
 </tr>
 </table>

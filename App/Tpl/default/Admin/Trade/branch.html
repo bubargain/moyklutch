@@ -45,7 +45,7 @@ function checkval(myform,car){
 	var name=document.getElementById(car).value;
 	if(name=="")
 	{
-		alert("请选择!");
+		alert("Please choose!");
 		return (false);
 	}
 	}
@@ -55,13 +55,13 @@ function Juge(myform)
     if
 	 (myform.title.value == "")
 	{
-		alert("名称不能为空!");
+		alert("Name can't be empty!");
 		myform.title.focus();
 		return (false);
 	}
 	else if (myform.area.value == "")
 	{
-		alert("请选择商圈!");
+		alert("Please choose Area!");
 		myform.area.focus();
 		return (false);
 	}
@@ -69,16 +69,16 @@ function Juge(myform)
 </script>
 <div id="main" class="main" >
 <div class="content">
-<div class="title"> {$trade_id|get_trade} 的分店</div>
+<div class="title"> {$trade_id|get_trade}'s branch</div>
 <table width="1307" cellpadding="0" cellspacing="0" class="list" id="checkList">
 <tr><td height="5" colspan="6" class="topTd"></td></tr>
 <tr class="row" align="center">
-<th width="174">分店名称</th>
-<th width="257">商圈</th>
-<th width="295">地址</th>
-<th width="139">电话</th>
-<th width="228">备注</th>
-<th width="212">操作</th>
+<th width="174">branch name</th>
+<th width="257">Area</th>
+<th width="295">Address</th>
+<th width="139">Phone</th>
+<th width="228">Note</th>
+<th width="212">Operation</th>
 </tr>
 <foreach name= "list" item= "vo">
 <tr class="row" onmouseover="over(event)" onmouseout="out(event)" align="center">
@@ -87,7 +87,7 @@ function Juge(myform)
 <td>{$vo.address}</td>
 <td>{$vo.phone}</td>
 <td>{$vo.remark}</td>
-<td><a href="__GROUP__/Trade/editbranch/id/{$vo.id}">编辑</a>&nbsp;<a href="__GROUP__/Trade/delbranch/id/{$vo.id}">删除</a></td>
+<td><a href="__GROUP__/Trade/editbranch/id/{$vo.id}">Edit</a>&nbsp;<a href="__GROUP__/Trade/delbranch/id/{$vo.id}">Delete</a></td>
 </tr>
 </foreach>
 <tr><td height="5" colspan="6" class="bottomTd"></td></tr>
